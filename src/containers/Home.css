@@ -1,17 +1,31 @@
-.middle_texts_section{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.middle_texts{
-    display: flex;
-    width: 80%;
-    flex-direction: column;
-    justify-content: space-between;
-}
 .home{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+}
+
+.middle_buttons{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 90%;
+    height: max-content;
+    margin:20px;
+}
+
+.middle_buttons-scroll{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.middle_buttons-scroll img{
+    height: 30px;
+    width: 20px;
+    margin: 0 auto;
+    
 }
 @media  (max-width: 768px){
     .middle_texts h2{
@@ -22,6 +36,11 @@
     }
     .middle_button{
         display: flex;
+        position: fixed;
+        width: 28px;
+        top: 50%;
+        right: 0;
+        height: max-content;
         justify-content: end;
     }
     .middle_button a{

@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './containers/Home';
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
           </Routes>
-        
       </div>
     </Router>
   );
