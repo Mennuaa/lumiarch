@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import './investment.css'
+import './cambodia.css'
 
-export const Investments = ({ onChangeSlide }) => {
+export const Cambodia = ({ onChangeSlide }) => {
 	const slides = [
 		{
 			first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",

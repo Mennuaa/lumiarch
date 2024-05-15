@@ -1,58 +1,59 @@
-.home{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.home {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }
 
-.middle_buttons{
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 90%;
-    height: max-content;
-    margin:20px;
+.middle_buttons {
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 90%;
+	height: max-content;
+	margin: 20px;
 }
 
-.middle_buttons-scroll{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.middle_buttons-scroll {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
-.middle_buttons-scroll img{
-    height: 30px;
-    width: 20px;
-    margin: 0 auto;
-    
+.middle_buttons-scroll img {
+	height: 30px;
+	width: 20px;
+	margin: 0 auto;
 }
-@media  (max-width: 768px){
-    .middle_texts h2{
-        font-size: 17px;
-    }
-    .middle_texts p{
-        font-size: 16px;
-    }
-    .middle_button{
-        display: flex;
-        position: fixed;
-        width: 28px;
-        top: 50%;
-        right: 0;
-        height: max-content;
-        justify-content: end;
-    }
-    .middle_button a{
-        display: inline-block;
-        transform: rotate(90deg);
-        white-space: nowrap;
-        font-size: 20px; /* Adjust as needed */
-        padding: 10px; /* Adjust as needed */
-        background-color: #d3b486; /* Adjust as needed */
-        color: #ffffff; /* Adjust as needed */
-        font-weight: bold; /* Adjust as needed */
-        position: absolute;
-        right: -61px;
-    }
+
+
+@media (max-width: 768px) {
+	.middle_texts h2 {
+		font-size: 17px;
+	}
+	.middle_texts p {
+		font-size: 16px;
+	}
+	.middle_button {
+		display: flex;
+		position: fixed;
+		width: 25px;
+		top: 50%;
+		right: 0;
+		height: max-content;
+		justify-content: end;
+	}
+	.middle_button a {
+		display: inline-block;
+		transform: rotate(90deg);
+		white-space: nowrap;
+		font-size: 18px; /* Adjust as needed */
+		padding: 10px; /* Adjust as needed */
+		background-color: #d3b486; /* Adjust as needed */
+		color: #ffffff; /* Adjust as needed */
+		font-weight: bold; /* Adjust as needed */
+		position: absolute;
+		right: -61px;
+	}
 }

@@ -1,28 +1,28 @@
-.investment{
+.investment {
 	background: url('/public/images/bg1.webp') no-repeat;
 	width: 100%;
-	height: 100vh;
+	height: max-content;
+	min-height: 100vh;
 	position: relative;
 	top: 0;
 	left: 0;
 }
 
-.investment_section{
+.investment_section {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	width: 90%;
 }
 
-.slider{
+.slider {
 	position: absolute;
-	bottom: 15%;
 	width: 90%;
 	height: max-content;
-
+	bottom: 108px;
 }
 
-.slider_section{
+.slider_section {
 	margin-top: 10px;
 	display: flex;
 	align-items: center;
@@ -31,53 +31,60 @@
 	gap: 7px;
 }
 
-.slider_slide{
+.slider_slide {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	gap: 3px;
-
 }
 .investment {
-    background-size: cover;
-    background-position: center;
+	background-size: cover;
+	background-position: center;
 }
 
 .investment_section-text h2 {
-    color: #fff;
+	color: #fff;
 }
 
-.investment_section-text p {
-    color: #fff;
+.investment_section-text p,
+.list {
+	color: #fff;
+	font-weight: 300;
 }
 
 .investment_icons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+
+.second_icon img {
+	margin: 0 auto;
+	text-align: center;
+	width: 30%;
+	display: flex;
 }
 
 .investment_icons img {
-    width: 50px;
-    height: 50px;
+	width: 50px;
+	height: 50px;
 }
 
 .slider_scroll-progres {
-    position: relative;
-    width: 100%;
-    background-color: #fff;
-    height: 2px;
+	position: relative;
+	width: 100%;
+	background-color: #fff;
+	height: 2px;
 }
 
 .slider_scroll-progres_bar {
-    position: absolute;
-    bottom: 0;
-    background-color: #fff;
-    height: 4px;
-    width: 10%;
-    transition: left 0.3s ease-in-out; /* Smooth transition */
+	position: absolute;
+	bottom: 0;
+	background-color: #fff;
+	height: 4px;
+	width: 10%;
+	transition: left 0.3s ease-in-out;
 }
-
 
 .slider_button {
 	background: transparent;
@@ -85,33 +92,147 @@
 	outline: 0;
 }
 
-.slider_button img{
+.slider_button img {
 	width: 13px;
 	height: 100%;
 }
 
-.investment_section-text{
-	display: flex;
-	flex-direction: column ;
-	justify-content: center;
-	align-items: center;
-	margin: 0 auto;
-	max-width: 315px;
-	gap: 24px;
+.investment_section-img {
+	margin-bottom: 66px;
 }
 
-.investment_section-text h2{
-	font-size: 25px;
-	line-height: 35px;	
+.investment_section-text {
+	display: grid;
+	gap: 15px;
 }
 
-.investment_section-text h2 div{
-	color:  #CDAC6D;
-	
+.investment_section-text h2 {
+	font-size: 23px;
+	line-height: 35px;
+	font-weight: 400;
 }
 
-.investment_section-text p{
+.investment_section-text h2 span {
+	color: #cdac6d;
+}
+
+.investment_section-text p {
 	font-size: 15px;
 	line-height: 20px;
+}
 
+.list {
+	gap: 15px;
+	display: grid;
+	list-style: none;
+	font-size: 18px;
+}
+
+.clue {
+	background-color: #cdab6dc7;
+	margin-top: 25px;
+	padding: 14px;
+	display: flex;
+	gap: 14px;
+	align-items: flex-start;
+	color: #000;
+}
+
+.clue img {
+	width: 15px;
+	height: 17px;
+}
+
+.clue_section {
+	display: grid;
+	gap: 10px;
+}
+
+.clue_section p {
+	font-weight: 300;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+.inputs {
+	display: grid;
+	grid: template columns 1fr;
+}
+
+.inputs input {
+	background-color: transparent;
+	border: 0;
+	outline: 0;
+	padding: 15px 0;
+	border-bottom: 1px solid #fff;
+	font-size: 16px;
+	color: #fff;
+}
+
+.inputs input::placeholder {
+	text-transform: uppercase;
+}
+
+.inputs button {
+	background-color: #cdac6d;
+	border: 0;
+	outline: 0;
+	padding: 15px 0;
+	font-size: 16px;
+	color: #000000;
+	text-transform: uppercase;
+	margin-top: 70px;
+}
+
+.inputs p {
+	font-size: 11px;
+	font-weight: 300;
+	text-align: center;
+	color: #fff;
+	margin-top: 10px;
+}
+
+@media (max-width: 425px) {
+	.investment_section-text h2,
+	.investment_section-text p,
+	.list,
+	.inputs {
+		max-width: 330px;
+	}
+}
+
+@media (max-width: 400px) {
+	.investment_section-text h2,
+	.investment_section-text p,
+	.list,
+	.inputs {
+		max-width: 315px;
+	}
+}
+
+@media (max-width: 375px) {
+	.investment_section-text h2,
+	.investment_section-text p,
+	.list,
+	.inputs {
+		max-width: 290px;
+	}
+}
+
+@media (max-width: 355px) {
+	.investment_section-text h2,
+	.investment_section-text p,
+	.list,
+	.inputs {
+		max-width: 270px;
+	}
+}
+
+@media (max-width: 335px) {
+	.investment_section-text h2,
+	.investment_section-text p,
+	.list,
+	.inputs {
+		max-width: 255px;
+	}
 }
