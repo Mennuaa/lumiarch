@@ -1,145 +1,84 @@
-import React, { useState } from 'react'
-import './cambodia.css'
+import React, { useState } from 'react';
+import './cambodia.css';
 
-export const Cambodia = ({ onChangeSlide }) => {
-	const slides = [
-		{
-			first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",
-			second_text:
-				'Мы предлагаем: гарантированный возврат инвестиций в недвижимость Пном Пеня напрямую от застройщика',
-			background: '/images/bg1.webp',
-			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
-		},
-		{
-			first_text:
-				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
-			second_text:
-				'№1 по росту ВВП, долларизированная экономика, выгодные условия налогообложения, гарантированный возврат инвестиций',
+export const Cambodia = () => {
+	const [currentSlide, setCurrentSlide] = useState(0);
+	const slides = 4;
 
-			background: '/images/bg2.webp',
-			icons: ['/images/icon4.svg', '/images/icon5.svg', '/images/icon6.svg'],
-		},
-		{
-			first_text: 'Бесплатно открываем счет в банке, оформляем карту VISA ',
-			second_text: '',
-			list: [
-				'ROI проекта 20% годовых',
-				'Первый взнос 10%',
-				'Беспроцентная рассрочка',
-				'Возможность оплаты в криптовалюте USDT',
-			],
-			background: '/images/bg3.webp',
-		},
-		{
-			first_text:
-				'Расчет финансового плана и бесплатная консультация от экспертов',
-			second_text: '',
-			background: '/images/bg4.webp',
-			list: [
-				'Мы полностью сопровождаем сделку до и после покупки. Подробнее в разделе Investor Journey',
-				'Наша экспертиза на местном рынке - ваше преимущество',
-			],
-			clue: 'Заполните форму - получите 1 звезду. Мы предлагаем 15% скидку от застройщика, возможность перевода средств в условиях финансовых ограничений в России, расскажем всё про выгодные и безопасный инвестиции в Азии',
-		},
-		{
-			first_text: 'Роскошные апартаменты для тех, кто ценит жизнь в стиле люкс',
-			second_text: '',
-			background: '/images/bg5.webp',
-			list: [
-				'ЖК сдается полностью готовым для жизни. Квартиры с эффектным дизайном “под ключ”.',
-				'В комплексе есть все удобства: Infinity-бассейн на крыше, Sky-бар, тренажерный зал, спа-зона, детская зона, магазины, ресторан Мишлен и многое другое.',
-			],
-		},
-		{
-			first_text:
-				'Мы готовы рассказать все подробности — налоги, риски, инсайты',
-			second_text: '',
-			terms:
-				'Нажимая на кнопку, вы принимаете политику конфиденциальности и даете согласие на обработку персональных данных ',
-			background: '/images/bg6.webp',
-		},
-	]
+	const nextSlide = () => setCurrentSlide((currentSlide + 1) % slides);
+	const prevSlide = () => setCurrentSlide((currentSlide - 1 + slides) % slides);
 
-	const [currentSlide, setCurrentSlide] = useState(0)
+	const getClassName = () =>
+		`investment cambodia ${['left-side', 'center-side', 'right-side'][currentSlide] || ''}`;
 
-	const nextSlide = () => {
-		const newSlide = (currentSlide + 1) % slides.length
-		setCurrentSlide(newSlide)
-		onChangeSlide(slides[newSlide])
-	}
-
-	const prevSlide = () => {
-		const newSlide = (currentSlide - 1 + slides.length) % slides.length
-		setCurrentSlide(newSlide)
-		onChangeSlide(slides[newSlide])
-	}
-	function getFirstWordAndRest(text) {
-		const trimmedText = text.trim()
-		const words = trimmedText.split(' ')
-		const firstWord = words[0]
-		const restOfText = words.slice(1).join(' ')
-		return { firstWord, restOfText }
-	}
-
-	const { firstWord, restOfText } = getFirstWordAndRest(
-		slides[currentSlide].first_text
-	)
-
-	const progressBarLeft = `${(currentSlide / slides.length) * 110}%`
+	const getImageStyle = () => [
+		{ position: 'absolute', bottom: '-110px', right: '-95px' },
+		{ position: 'absolute', bottom: '-110px', right: '-35px' },
+		{ position: 'absolute', bottom: '-110px', right: '65px' },
+		{ display: 'none' }
+	][currentSlide];
 
 	return (
-		<div
-			className='investment'
-			style={{ backgroundImage: `url(${slides[currentSlide].background})` }}
-		>
+		<div style={{ backgroundImage: `url('mobile/2 cambodia/bg-scroll.webp')` }} className={getClassName()}>
+			<img style={getImageStyle()} src="/mobile/2 cambodia/woman.png" alt="" />
 			<div className='container'>
-				<div className='investment_section'>
-					{currentSlide === 2 && (
-						<img
-							className='investment_section-img'
-							src='/images/icon/visa.svg'
-							alt=''
-						/>
-					)}
-					<div className='investment_section-text'>
-						<h2>
-							<span> {firstWord} </span>
-							{restOfText}
-						</h2>
-						{currentSlide === 1 && (
-							<div className='second_icon'>
-								<img src='/images/icon/second_slide.svg' alt='Check Icon' />
+				<div className='cambodia_section'>
+					{currentSlide === 0 && (
+						<div>
+							<div className="about_cambodia">
+								<h2>О Камбодже</h2>
+								<p>Сегодня Камбоджа — это не только туристический рай, куда приезжают ради красивой тропической природы и древних храмов, главным из которых является знаменитый Ангкор-Ват, но и перспективный рынок для инвестиций.</p>
 							</div>
-						)}
-						<p>{slides[currentSlide].second_text}</p>
-						{slides[currentSlide].list && (
-							<div className='list'>
-								{slides[currentSlide].list.map(item => (
-									<li>{item}</li>
-								))}
+							<div className="cambodia_texts">
+								<h2>Камбоджа — самая быстро развивающайя экономика в Азии <br /><span>(№1 по росту ВВП)</span></h2>
+								<h2>Туристический бум: <br /> <span>1057% рост в 2022 году</span></h2>
 							</div>
-						)}
-					</div>
-					{currentSlide === 5 && (
-						<div className='inputs'>
-							<input type='text' placeholder='ваше имя' name='' id='' />
-							<input type='tel:' placeholder='ваш телефон +7' name='' id='' />
-							<button>Отправить</button>
-							<p>{slides[currentSlide].terms}</p>
+							<img className='cambodia_img' src="/mobile/2 cambodia/infografic_1.png" alt="" />
 						</div>
 					)}
-
-					{/* <div className="investment_icons">
-                        {slides[currentSlide].icons.map((icon, index) => (
-                            <img key={index} src={icon} alt={`Icon ${index + 1}`} />
-                        ))}
-                    </div> */}
+					{currentSlide === 1 && (
+						<div>
+							<div className="cambodia_texts">
+								<h2>Инвестируйте в бум спроса на недвижимость в Пном Пене:
+									<br /><br />
+									<span>Население столицы растёт!
+										400 000 экспатов в столице (20% от всего населения столицы) каждый день ищут квартиры в аренду на долгий срок. Спрос на квартиры очень высок!</span>
+								</h2>
+							</div>
+							<img className='cambodia_img' src="/mobile/2 cambodia/infografic_2.png" alt="" />
+							<div className="cambodia_texts">
+								<h2>Возможность купить квартиру за криптовалюту.
+									Низкие налоги
+								</h2>
+							</div>
+						</div>
+					)}
+					{currentSlide === 2 && (
+						<div>
+							<div className="cambodia_texts">
+								<h2>Эта страна привлекает доступными ценами и простотой инвестирования:
+									<br /><br />
+									<span>Стоимость недвижимости в Пном Пене сейчас значительно ниже, чем в других столицах Юго-Восточной Азии</span>
+								</h2>
+							</div>
+							<img className='cambodia_img' src="/mobile/2 cambodia/infografic_3.png" alt="" />
+							<div className="cambodia_texts">
+								<h2>Иностранцы могут купить квартиру в полную собственность
+								</h2>
+							</div>
+						</div>
+					)}
 					{currentSlide === 3 && (
-						<div className='clue'>
-							<img src='/images/icon/Star 3.svg' alt='' />
-							<div className='clue_section'>
-								<h6>Подсказка</h6>
-								<p>{slides[currentSlide].clue}</p>
+						<div>
+							<div className="cambodia_texts" style={{ width: '92%' }}>
+								<h2>Свободное обращение доллара: <span>никаких ограничений на валютные операции.
+									Камбоджийский риель — одна из самых стабильных валют в регионе</span></h2>
+								<h2>Дружелюбное <span>отношение к россиянам: неподконтрольность движения средств для западных стран</span></h2>
+								<h2><span>Камбоджа</span> — это инвестиционная привлекательность,<span> магнит для туристов, новые рынки и возможности для выгодного вложения средств!</span></h2>
+							</div>
+							<div className="cambodia_last_texts">
+								<button>оставить заявку</button>
+								<p>И получить подробные материалы о налогах и пр.</p>
 							</div>
 						</div>
 					)}
@@ -151,13 +90,10 @@ export const Cambodia = ({ onChangeSlide }) => {
 						</button>
 						<div className='slider_slide'>
 							<div className='slider_scroll-amount'>
-								{`0${currentSlide + 1}/0${slides.length}`}
+								{`0${currentSlide + 1}/0${slides}`}
 							</div>
 							<div className='slider_scroll-progres'>
-								<div
-									className='slider_scroll-progres_bar'
-									style={{ left: progressBarLeft }}
-								></div>
+								<div className='slider_scroll-progres_bar' style={{ left: `${(currentSlide / slides) * 110}%`, width: '30%' }}></div>
 							</div>
 						</div>
 						<button className='slider_button' onClick={nextSlide}>
@@ -167,5 +103,5 @@ export const Cambodia = ({ onChangeSlide }) => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};

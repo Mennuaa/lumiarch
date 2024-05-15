@@ -6,16 +6,20 @@ import './Home.css'
 
 function Home() {
 	const [background, setBackground] = useState('/images/bg1.webp')
+	const [backgroundCambodia, setBackgroundCambodia] = useState('/mobile/2 cambodia/bg-scroll.webp')
 
 	const handleSlideChange = slide => {
 		setBackground(slide.background)
 	}
+	const handleSlideChangeCambodia = slide => {
+		setBackground(slide.background)
+	}
 
 	return (
-		<div className='home' style={{ backgroundImage: `url(${background})` }}>
+		<div className='home'>
 			<Header />
-			<Investments onChangeSlide={handleSlideChange} />
-			<Cambodia onChangeSlide={handleSlideChange} />
+			<Investments  onChangeSlide={handleSlideChange} />
+			<Cambodia id='cambodia' onChangeSlide={handleSlideChangeCambodia} />
 			<div className='middle_button'>
 				<a href=''>узнать больше</a>
 			</div>

@@ -1,5 +1,4 @@
 .investment {
-	background: url('/public/images/bg1.webp') no-repeat;
 	width: 100%;
 	height: max-content;
 	min-height: 100vh;
@@ -39,7 +38,7 @@
 }
 .investment {
 	background-size: cover;
-	background-position: center;
+	/* background-position: center; */
 }
 
 .investment_section-text h2 {
