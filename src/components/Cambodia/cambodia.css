@@ -1,93 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap');
 .left-side {
-    background-position: left bottom;
-  }
-  
+	background-position: left bottom;
+}
+
 .center-side {
-    background-position: center bottom;
-  }
-  
-  .right-side {
-    background-position: right bottom;
-  }
-  .cambodia{
-    overflow: hidden;
-  }
-  .cambodia_section{
-    position: absolute;
-    top:10% ;
-  }
-  .about_cambodia{
-    padding: 10px;
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #8D8D8D;
-  }
-  .about_cambodia h2{
-    color: #CDAC6D;
-    font-family: 'Rubik';
-    font-weight: 300;
-    margin-bottom: 10px;
-    font-size: 40px;
-  }
-  .about_cambodia p{
-    font-family: 'Rubik';
-    font-weight: 300;
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
-  .cambodia_texts{
-    margin-top: 20px;
-    gap: 20px;
-    display: flex;
-    width: 93%;
-    flex-direction: column;
-  }
-  .cambodia_texts h2{
-    font-size: 22px;
-    font-family: 'Rubik', sans-serif;
-    position: relative;
-    margin-left: 20px;
-    font-weight: 500;
-  }
-  .cambodia_texts h2::before{
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 100%;
-    width: 2px; /* Adjust width for the desired thickness */
-    background-color: #FFFFFF; /* Line color */
-  }
-  .cambodia_texts h2 span{
-    font-weight: 300;
-  }
-  .cambodia_img{
-    margin-top: 30px;
-  }
-  .cambodia_last_texts{
-    align-items: center;
-    justify-content: start;
-    width: 92%;
-  }
-  .cambodia_last_texts button{
-   
-    padding: 10px;
-    background: #CDAC6D;
-    border: none;
-    font-family: 'Rubik', sans-serif;
-    font-size: 24px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-weight: 300;
-    width: 100%;
-  } 
-  .cambodia_last_texts p{
-    text-align: center;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 300;
-  }
+	background-position: center bottom;
+}
+
+.right-side {
+	background-position: right bottom;
+}
+.cambodia {
+	overflow: hidden;
+}
+.cambodia_section {
+	position: absolute;
+	top: 10%;
+}
+.about_cambodia {
+	padding: 10px;
+	width: 95%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	background: #8d8d8d;
+}
+.about_cambodia h2 {
+	color: #cdac6d;
+	font-family: 'Rubik';
+	font-weight: 300;
+	margin-bottom: 10px;
+	font-size: 40px;
+}
+.about_cambodia p {
+	font-family: 'Rubik';
+	font-weight: 300;
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+.cambodia_texts {
+	margin-top: 20px;
+	gap: 20px;
+	display: flex;
+	width: 93%;
+	flex-direction: column;
+}
+.cambodia_texts h2 {
+	font-size: 22px;
+	font-family: 'Rubik', sans-serif;
+	position: relative;
+	margin-left: 20px;
+	font-weight: 500;
+}
+.cambodia_texts h2::before {
+	content: '';
+	position: absolute;
+	left: -20px;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 100%;
+	width: 2px; /* Adjust width for the desired thickness */
+	background-color: #ffffff; /* Line color */
+}
+.cambodia_texts h2 span {
+	font-weight: 300;
+}
+.cambodia_img {
+	margin-top: 30px;
+}
+.cambodia_last_texts {
+	align-items: center;
+	justify-content: start;
+	width: 92%;
+}
+.cambodia_last_texts button {
+	padding: 10px;
+	background: #cdac6d;
+	border: none;
+	font-family: 'Rubik', sans-serif;
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-weight: 300;
+	width: 100%;
+	text-transform: uppercase;
+}
+.cambodia_last_texts p {
+	text-align: center;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 300;
+}
