@@ -100,7 +100,8 @@ export const Investments = ({ onChangeSlide }) => {
 						<div className='slider_slide'>
 							<div className='slider_scroll-amount'>{`0${currentSlide + 1}/0${slides.length}`}</div>
 							<div className='slider_scroll-progres'>
-								<div className='slider_scroll-progres_bar' style={{ left: progressBarLeft }}></div>
+								<div className='slider_scroll-progres_bar' 									style={{ left: progressBarLeft ,width:100 / slides.length + "%"}}
+></div>
 							</div>
 						</div>
 						<button className='slider_button' onClick={nextSlide}>

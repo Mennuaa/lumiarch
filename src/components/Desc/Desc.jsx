@@ -46,15 +46,15 @@ export const Desc = ({ onChangeSlide }) => {
 		slides[currentSlide].first_text
 	)
 
-	const progressBarLeft = `${(currentSlide / slides.length) * 50}%`
+	const progressBarLeft = `${(currentSlide / slides.length) * 100}%`
 
 	return (
 		<div
 			className='investment'
-			// style={ currentSlide === 0 ? backgroundColor :"#4A4A4A" :  backgroundColor: "#2566AF" }
+			style={ { backgroundColor:currentSlide === 0 ? "#4A4A4A" : "#2566AF" , transition: 'background-color 0.5s ease-in-out'} }
 		>
 			<div className='container'>
-				<div className='object_section'>
+				<div className='object_section '>
 					{currentSlide === 0 && (
 						<div>
 							<h2>Wealth Mansion</h2>
@@ -130,7 +130,7 @@ export const Desc = ({ onChangeSlide }) => {
 							<div className='slider_scroll-progres'>
 								<div
 									className='slider_scroll-progres_bar'
-									style={{ left: progressBarLeft }}
+									style={{ left: progressBarLeft ,width:100 / slides.length + "%"}}
 								></div>
 							</div>
 						</div>

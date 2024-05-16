@@ -126,7 +126,7 @@ export const Object = ({ onChangeSlide }) => {
 							<div className='slider_scroll-progres'>
 								<div
 									className='slider_scroll-progres_bar'
-									style={{ left: progressBarLeft, width:"50%" }}
+									style={{ left: progressBarLeft, width: 100 / slides.length + '%' }}
 								></div>
 							</div>
 						</div>
