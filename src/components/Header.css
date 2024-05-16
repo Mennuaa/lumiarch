@@ -10,6 +10,7 @@
 }
 
 .header__inner {
+	padding-top: 20px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -54,7 +55,7 @@
 }
 
 .burger {
-	left: -500px;
+	left: -5000px;
 	transition: left 1s ease-in-out;
 	background: url('/public/images/MENU.png') center no-repeat;
 	width: 100%;

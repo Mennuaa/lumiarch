@@ -4,7 +4,11 @@ export default function Header() {
 	const [burger, setBurger] = useState(false)
 	const [showLogo, setShowLogo] = useState(true)
 	window.onscroll = function () {
-		window.scrollY >=896 ? setShowLogo(false) : setShowLogo(true)
+		window.scrollY <= 796
+			? setShowLogo(true)
+			: window.scrollY >= 7600
+			? setShowLogo(true)
+			: setShowLogo(false)
 	}
 	return (
 		<header className='header'>
@@ -16,7 +20,9 @@ export default function Header() {
 						<div className='line'></div>
 					</div>
 					<div className='logo-section'>
-						{showLogo && <img src='/images/logo.png' alt='Logo' className='logo' />}
+						{showLogo && (
+							<img src='/images/logo.png' alt='Logo' className='logo' />
+						)}
 					</div>
 					<div className='stars'>
 						<span className='star'>★</span>

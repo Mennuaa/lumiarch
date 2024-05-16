@@ -1,0 +1,40 @@
+.video {
+	width: 100%;
+	height: max-content;
+	min-height: 100vh;
+}
+
+.video_section {
+	margin-top: 48px;
+}
+
+.video_section p {
+	text-align: center;
+	font-weight: 300;
+	margin-bottom: 5px;
+}
+
+.video_section h2 {
+	text-align: center;
+	font-weight: 300;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	font-size: 35px;
+}
+
+.video_video {
+	position: relative;
+}
+
+.video_button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-color: transparent;
+	transform: translate(-50%, -50%);
+	border: 0;
+}
+
+.video_button img {
+	width: 80px;
+}

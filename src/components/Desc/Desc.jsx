@@ -51,72 +51,54 @@ export const Desc = ({ onChangeSlide }) => {
 	return (
 		<div
 			className='investment'
-			style={ { backgroundColor:currentSlide === 0 ? "#4A4A4A" : "#2566AF" , transition: 'background-color 0.5s ease-in-out'} }
+			style={{
+				backgroundColor: currentSlide === 0 ? '#4A4A4A' : '#2566AF',
+				transition: 'background-color 0.5s ease-in-out',
+			}}
 		>
 			<div className='container'>
 				<div className='object_section '>
 					{currentSlide === 0 && (
-						<div>
+						<div className='wealth'>
 							<h2>Wealth Mansion</h2>
-							<ul>
-								<li>
-									<img src='images/icon/Vector.svg' alt='' />
-									<p>
-										45-этажный жилой комплекс бизнес-класса в сердце Пномпеня
-									</p>
-								</li>
-								<li>
-									<img src='images/icon/Vector.svg' alt='' />
-									<p>
-										Предложение с самым высоким прогнозируемым ростом стоимости
-										в Камбодже
-									</p>
-								</li>
-								<li>
-									<img src='images/icon/Vector.svg' alt='' />
-									<p>
-										Роскошный образ жизни и выгодная инвестиция в самом сердце
-										Пномпеня
-									</p>
-								</li>
-								<li>
-									<img src='images/icon/Vector.svg' alt='' />
-									<p>
-										Совершенно новые стандарты жизни в Пномпене, столице
-										Камбоджи
-									</p>
-								</li>
-							</ul>
+							<p>
+								Представляем вашему вниманию <span> Wealth Mansion </span> —
+								роскошный жилой комплекс бизнес-класса в центре камбоджийской
+								столицы Пномпень. Срок сдачи - второй квартал 2024. Все квартиры
+								с дизайнерской отделкой и готовы к заезду.
+							</p>
+							<img src='mobile/wealth/wm_pool.webp' alt='' />
+							<p>
+								<span> Wealth Mansion </span> — проект от крупнейшего
+								конгломерата из Китая, компании CSCEC. За годы работы эта
+								компания успела построить Международный коммерческий центр в
+								Гонконге (самый высокий небоскреб в городе), мечеть Джамаа
+								эль-Джазаир в Алжире (третью по величине мечеть в мире
+								стоимостью 1,5 млрд. долларов США), новую столицу Египта и
+								Гигафабрику Tesla в Шанхае.
+							</p>
 						</div>
 					)}
 
 					{currentSlide === 1 && (
-						<div>
+						<div className='wealth'>
 							<h2>le CONDO BKK1</h2>
-
-							<ul>
-								<li>
-									<img src='images/icon/Vector.svg' alt='' />
-									<p>
-										Идеальный вариант для инвестиций с целью получения высокого
-										арендного дохода
-									</p>
-								</li>
-								<li>
-									<img src='images/icon/Vector.svg' alt='' />
-									<p>
-										Высокий спрос из-за идеальной туристической локации: 90%
-										квартир уже приобретено
-									</p>
-								</li>
-								<li>
-									<img src='images/icon/Vector.svg' alt='' />
-									<p>
-										Разумные инвестиции и роскошная жизнь в одном из самых
-										престижных жилых комплексов Пномпеня
-									</p>
-								</li>
-							</ul>
+							<p>
+								Представляем вашему вниманию <span> Wealth Mansion </span> —
+								роскошный жилой комплекс бизнес-класса в центре камбоджийской
+								столицы Пномпень. Срок сдачи - второй квартал 2024. Все квартиры
+								с дизайнерской отделкой и готовы к заезду.
+							</p>
+							<img src='mobile/wealth/wm_pool.webp' alt='' />
+							<p>
+								<span> Wealth Mansion </span> — проект от крупнейшего
+								конгломерата из Китая, компании CSCEC. За годы работы эта
+								компания успела построить Международный коммерческий центр в
+								Гонконге (самый высокий небоскреб в городе), мечеть Джамаа
+								эль-Джазаир в Алжире (третью по величине мечеть в мире
+								стоимостью 1,5 млрд. долларов США), новую столицу Египта и
+								Гигафабрику Tesla в Шанхае.
+							</p>
 						</div>
 					)}
 				</div>
@@ -130,7 +112,10 @@ export const Desc = ({ onChangeSlide }) => {
 							<div className='slider_scroll-progres'>
 								<div
 									className='slider_scroll-progres_bar'
-									style={{ left: progressBarLeft ,width:100 / slides.length + "%"}}
+									style={{
+										left: progressBarLeft,
+										width: 100 / slides.length + '%',
+									}}
 								></div>
 							</div>
 						</div>

@@ -1,0 +1,58 @@
+.faq {
+	width: 100%;
+	height: max-content;
+}
+
+.faq_section {
+	margin-top: 73px;
+	width: 97%;
+}
+
+.faq_section h2 {
+	max-width: 337px;
+	font-size: 47px;
+	color: #cdac6d;
+	font-weight: 300;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.acardenons {
+	display: grid;
+	gap: 10px;
+	margin-bottom: 70px;
+}
+
+.acardenon {
+	border: 1px solid #fff;
+	padding: 10px 12px;
+}
+
+.acardenon_up {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.acardenon p {
+	font-size: 16px;
+	font-weight: 300;
+}
+.acardenon_p {
+	margin-top: 33px;
+}
+
+.open {
+	display: none;
+}
+
+.arrow_down {
+	rotate: 0;
+	transition: rotate 0.5s;
+}
+
+.arrow_top {
+	rotate: 180deg;
+	transition: rotate 0.5s;
+}

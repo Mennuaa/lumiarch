@@ -1,0 +1,14 @@
+.wealth p {
+	font-weight: 300;
+	font-size: 15px;
+}
+
+.wealth p span {
+	color: #cdac6d;
+}
+
+.wealth img {
+	width: 100%;
+	height: 100%;
+	margin: 20px 0 26px;
+}

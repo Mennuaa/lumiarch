@@ -1,0 +1,107 @@
+.about_button {
+	border: 1px solid #cdac6d;
+	color: #fff;
+	text-transform: uppercase;
+	background-color: transparent;
+	padding: 17px 0;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 300;
+	position: relative;
+	top: 220px;
+}
+
+.section {
+	margin: 30px 0 0;
+	width: 95%;
+}
+
+.section h2 {
+	font-size: 47px;
+	color: #cdac6d;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+.section p {
+	margin-top: 10px;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+.reviews {
+	margin-top: 25px;
+	border: 1px solid #cdac6d;
+	padding: 17px 13px;
+}
+
+.reviews h4 {
+	font-weight: 300;
+	font-size: 18px;
+	color: #cdac6d;
+}
+
+.reviews_data {
+	color: #bfbfbf;
+	font-size: 14px;
+	margin-top: 25px;
+}
+
+.form__section {
+	padding: 17px 20px;
+}
+
+.form__section h2 {
+	font-size: 27px;
+	font-weight: 300;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+.form__section div {
+	color: #cdac6d;
+}
+
+.form__section form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.form__section form input {
+	background-color: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+	padding: 13px 7px;
+	outline: 0;
+}
+
+.form__section form textarea {
+	background-color: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+	padding: 13px 7px;
+	outline: 0;
+	min-height: 134px;
+}
+
+.form__section form input::placeholder,
+.form__section form textarea::placeholder {
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: 300;
+}
+
+.form__section form button {
+	background-color: #cdac6d;
+	padding: 17px 0;
+	text-transform: uppercase;
+	border: 0;
+	outline: 0;
+}
+
+.form__section form p {
+	font-size: 10px;
+	font-weight: 300;
+	color: #e5e5e5;
+}
