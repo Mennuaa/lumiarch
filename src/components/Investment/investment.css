@@ -235,3 +235,30 @@
 		max-width: 255px;
 	}
 }
+.investment {
+	transition: background-image 0.5s ease-in-out;
+  }
+  
+  .investment_section {
+	transition: all 0.5s ease-in-out;
+  }
+  
+  .investment_section-text h2 {
+	transition: all 0.5s ease-in-out;
+  }
+  
+  .investment_section-text p,
+  .list {
+	transition: all 0.5s ease-in-out;
+  }
+  
+  .slider_scroll-progres_bar {
+	position: absolute;
+	width: 10px;
+	height: 100%;
+	background-color: #fff;
+	transition: left 0.5s ease-in-out;
+  }
+  
+  /* Add transitions to other elements as needed */
+  

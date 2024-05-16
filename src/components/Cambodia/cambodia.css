@@ -91,3 +91,22 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
   }
+  .investment {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .investment img {
+    transition: all 0.5s ease;
+  }
+  
+  .cambodia_img {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .slider_scroll-progres_bar {
+    transition: left 0.5s ease;
+  }
+  
+  /* Add any additional necessary styles for smooth transitions */
+  
