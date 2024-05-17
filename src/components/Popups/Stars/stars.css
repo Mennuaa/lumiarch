@@ -1,0 +1,56 @@
+.popup_stars {
+	width: 100%;
+	height: max-content;
+	min-height: 100vh;
+	padding: 30px;
+}
+
+.popup_stars_close {
+	margin-left: 85%;
+	background-color: transparent;
+	border: 0;
+}
+
+.popup_stars_close img {
+	width: 54px;
+}
+
+.popup_stars_title {
+	margin: -30px 0 0;
+	width: 280px;
+	font-size: 40px;
+	color: #cdac6d;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.popup_stars_subtitle {
+	margin-top: 30px;
+	font-weight: 300;
+	font-size: 18px;
+	max-width: 313px;
+	margin-bottom: 20px;
+}
+
+.popup_stars_stars {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin-top: 10px;
+}
+
+@media (max-width: 375px) {
+	.star_title {
+		font-size: 30px;
+	}
+	.star_avatar {
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+
+.popup_stars_list {
+	display: grid;
+	gap: 10px;
+	font-weight: 300;
+}
