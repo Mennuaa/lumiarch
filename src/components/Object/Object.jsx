@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './object.css'
+import ImageSlider from '../slider/Slider'
 
 export const Object = ({ onChangeSlide }) => {
 	const slides = [
@@ -46,8 +47,14 @@ export const Object = ({ onChangeSlide }) => {
 
 	return (
 		<div
-			className='investment cambodia'
-			style={{ backgroundImage: `url('${slides[currentSlide].background}')` }}
+			className='investment'
+			style={{
+				backgroundImage: `url('${slides[currentSlide].background}')`,
+				backgroundPosition: 'center',
+				backgroundSize: 'cover',
+				backgroundRepeat: 'no-repeat',
+				minHeight: 900,
+			}}
 		>
 			<div className='container'>
 				<div className='object_section'>
@@ -56,27 +63,27 @@ export const Object = ({ onChangeSlide }) => {
 							<h2>Wealth Mansion</h2>
 							<ul>
 								<li>
-									<img src='images/icon/Vector.svg' alt='' />
+									<img src='images/icon/Vector.svg' className='vector' alt='' />
 									<p>
 										45-этажный жилой комплекс бизнес-класса в сердце Пномпеня
 									</p>
 								</li>
 								<li>
-									<img src='images/icon/Vector.svg' alt='' />
+									<img src='images/icon/Vector.svg'  className='vector'  alt='' />
 									<p>
 										Предложение с самым высоким прогнозируемым ростом стоимости
 										в Камбодже
 									</p>
 								</li>
 								<li>
-									<img src='images/icon/Vector.svg' alt='' />
+									<img src='images/icon/Vector.svg'  className='vector'  alt='' />
 									<p>
 										Роскошный образ жизни и выгодная инвестиция в самом сердце
 										Пномпеня
 									</p>
 								</li>
 								<li>
-									<img src='images/icon/Vector.svg' alt='' />
+									<img src='images/icon/Vector.svg'  className='vector'  alt='' />
 									<p>
 										Совершенно новые стандарты жизни в Пномпене, столице
 										Камбоджи
@@ -116,7 +123,13 @@ export const Object = ({ onChangeSlide }) => {
 						</div>
 					)}
 				</div>
-				<div className='slider'>
+				<ImageSlider
+                slides={slides}
+                currentSlide={currentSlide}
+                prevSlide={prevSlide}
+                nextSlide={nextSlide}
+            />
+				{/* <div className='slider'>
 					<div className='slider_section'>
 						<button className='slider_button' onClick={prevSlide}>
 							<img src='/images/icon/prev.svg' alt='Previous' />
@@ -126,7 +139,10 @@ export const Object = ({ onChangeSlide }) => {
 							<div className='slider_scroll-progres'>
 								<div
 									className='slider_scroll-progres_bar'
-									style={{ left: progressBarLeft, width: 100 / slides.length + '%' }}
+									style={{
+										left: progressBarLeft,
+										width: 100 / slides.length + '%',
+									}}
 								></div>
 							</div>
 						</div>
@@ -134,8 +150,11 @@ export const Object = ({ onChangeSlide }) => {
 							<img src='/images/icon/next.svg' alt='Next' />
 						</button>
 					</div>
-					<p>ПРЕИМУЩЕСТВА И ФОТО НИЖЕ</p>
-				</div>
+					<p style={{ marginBottom: '20px', color: '#fffff9a' }}>
+						ПРЕИМУЩЕСТВА И ФОТО НИЖЕ
+					</p>
+				</div> */}
+					
 			</div>
 		</div>
 	)

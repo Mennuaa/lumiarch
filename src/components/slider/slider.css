@@ -1,0 +1,33 @@
+.slider_sec{
+	position: absolute;
+	bottom: 0;
+	width: 90vw;
+	padding: 10px;
+}
+.slider_scroll-progres_bar {
+	transition: left 0.5s ease-in-out;
+}
+
+
+.slider {
+	margin-top: 150px;
+	width: 100%;
+	z-index: 10;
+	position: relative;
+}
+
+.slider_section {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 7px;
+}
+
+.slider_slide {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 3px;
+}

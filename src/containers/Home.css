@@ -7,12 +7,13 @@
 .middle_buttons {
 	position: fixed;
 	bottom: 0;
+	left: 20px;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
-	width: 90%;
+	width: 94%;
 	height: max-content;
-	margin: 20px;
+	margin: 0 20px;
 }
 
 .middle_buttons-scroll {
@@ -26,7 +27,6 @@
 	width: 20px;
 	margin: 0 auto;
 }
-
 
 @media (max-width: 768px) {
 	.middle_texts h2 {
@@ -55,5 +55,45 @@
 		font-weight: bold; /* Adjust as needed */
 		position: absolute;
 		right: -61px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.middle_buttons {
+		left: 0;
+		width: 96%;
+		margin: 0 0 0 20px;
+	}
+}
+
+@media (min-width: 768px) {
+	.middle_buttons {
+		left: 0;
+		width: 94%;
+		margin: 0 0 0 20px;
+	}
+}
+
+@media (min-width: 425px) {
+	.middle_buttons {
+		left: 0;
+		width: 91%;
+		margin: 0 20px;
+	}
+}
+
+@media (min-width: 375px) {
+	.middle_buttons {
+		left: 0;
+		width: 90%;
+		margin: 0 20px;
+	}
+}
+
+@media (min-width: 320px) {
+	.middle_buttons {
+		left: 0;
+		width: 96%;
+		margin: 0 20px;
 	}
 }

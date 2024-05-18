@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './space.css'
+import ImageSlider from '../slider/Slider'
 
 export const Space = ({ onChangeSlide }) => {
 	const slides = [
@@ -50,10 +51,11 @@ export const Space = ({ onChangeSlide }) => {
 
 	return (
 		<div
-			className='investment'
 			style={{
 				backgroundColor: currentSlide === 0 ? '#4A4A4A' : '#2566AF',
 				transition: 'background-color 0.5s ease-in-out',
+				position: 'relative',
+				minHeight: 900
 			}}
 		>
 			<div className='container'>
@@ -62,7 +64,7 @@ export const Space = ({ onChangeSlide }) => {
 						<div className='space'>
 							<h2>Wealth Mansion</h2>
 							<h3>ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА В ЖК</h3>
-							<p>
+							<p className='space_text'>
 								<span> Wealth Mansion </span> имеет внутреннюю инфраструктуру,
 								соответствующую уровню 5 звезд. Владельцам квартир будут
 								доступны все общественные пространства. Каждую фотографию можно
@@ -107,7 +109,7 @@ export const Space = ({ onChangeSlide }) => {
 						<div className='space'>
 							<h2>Le condo bkk1</h2>
 							<h3>ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА В ЖК</h3>
-							<p>
+							<p className='space_text'>
 								<span> Wealth Mansion </span> имеет внутреннюю инфраструктуру,
 								соответствующую уровню 5 звезд. Владельцам квартир будут
 								доступны все общественные пространства. Каждую фотографию можно
@@ -148,29 +150,12 @@ export const Space = ({ onChangeSlide }) => {
 						</div>
 					)}
 				</div>
-				<div className='slider'>
-					<div className='slider_section'>
-						<button className='slider_button' onClick={prevSlide}>
-							<img src='/images/icon/prev.svg' alt='Previous' />
-						</button>
-						<div className='slider_slide'>
-							<div className='slider_scroll-amount'></div>
-							<div className='slider_scroll-progres'>
-								<div
-									className='slider_scroll-progres_bar'
-									style={{
-										left: progressBarLeft,
-										width: 100 / slides.length + '%',
-									}}
-								></div>
-							</div>
-						</div>
-						<button className='slider_button' onClick={nextSlide}>
-							<img src='/images/icon/next.svg' alt='Next' />
-						</button>
-					</div>
-					<p>ПРЕИМУЩЕСТВА И ФОТО НИЖЕ</p>
-				</div>
+				<ImageSlider
+                slides={slides}
+                currentSlide={currentSlide}
+                prevSlide={prevSlide}
+                nextSlide={nextSlide}
+            />
 			</div>
 		</div>
 	)

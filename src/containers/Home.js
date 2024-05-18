@@ -8,7 +8,6 @@ import Footer from '../components/Footer/Footer'
 import Header from '../components/Header'
 import { Investments } from '../components/Investment/Investments'
 import { Object } from '../components/Object/Object'
-import Popup from '../components/Popups/Popup/Popup'
 import { Space } from '../components/Space/Space'
 import { Utils } from '../components/Utils/Utils'
 import Video from '../components/Video/Video'
@@ -46,8 +45,8 @@ function Home() {
 			<Header />
 			<Investments onChangeSlide={handleSlideChange} />
 			<Cambodia id='cambodia' onChangeSlide={handleSlideChangeCambodia} />
-			<Object onChangeSlide={handleSlideChangeObject} />
 			<Acquaintance />
+			<Object onChangeSlide={handleSlideChangeObject} />
 			<Desc onChangeSlide={handleSlideChangeDesc} />
 			<Utils onChangeSlide={handleSlideChangeDesc} />
 			<Space onChangeSlide={handleSlideChangeDesc} />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './desk.css'
+import ImageSlider from '../slider/Slider'
 
 export const Desc = ({ onChangeSlide }) => {
 	const slides = [
@@ -102,29 +103,12 @@ export const Desc = ({ onChangeSlide }) => {
 						</div>
 					)}
 				</div>
-				<div className='slider'>
-					<div className='slider_section'>
-						<button className='slider_button' onClick={prevSlide}>
-							<img src='/images/icon/prev.svg' alt='Previous' />
-						</button>
-						<div className='slider_slide'>
-							<div className='slider_scroll-amount'></div>
-							<div className='slider_scroll-progres'>
-								<div
-									className='slider_scroll-progres_bar'
-									style={{
-										left: progressBarLeft,
-										width: 100 / slides.length + '%',
-									}}
-								></div>
-							</div>
-						</div>
-						<button className='slider_button' onClick={nextSlide}>
-							<img src='/images/icon/next.svg' alt='Next' />
-						</button>
-					</div>
-					<p>ПРЕИМУЩЕСТВА И ФОТО НИЖЕ</p>
-				</div>
+				<ImageSlider
+                slides={slides}
+                currentSlide={currentSlide}
+                prevSlide={prevSlide}
+                nextSlide={nextSlide}
+            />
 			</div>
 		</div>
 	)

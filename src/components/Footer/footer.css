@@ -44,3 +44,23 @@
 	color: #fff;
 	text-decoration: none;
 }
+
+@media (max-width: 425px) {
+	.footer_section-down {
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		gap: 20px;
+	}
+	.footer_section-top {
+		flex-direction: column;
+		text-align: center;
+		gap: 20px;
+		margin-top: 30px;
+	}
+
+	.footer_section-top p,
+	.footer_section-top a {
+		text-align: center;
+	}
+}

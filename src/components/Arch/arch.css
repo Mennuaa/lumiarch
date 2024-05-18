@@ -1,4 +1,32 @@
-
 .image img {
 	height: 105px;
+}
+
+.space p {
+	font-weight: 300;
+	font-size: 15px;
+	margin: 5px 0;
+}
+
+@media (min-width: 768px) {
+	.image img {
+		height: auto;
+	}
+	.image {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+	.space p {
+		font-weight: 300;
+		font-size: 24px;
+		margin: 10px 0;
+	}
+}
+
+@media (max-width: 375px) {
+	.image img {
+		height: 100%;
+		width: 100%;
+	}
 }
