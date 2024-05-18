@@ -38,3 +38,10 @@
 .video_button img {
 	width: 80px;
 }
+
+@media (min-width: 768px) {
+	.video_video video {
+		height: 50%;
+		width: 100%;
+	}
+}

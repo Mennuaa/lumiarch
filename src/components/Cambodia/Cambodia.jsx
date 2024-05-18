@@ -12,7 +12,7 @@ export const Cambodia = () => {
 		`investment cambodia ${
 			['left-side', 'center-side', 'right-side'][currentSlide] || ''
 		}`
-		const progressBarLeft = `${(currentSlide / slides) * 100}%`;
+	const progressBarLeft = `${(currentSlide / slides) * 100}%`
 
 	const getImageStyle = () =>
 		[
@@ -140,7 +140,7 @@ export const Cambodia = () => {
 						</div>
 					)}
 				</div>
-				<div className='slider'>
+				<div className='slider slider_combodia'>
 					<div className='slider_section'>
 						<button className='slider_button' onClick={prevSlide}>
 							<img src='/images/icon/prev.svg' alt='Previous' />
@@ -152,7 +152,10 @@ export const Cambodia = () => {
 							<div className='slider_scroll-progres'>
 								<div
 									className='slider_scroll-progres_bar'
-									style={{ left: progressBarLeft ,width:100 / slides.length + "%"}}
+									style={{
+										left: progressBarLeft,
+										width: 100 / slides.length + '%',
+									}}
 								></div>
 							</div>
 						</div>

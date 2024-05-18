@@ -50,7 +50,6 @@ export const Space = ({ onChangeSlide }) => {
 
 	return (
 		<div
-			className='investment'
 			style={{
 				backgroundColor: currentSlide === 0 ? '#4A4A4A' : '#2566AF',
 				transition: 'background-color 0.5s ease-in-out',
@@ -62,7 +61,7 @@ export const Space = ({ onChangeSlide }) => {
 						<div className='space'>
 							<h2>Wealth Mansion</h2>
 							<h3>ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА В ЖК</h3>
-							<p>
+							<p className='space_text'>
 								<span> Wealth Mansion </span> имеет внутреннюю инфраструктуру,
 								соответствующую уровню 5 звезд. Владельцам квартир будут
 								доступны все общественные пространства. Каждую фотографию можно
@@ -107,7 +106,7 @@ export const Space = ({ onChangeSlide }) => {
 						<div className='space'>
 							<h2>Le condo bkk1</h2>
 							<h3>ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА В ЖК</h3>
-							<p>
+							<p className='space_text'>
 								<span> Wealth Mansion </span> имеет внутреннюю инфраструктуру,
 								соответствующую уровню 5 звезд. Владельцам квартир будут
 								доступны все общественные пространства. Каждую фотографию можно
@@ -169,7 +168,9 @@ export const Space = ({ onChangeSlide }) => {
 							<img src='/images/icon/next.svg' alt='Next' />
 						</button>
 					</div>
-					<p>ПРЕИМУЩЕСТВА И ФОТО НИЖЕ</p>
+					<p style={{ marginBottom: '20px', color: '#fffff9a' }}>
+						ПРЕИМУЩЕСТВА И ФОТО НИЖЕ
+					</p>
 				</div>
 			</div>
 		</div>

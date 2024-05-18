@@ -20,7 +20,7 @@
 	text-transform: uppercase;
 }
 
-.space_section p {
+.space_text {
 	font-weight: 300;
 	font-size: 15px;
 	margin-top: 5px;
@@ -63,4 +63,21 @@
 	left: 8px;
 	font-size: 10px;
 	margin: 0;
+	font-weight: 300;
+	font-size: 15px;
+	margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+	.block p {
+		font-size: 24px;
+		font-weight: 300;
+		margin-top: 5px;
+		text-wrap: wrap;
+	}
+	.space_text {
+		font-size: 24px;
+		font-weight: 300;
+		margin: 10px 0;
+	}
 }

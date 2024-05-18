@@ -46,8 +46,13 @@ export const Object = ({ onChangeSlide }) => {
 
 	return (
 		<div
-			className='investment cambodia'
-			style={{ backgroundImage: `url('${slides[currentSlide].background}')` }}
+			className=''
+			style={{
+				backgroundImage: `url('${slides[currentSlide].background}')`,
+				backgroundPosition: 'center',
+				backgroundSize: 'cover',
+				backgroundRepeat: 'no-repeat',
+			}}
 		>
 			<div className='container'>
 				<div className='object_section'>
@@ -126,7 +131,10 @@ export const Object = ({ onChangeSlide }) => {
 							<div className='slider_scroll-progres'>
 								<div
 									className='slider_scroll-progres_bar'
-									style={{ left: progressBarLeft, width: 100 / slides.length + '%' }}
+									style={{
+										left: progressBarLeft,
+										width: 100 / slides.length + '%',
+									}}
 								></div>
 							</div>
 						</div>
@@ -134,7 +142,9 @@ export const Object = ({ onChangeSlide }) => {
 							<img src='/images/icon/next.svg' alt='Next' />
 						</button>
 					</div>
-					<p>ПРЕИМУЩЕСТВА И ФОТО НИЖЕ</p>
+					<p style={{ marginBottom: '20px', color: '#fffff9a' }}>
+						ПРЕИМУЩЕСТВА И ФОТО НИЖЕ
+					</p>
 				</div>
 			</div>
 		</div>

@@ -50,7 +50,7 @@ export const Desc = ({ onChangeSlide }) => {
 
 	return (
 		<div
-			className='investment'
+			className=''
 			style={{
 				backgroundColor: currentSlide === 0 ? '#4A4A4A' : '#2566AF',
 				transition: 'background-color 0.5s ease-in-out',
@@ -123,7 +123,9 @@ export const Desc = ({ onChangeSlide }) => {
 							<img src='/images/icon/next.svg' alt='Next' />
 						</button>
 					</div>
-					<p>ПРЕИМУЩЕСТВА И ФОТО НИЖЕ</p>
+					<p style={{ marginBottom: '20px', color: '#fffff9a' }}>
+						ПРЕИМУЩЕСТВА И ФОТО НИЖЕ
+					</p>
 				</div>
 			</div>
 		</div>

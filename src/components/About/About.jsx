@@ -4,7 +4,7 @@ const About = () => {
 	return (
 		<div>
 			<div
-				className=''
+				className='container'
 				style={{
 					backgroundImage: `url('images/img-calculator.png')`,
 					width: '100%',
@@ -55,20 +55,22 @@ const About = () => {
 					backgroundSize: 'cover',
 				}}
 			>
-				<h2>
-					<div>скорее</div> Напишите нам!
-				</h2>
-				<form>
-					<input type='text' placeholder='имя и фамилия' />
-					<input type='email' placeholder='email' />
-					<input type='tel' placeholder='ваш телефон' />
-					<textarea placeholder='ваши вопросы'></textarea>
-					<button>оТПРАВИТЬ</button>
-					<p>
-						Нажимая на кнопку, вы принимаете политику конфиденциальности и даете
-						согласие на обработку персональных данных 
-					</p>
-				</form>
+				<div className='container'>
+					<h2>
+						<div>скорее</div> Напишите нам!
+					</h2>
+					<form>
+						<input type='text' placeholder='имя и фамилия' />
+						<input type='email' placeholder='email' />
+						<input type='tel' placeholder='ваш телефон' />
+						<textarea placeholder='ваши вопросы'></textarea>
+						<button>оТПРАВИТЬ</button>
+						<p>
+							Нажимая на кнопку, вы принимаете политику конфиденциальности и
+							даете согласие на обработку персональных данных 
+						</p>
+					</form>
+				</div>
 			</div>
 		</div>
 	)

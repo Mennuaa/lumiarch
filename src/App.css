@@ -9,5 +9,7 @@ a {
 }
 
 .container {
+	max-width: 1180px;
 	padding: 0 20px;
+	margin: 0 auto;
 }
