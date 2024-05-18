@@ -13,6 +13,7 @@ import { Space } from '../components/Space/Space'
 import { Utils } from '../components/Utils/Utils'
 import Video from '../components/Video/Video'
 import './Home.css'
+import { Acquaintance } from '../components/Popups/Acquaintance/Acquaintance'
 
 function Home() {
 	const [background, setBackground] = useState('/images/bg1.webp')
@@ -46,7 +47,7 @@ function Home() {
 			<Investments onChangeSlide={handleSlideChange} />
 			<Cambodia id='cambodia' onChangeSlide={handleSlideChangeCambodia} />
 			<Object onChangeSlide={handleSlideChangeObject} />
-			<Popup />
+			<Acquaintance />
 			<Desc onChangeSlide={handleSlideChangeDesc} />
 			<Utils onChangeSlide={handleSlideChangeDesc} />
 			<Space onChangeSlide={handleSlideChangeDesc} />
