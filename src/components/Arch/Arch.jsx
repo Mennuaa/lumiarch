@@ -3,10 +3,13 @@ import Lightbox from 'react-awesome-lightbox'
 import 'react-awesome-lightbox/build/style.css'
 import './arch.css'
 import ImageSlider from '../slider/Slider'
+import TextSlider from '../slider/TextSlider'
 
 export const Arch = ({ onChangeSlide }) => {
 	const slides = [
 		{
+			label:'Wealth Mansion',
+
 			first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",
 			second_text:
 				'Мы предлагаем: гарантированный возврат инвестиций в недвижимость Пном Пеня напрямую от застройщика',
@@ -14,6 +17,7 @@ export const Arch = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
+			label:'Le Condo BKK',
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -125,7 +129,7 @@ export const Arch = ({ onChangeSlide }) => {
 						</div>
 					)}
 				</div>
-				<ImageSlider
+				<TextSlider
                 slides={slides}
                 currentSlide={currentSlide}
                 prevSlide={prevSlide}

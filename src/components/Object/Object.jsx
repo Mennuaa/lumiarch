@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import './object.css'
 import ImageSlider from '../slider/Slider'
+import TextSlider from '../slider/TextSlider'
 
 export const Object = ({ onChangeSlide }) => {
 	const slides = [
 		{
+			label: "Wealth Mansion",
 			first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",
 			second_text:
 				'Мы предлагаем: гарантированный возврат инвестиций в недвижимость Пном Пеня напрямую от застройщика',
@@ -12,6 +14,7 @@ export const Object = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
+			label: "Le Condo BKK",
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -21,6 +24,7 @@ export const Object = ({ onChangeSlide }) => {
 			icons: ['/images/icon4.svg', '/images/icon5.svg', '/images/icon6.svg'],
 		},
 	]
+	
 
 	const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -123,7 +127,7 @@ export const Object = ({ onChangeSlide }) => {
 						</div>
 					)}
 				</div>
-				<ImageSlider
+				<TextSlider
                 slides={slides}
                 currentSlide={currentSlide}
                 prevSlide={prevSlide}

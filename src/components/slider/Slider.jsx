@@ -11,8 +11,12 @@ function ImageSlider({ slides, currentSlide, prevSlide, nextSlide }) {
                         <img src='/images/icon/prev.svg' alt='Previous' />
                     </button>
                     <div className='slider_slide'>
-                        <div className='slider_scroll-amount'>{`0${currentSlide + 1}/0${slidesLength}`}</div>
+
                         <div className='slider_scroll-progres'>
+                            <div style={{
+                                left: progressBarLeft,
+                                width: `${100 / slidesLength}%`,
+                            }} className='slider_scroll-amount '>{`0${currentSlide + 1}/0${slidesLength}`}</div>
                             <div
                                 className='slider_scroll-progres_bar'
                                 style={{

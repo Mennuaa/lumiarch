@@ -120,7 +120,7 @@
 	.investment img {
 		position: relative;
 		width: 80%;
-		z-index: 3;
+		z-index: 0;
 	}
 	.cambodia_texts h2 {
 		font-size: 16px;

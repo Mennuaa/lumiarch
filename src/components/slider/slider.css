@@ -31,3 +31,10 @@
 	width: 100%;
 	gap: 3px;
 }
+.slider_scroll-amount{
+	transition: all 0.5s ease-in-out;
+	font-weight:100;
+	position: absolute;
+	bottom: 10px;
+
+}
