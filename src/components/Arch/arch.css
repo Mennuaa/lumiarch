@@ -1,3 +1,7 @@
+.image img:first-child {
+	height: 128px;
+}
+
 .image img {
 	height: 105px;
 }
@@ -25,8 +29,4 @@
 }
 
 @media (max-width: 375px) {
-	.image img {
-		height: 100%;
-		width: 100%;
-	}
 }

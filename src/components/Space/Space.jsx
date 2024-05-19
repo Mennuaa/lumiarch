@@ -76,34 +76,34 @@ export const Space = ({ onChangeSlide }) => {
 							</p>
 							<div className='blocks'>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
+									<img src='mobile/wealth/JK1.jpg' alt='' />
 									<h2>01</h2>
 									<p>Infinity-бассейн на крыше</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/wealth/JK2.jpg' alt='' />
+									<h2>02</h2>
+									<p>Мишленовский ресторан</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/wealth/JK3.jpg' alt='' />
+									<h2>03</h2>
+									<p>Спортзал</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/wealth/JK4.jpg' alt='' />
+									<h2>04</h2>
+									<p>Коворкинг</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/wealth/JK5.jpg' alt='' />
+									<h2>05</h2>
+									<p>Детская игровая зона</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/wealth/JK6.jpg' alt='' />
+									<h2>06</h2>
+									<p>Конференц-зал</p>
 								</div>
 							</div>
 						</div>
@@ -121,34 +121,34 @@ export const Space = ({ onChangeSlide }) => {
 							</p>
 							<div className='blocks'>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
+									<img src='mobile/lecondo/JK1.jpg' alt='' />
 									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<p>Бассейн с видом на город</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/lecondo/JK2.jpg' alt='' />
+									<h2>02</h2>
+									<p>Sky Garden</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/lecondo/JK3.jpg' alt='' />
+									<h2>03</h2>
+									<p>Детская игровая зона</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/lecondo/JK4.jpg' alt='' />
+									<h2>04</h2>
+									<p>Библиотека</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/lecondo/JK5.jpg' alt='' />
+									<h2>05</h2>
+									<p>Фитнесс-зал</p>
 								</div>
 								<div className='block'>
-									<img src='mobile/wealth/wm_public_tumb_1.webp' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
+									<img src='mobile/lecondo/JK6.jpg' alt='' />
+									<h2>06</h2>
+									<p>Sky-бар</p>
 								</div>
 							</div>
 						</div>

@@ -57,7 +57,7 @@
 .burger {
 	left: -5000px;
 	transition: left 1s ease-in-out;
-	background: url('/public/images/MENU.png') center no-repeat;
+	background: url('/public/mobile/menu_fon.webp') center no-repeat;
 	width: 100%;
 	height: max-content;
 	min-height: 100vh;
@@ -68,7 +68,7 @@
 }
 
 .burger_active {
-	background: url('/public/images/MENU.png') center no-repeat;
+	background: url('/public/mobile/menu_fon.webp') center no-repeat;
 	width: 100%;
 	transition: left 1s ease-in-out;
 	background-position: right;

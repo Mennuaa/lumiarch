@@ -93,7 +93,7 @@ export const Desc = ({ onChangeSlide }) => {
 								столицы Пномпень. Срок сдачи - второй квартал 2024. Все квартиры
 								с дизайнерской отделкой и готовы к заезду.
 							</p>
-							<img src='mobile/wealth/wm_pool.webp' alt='' />
+							<img src='mobile/wealth/Infinity pool (1) 1.jpg' alt='' />
 							<p>
 								<span> Wealth Mansion </span> — проект от крупнейшего
 								конгломерата из Китая, компании CSCEC. За годы работы эта
