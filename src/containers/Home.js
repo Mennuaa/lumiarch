@@ -105,6 +105,9 @@ function Home() {
             <div ref={sectionRefs[8]}><Faq /></div>
             <div ref={sectionRefs[9]}><About /></div>
             <Footer />
+            <div className='middle_button'>
+				<a href=''>узнать больше</a>
+			</div>
             <div className='middle_buttons'>
                 <img src='/images/icon/calculator-icon.svg' alt='Calculator' />
                 {currentSection < sectionRefs.length - 1 && (

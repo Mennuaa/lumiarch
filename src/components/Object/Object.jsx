@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import TextSlider from '../slider/TextSlider'
 import './object.css'
-
+import Lightbox from 'react-awesome-lightbox'
+import 'react-awesome-lightbox/build/style.css'
 export const Object = ({ onChangeSlide }) => {
 	const slides = [
 		{
@@ -46,7 +47,28 @@ export const Object = ({ onChangeSlide }) => {
 	}
 
 	const progressBarLeft = `${(currentSlide / slides.length) * 100}%`
+	const [photoIndex, setPhotoIndex] = useState(0);
 
+    // Define images for each slide
+    const images = [
+        'mobile/wealth/arch_photos_tumb_1.webp',
+        'mobile/wealth/arch_photos_tumb_2.webp',
+        'mobile/wealth/arch_photos_tumb_3.webp',
+        'images/Screenshot1.png',
+        'images/Screenshot2.png',
+        'images/Screenshot3.png',
+        'images/Screenshot4.png',
+    ];
+
+    const imagess = [
+        'mobile/lecondo/galary1.jpg',
+        'mobile/lecondo/galary2.jpg',
+        'mobile/lecondo/galary3.jpg',
+        'mobile/lecondo/galary4.jpg',
+        'mobile/lecondo/galary5.jpg',
+        'mobile/lecondo/galary6.jpg',
+        'mobile/lecondo/galary7.jpg',
+    ];
 	return (
 		<div
 			className='investment'
