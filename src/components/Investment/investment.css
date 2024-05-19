@@ -137,9 +137,31 @@
 	color: #000;
 }
 
-.clue img {
+.clue_blue {
+	background-color: #2565afb4;
+	margin-top: 25px;
+	padding: 14px;
+	display: flex;
+	gap: 14px;
+	align-items: flex-start;
+	font-weight: 300;
+}
+
+.clue a {
+	display: block;
+	text-decoration: underline;
+	color: #104a8b;
+	font-weight: bold;
+}
+
+.clue img,
+.clue_blue img {
 	width: 15px;
 	height: 17px;
+}
+
+.clue_blue img {
+	fill: #000;
 }
 
 .clue_section {

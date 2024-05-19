@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import './investment.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import ImageSlider from '../slider/Slider'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import './investment.css'
 
 export const Investments = ({ onChangeSlide }) => {
 	const slides = [
@@ -68,31 +68,31 @@ export const Investments = ({ onChangeSlide }) => {
 		setCurrentSlide(newSlide)
 		onChangeSlide(slides[newSlide])
 	}
-	const [name, setName] = useState('');
-	const [phone, setPhone] = useState('');
+	const [name, setName] = useState('')
+	const [phone, setPhone] = useState('')
 
 	const validateInputs = () => {
-		let isValid = true;
+		let isValid = true
 		// Simple validation rules
 		if (name.trim().length === 0) {
-			toast.error("Пожалуйста, введите ваше имя");
-			isValid = false;
+			toast.error('Пожалуйста, введите ваше имя')
+			isValid = false
 		}
 		if (!phone.startsWith('+7')) {
-			toast.error("Телефон должен начинаться с +7");
-			isValid = false;
+			toast.error('Телефон должен начинаться с +7')
+			isValid = false
 		}
-		return isValid;
-	};
+		return isValid
+	}
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
+	const handleSubmit = event => {
+		event.preventDefault()
 		if (validateInputs()) {
 			// Assume sending data somewhere
-			toast.success("Форма была успешно отправлена");
+			toast.success('Форма была успешно отправлена')
 			// Reset form or additional logic
 		}
-	};
+	}
 
 	const nextSlide = () => changeSlide((currentSlide + 1) % slides.length)
 	const prevSlide = () =>
@@ -118,7 +118,7 @@ export const Investments = ({ onChangeSlide }) => {
 				backgroundRepeat: 'no-repeat',
 			}}
 		>
-								<ToastContainer position="top-right" autoClose={5000} />
+			<ToastContainer position='top-right' autoClose={5000} />
 
 			<div className='container'>
 				<div className='investment_section'>
@@ -132,6 +132,23 @@ export const Investments = ({ onChangeSlide }) => {
 							/>
 						)}
 						<div className='investment_section-text'>
+							{currentSlide === 5 && (
+								<div className='clue_blue'>
+									<img src='/images/icon/Star 1.svg' alt='' />
+									<div className='clue_section'>
+										<p>
+											<strong>Ура! Поздравляем! </strong>
+											Вы получили 1 звезду. Первый шаг сделан! 15% скидка и
+											бесплатная персональная консультация ждут вас.
+											<br />
+											<br /> Мы рады, что вы не ушли и решили продолжить вместе
+											с нами своё инвестиционное путешествие (Investor Journey,
+											о нём будет рассказано ниже).
+										</p>
+									</div>
+								</div>
+							)}
+
 							<h2>
 								<span> {firstWord} </span>
 								{restOfText}
@@ -151,21 +168,38 @@ export const Investments = ({ onChangeSlide }) => {
 							)}
 						</div>
 						{currentSlide === 5 && (
-							<div className='inputs'>
-								<input
-									type='text'
-									placeholder='ваше имя'
-									value={name}
-									onChange={(e) => setName(e.target.value)}
-								/>
-								<input
-									type='tel'
-									placeholder='ваш телефон +7'
-									value={phone}
-									onChange={(e) => setPhone(e.target.value)}
-								/>
-								<button onClick={handleSubmit}>Отправить</button>
-								<p>{slides[currentSlide]?.terms}</p>
+							<div>
+								<div className='inputs'>
+									<input
+										type='text'
+										placeholder='ваше имя'
+										value={name}
+										onChange={e => setName(e.target.value)}
+									/>
+									<input
+										type='tel'
+										placeholder='ваш телефон +7'
+										value={phone}
+										onChange={e => setPhone(e.target.value)}
+									/>
+									<button onClick={handleSubmit}>Отправить</button>
+									<p>{slides[currentSlide]?.terms}</p>
+								</div>
+								<div className='clue'>
+									<img src='/images/icon/Star 3.svg' alt='' />
+									<div className='clue_section'>
+										<h6>Подсказка</h6>
+										<p>
+											Чтобы получить еще одну звезду, долистайте страницу до
+											конца, изучите предложенные материалы и оставьте
+											электронный адрес, на который мы вышлем вам полезную
+											ознакомительную информацию о стране, налогах, инсайтах и
+											других подробностях региона, которые могут вам
+											понадобиться для принятия решения.
+											<a href=''>Оставить email сейчас</a>
+										</p>
+									</div>
+								</div>
 							</div>
 						)}
 						{currentSlide === 3 && (
