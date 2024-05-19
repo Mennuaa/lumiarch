@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './about.css'
+ // Assuming you're using react-toastify for toasts
+
 const About = () => {
+
 	return (
-		<div>
+		<div className='about'>
 			<div
 				className='container'
 				style={{
@@ -45,33 +48,7 @@ const About = () => {
 					</div>
 				</div>
 			</div>
-			<div
-				className='form__section'
-				style={{
-					background: "url('images/bg-form.png')",
-					width: '100%',
-					height: 'max-content',
-					backgroundPosition: 'center',
-					backgroundSize: 'cover',
-				}}
-			>
-				<div className='container'>
-					<h2>
-						<div>скорее</div> Напишите нам!
-					</h2>
-					<form>
-						<input type='text' placeholder='имя и фамилия' />
-						<input type='email' placeholder='email' />
-						<input type='tel' placeholder='ваш телефон' />
-						<textarea placeholder='ваши вопросы'></textarea>
-						<button>оТПРАВИТЬ</button>
-						<p>
-							Нажимая на кнопку, вы принимаете политику конфиденциальности и
-							даете согласие на обработку персональных данных 
-						</p>
-					</form>
-				</div>
-			</div>
+			
 		</div>
 	)
 }

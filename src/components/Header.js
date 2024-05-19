@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import './Header.css'
-export default function Header() {
+export default function Header( {sectionRefs }) {
 	const [burger, setBurger] = useState(false)
 	const [showLogo, setShowLogo] = useState(true)
 	window.onscroll = function () {
 		window.scrollY <= 796
 			? setShowLogo(true)
-			: window.scrollY >= 7600
-			? setShowLogo(true)
 			: setShowLogo(false)
+			
 	}
+	const handleMenuClick = (sectionIndex) => {
+        setBurger(false); // Close the burger menu
+        sectionRefs[sectionIndex].current.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section
+    };
 	return (
 		<header className='header'>
 			<div className='container'>
@@ -42,16 +45,16 @@ export default function Header() {
 					/>
 				</button>
 				<ul className='burger_menu'>
-					<li>главная</li>
-					<li>О Камбодже</li>
-					<li>Le Condo</li>
-					<li>видео</li>
-					<li>карта</li>
-					<li>investor journey</li>
-					<li>FAQ</li>
-					<li>О НАС</li>
-					<li>отзывы</li>
-					<li>контакты</li>
+				<li onClick={() => handleMenuClick(0)}>главная</li>
+                    <li onClick={() => handleMenuClick(1)}>О Камбодже</li>
+                    <li onClick={() => handleMenuClick(2)}>Le Condo</li>
+                    <li onClick={() => handleMenuClick(7)}>видео</li>
+                    {/* <li onClick={() => handleMenuClick(4)}>карта</li> */}
+                    {/* <li onClick={() => handleMenuClick(5)}>investor journey</li> */}
+                    <li onClick={() => handleMenuClick(8)}>FAQ</li>
+                    <li onClick={() => handleMenuClick(9)}>О НАС</li>
+                    <li onClick={() => handleMenuClick(9)}>отзывы</li>
+                    <li onClick={() => handleMenuClick(10)}>контакты</li>
 				</ul>
 				<div className='links'>
 					<a href=''>
