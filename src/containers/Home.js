@@ -121,7 +121,7 @@ function Home() {
     };
 
     const validatePhone = (phone) => {
-        const phoneRegex = /^[0-9\s()-]+$/;
+        const phoneRegex = /^\+?[0-9\s()-]+$/;
         return phoneRegex.test(phone) && phone.length >= 7;
     };
 
@@ -148,10 +148,7 @@ function Home() {
         }
 
         // Optionally validate questions
-        if (!formData.questions.trim()) {
-            toast.error('Пожалуйста, задайте ваш вопрос');
-            isValid = false;
-        }
+        
 
         if (isValid) {
             console.log('Form is valid:', formData);

@@ -1,7 +1,7 @@
 .investment {
 	width: 100%;
 	height: max-content;
-	min-height: 900px;
+	min-height: 100vh;
 	top: 0;
 	left: 0;
 }
@@ -11,7 +11,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	min-height: 900px;
+	min-height: 100vh;
 }
 
 .slider {

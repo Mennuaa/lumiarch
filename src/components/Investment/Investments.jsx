@@ -88,7 +88,7 @@ export const Investments = ({ onChangeSlide }) => {
 		}
 	
 		// Validation for the phone number
-		const phoneRegex = /^[0-9\s()-]+$/; // Regex to allow only digits, spaces, parentheses, and hyphens
+		const phoneRegex = /^\+?[0-9\s()-]+$/;
 		if (!phoneRegex.test(phone) || phone.length < 7) {
 			toast.error('Телефон должен содержать только цифры, пробелы, скобки или тире и быть не короче 7 символов');
 			isValid = false;

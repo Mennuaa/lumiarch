@@ -22,7 +22,7 @@ export default function Contact() {
     };
 
     const validatePhone = (phone) => {
-        const phoneRegex = /^[0-9\s()-]+$/;
+        const phoneRegex = /^\+?[0-9\s()-]+$/;
         return phoneRegex.test(phone) && phone.length >= 7;
     };
 
@@ -49,10 +49,7 @@ export default function Contact() {
         }
 
         // Optionally validate questions
-        if (!formData.questions.trim()) {
-            toast.error('Пожалуйста, задайте ваш вопрос');
-            isValid = false;
-        }
+        
 
         if (isValid) {
             console.log('Form is valid:', formData);
