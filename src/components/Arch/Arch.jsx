@@ -138,10 +138,11 @@ export const Arch = ({ onChangeSlide }) => {
 			</div>
 			{isOpen && (
 				<Lightbox
-					images={images.map(img => ({ url: img }))}
-					startIndex={photoIndex}
-					onClose={() => setIsOpen(false)}
-				/>
+				images={images.map(img => ({ url: img }))}
+				startIndex={photoIndex}
+				onClose={() => setIsOpen(false)}
+				toolbarButtons={[]} // This effectively hides additional buttons like rotate
+			/>
 			)}
 		</div>
 	)

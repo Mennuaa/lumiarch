@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './investment.css'
 import ImageSlider from '../slider/Slider'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Investments = ({ onChangeSlide }) => {
 	const slides = [
@@ -66,6 +68,31 @@ export const Investments = ({ onChangeSlide }) => {
 		setCurrentSlide(newSlide)
 		onChangeSlide(slides[newSlide])
 	}
+	const [name, setName] = useState('');
+	const [phone, setPhone] = useState('');
+
+	const validateInputs = () => {
+		let isValid = true;
+		// Simple validation rules
+		if (name.trim().length === 0) {
+			toast.error("Пожалуйста, введите ваше имя");
+			isValid = false;
+		}
+		if (!phone.startsWith('+7')) {
+			toast.error("Телефон должен начинаться с +7");
+			isValid = false;
+		}
+		return isValid;
+	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		if (validateInputs()) {
+			// Assume sending data somewhere
+			toast.success("Форма была успешно отправлена");
+			// Reset form or additional logic
+		}
+	};
 
 	const nextSlide = () => changeSlide((currentSlide + 1) % slides.length)
 	const prevSlide = () =>
@@ -91,6 +118,8 @@ export const Investments = ({ onChangeSlide }) => {
 				backgroundRepeat: 'no-repeat',
 			}}
 		>
+								<ToastContainer position="top-right" autoClose={5000} />
+
 			<div className='container'>
 				<div className='investment_section'>
 					<div>
@@ -123,10 +152,20 @@ export const Investments = ({ onChangeSlide }) => {
 						</div>
 						{currentSlide === 5 && (
 							<div className='inputs'>
-								<input type='text' placeholder='ваше имя' />
-								<input type='tel' placeholder='ваш телефон +7' />
-								<button>Отправить</button>
-								<p>{slides[currentSlide].terms}</p>
+								<input
+									type='text'
+									placeholder='ваше имя'
+									value={name}
+									onChange={(e) => setName(e.target.value)}
+								/>
+								<input
+									type='tel'
+									placeholder='ваш телефон +7'
+									value={phone}
+									onChange={(e) => setPhone(e.target.value)}
+								/>
+								<button onClick={handleSubmit}>Отправить</button>
+								<p>{slides[currentSlide]?.terms}</p>
 							</div>
 						)}
 						{currentSlide === 3 && (
