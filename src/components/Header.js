@@ -35,7 +35,11 @@ export default function Header() {
 			</div>
 			<div className={burger ? 'burger_active' : 'burger'}>
 				<button className='burger_close' onClick={() => setBurger(!burger)}>
-					<img src='images/icon/X.svg' alt='' />
+					<img
+						style={{ height: '54px', width: '54px' }}
+						src='mobile/close.png'
+						alt=''
+					/>
 				</button>
 				<ul className='burger_menu'>
 					<li>главная</li>

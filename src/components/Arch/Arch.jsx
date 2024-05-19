@@ -41,6 +41,16 @@ export const Arch = ({ onChangeSlide }) => {
 		'images/Screenshot4.png',
 	]
 
+	const imagess = [
+		'mobile/lecondo/galary1.jpg',
+		'mobile/lecondo/galary2.jpg',
+		'mobile/lecondo/galary3.jpg',
+		'mobile/lecondo/galary4.jpg',
+		'mobile/lecondo/galary5.jpg',
+		'mobile/lecondo/galary6.jpg',
+		'mobile/lecondo/galary7.jpg',
+	]
+
 	const nextSlide = () => {
 		const newSlide = (currentSlide + 1) % slides.length
 		setCurrentSlide(newSlide)
@@ -113,7 +123,7 @@ export const Arch = ({ onChangeSlide }) => {
 								архитекторов. Каждая деталь продумана!
 							</p>
 							<div className='image'>
-								{images.map((image, index) => (
+								{imagess.map((image, index) => (
 									<img
 										key={index}
 										src={image}

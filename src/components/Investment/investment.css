@@ -25,9 +25,9 @@
 .slider_section {
 	margin-top: 10px;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: center;
+
 	gap: 7px;
 }
 

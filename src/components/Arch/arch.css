@@ -1,3 +1,7 @@
+.image img:first-child {
+	height: 128px;
+}
+
 .image img {
 	height: 105px;
 }
@@ -15,6 +19,9 @@
 	.image img {
 		height: auto;
 	}
+	.image img:first-child {
+		height: auto;
+	}
 	.image {
 		display: flex;
 		flex-wrap: wrap;
@@ -28,8 +35,9 @@
 }
 
 @media (max-width: 375px) {
-	.image img {
-		height: 100%;
+	.image img,
+	.image img:first-child {
+		height: auto;
 		width: 100%;
 	}
 }

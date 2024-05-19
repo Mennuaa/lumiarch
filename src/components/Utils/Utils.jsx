@@ -71,16 +71,16 @@ export const Utils = ({ onChangeSlide }) => {
 								квартиры и виллы.
 							</p>
 							<div className='images'>
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
+								<img src='mobile/wealth/photo.jpg' alt='' />
+								<img src='mobile/wealth/photo2.jpg' alt='' />
+								<img src='mobile/wealth/photo3.jpg' alt='' />
+								<img src='mobile/wealth/photo4.jpg' alt='' />
+								<img src='mobile/wealth/photo5.jpg' alt='' />
+								<img src='mobile/wealth/photo6.jpg' alt='' />
+								<img src='mobile/wealth/photo7.jpg' alt='' />
+								<img src='mobile/wealth/photo8.jpg' alt='' />
+								<img src='mobile/wealth/photo9.jpg' alt='' />
+								<img src='mobile/wealth/photo10.jpg' alt='' />
 							</div>
 						</div>
 					)}
@@ -94,16 +94,16 @@ export const Utils = ({ onChangeSlide }) => {
 								квартиры и виллы.
 							</p>
 							<div className='images'>
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
-								<img src='mobile/wealth/wm_unit_photo_exmp.webp' alt='' />
+								<img src='mobile/lecondo/photo1.jpg' alt='' />
+								<img src='mobile/lecondo/photo2.jpg' alt='' />
+								<img src='mobile/lecondo/photo3.jpg' alt='' />
+								<img src='mobile/lecondo/photo4.jpg' alt='' />
+								<img src='mobile/lecondo/photo5.jpg' alt='' />
+								<img src='mobile/lecondo/photo6.jpg' alt='' />
+								<img src='mobile/lecondo/photo7.jpg' alt='' />
+								<img src='mobile/lecondo/photo8.jpg' alt='' />
+								<img src='mobile/lecondo/photo9.jpg' alt='' />
+								<img src='mobile/lecondo/photo10.jpg' alt='' />
 							</div>
 						</div>
 					)}
