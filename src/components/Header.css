@@ -59,6 +59,7 @@
 	transition: left 1s ease-in-out;
 	background: url('/public/mobile/menu_fon.webp') center no-repeat;
 	width: 100%;
+	max-width: 375px;
 	height: max-content;
 	min-height: 100vh;
 	position: fixed;

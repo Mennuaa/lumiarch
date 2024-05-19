@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import './object.css'
-import ImageSlider from '../slider/Slider'
 import TextSlider from '../slider/TextSlider'
+import './object.css'
 
 export const Object = ({ onChangeSlide }) => {
 	const slides = [
 		{
-			label: "Wealth Mansion",
+			label: 'Wealth Mansion',
 			first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",
 			second_text:
 				'Мы предлагаем: гарантированный возврат инвестиций в недвижимость Пном Пеня напрямую от застройщика',
@@ -14,7 +13,7 @@ export const Object = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
-			label: "Le Condo BKK",
+			label: 'Le Condo BKK',
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -24,7 +23,6 @@ export const Object = ({ onChangeSlide }) => {
 			icons: ['/images/icon4.svg', '/images/icon5.svg', '/images/icon6.svg'],
 		},
 	]
-	
 
 	const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -73,21 +71,21 @@ export const Object = ({ onChangeSlide }) => {
 									</p>
 								</li>
 								<li>
-									<img src='images/icon/Vector.svg'  className='vector'  alt='' />
+									<img src='images/icon/Vector.svg' className='vector' alt='' />
 									<p>
 										Предложение с самым высоким прогнозируемым ростом стоимости
 										в Камбодже
 									</p>
 								</li>
 								<li>
-									<img src='images/icon/Vector.svg'  className='vector'  alt='' />
+									<img src='images/icon/Vector.svg' className='vector' alt='' />
 									<p>
 										Роскошный образ жизни и выгодная инвестиция в самом сердце
 										Пномпеня
 									</p>
 								</li>
 								<li>
-									<img src='images/icon/Vector.svg'  className='vector'  alt='' />
+									<img src='images/icon/Vector.svg' className='vector' alt='' />
 									<p>
 										Совершенно новые стандарты жизни в Пномпене, столице
 										Камбоджи
@@ -128,11 +126,11 @@ export const Object = ({ onChangeSlide }) => {
 					)}
 				</div>
 				<TextSlider
-                slides={slides}
-                currentSlide={currentSlide}
-                prevSlide={prevSlide}
-                nextSlide={nextSlide}
-            />
+					slides={slides}
+					currentSlide={currentSlide}
+					prevSlide={prevSlide}
+					nextSlide={nextSlide}
+				/>
 				{/* <div className='slider'>
 					<div className='slider_section'>
 						<button className='slider_button' onClick={prevSlide}>
@@ -158,7 +156,6 @@ export const Object = ({ onChangeSlide }) => {
 						ПРЕИМУЩЕСТВА И ФОТО НИЖЕ
 					</p>
 				</div> */}
-					
 			</div>
 		</div>
 	)

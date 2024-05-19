@@ -16,6 +16,9 @@
 	.image img {
 		height: auto;
 	}
+	.image img:first-child {
+		height: auto;
+	}
 	.image {
 		display: flex;
 		flex-wrap: wrap;
@@ -29,4 +32,9 @@
 }
 
 @media (max-width: 375px) {
+	.image img,
+	.image img:first-child {
+		height: auto;
+		width: 100%;
+	}
 }
