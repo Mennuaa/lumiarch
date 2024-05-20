@@ -16,7 +16,7 @@ export const Object = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
-			label: 'Le Condo BKK',
+			label: 'Le Conde BKK',
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -127,7 +127,7 @@ export const Object = ({ onChangeSlide }) => {
 
 					{currentSlide === 1 && (
 						<div>
-							<h2>le CONDO BKK1</h2>
+							<h2>Le Conde BKK1</h2>
 
 							<ul>
 								<li>

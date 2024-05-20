@@ -40,7 +40,7 @@ export const Space = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
-			label: 'Le Condo BKK',
+			label: 'Le Conde BKK',
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -127,7 +127,7 @@ export const Space = ({ onChangeSlide }) => {
 
 					{currentSlide === 1 && (
 						<div className='space'>
-							<h2>Le condo bkk1</h2>
+							<h2>Le Conde bkk1</h2>
 							<h3>ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА В ЖК</h3>
 							<p className='space_text'>
 								<span> Wealth Mansion </span> имеет внутреннюю инфраструктуру,

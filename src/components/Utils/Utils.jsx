@@ -17,7 +17,7 @@ export const Utils = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
-			label: 'Le Condo BKK',
+			label: 'Le Conde BKK',
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -124,7 +124,7 @@ export const Utils = ({ onChangeSlide }) => {
 
 					{currentSlide === 1 && (
 						<div className='wealth'>
-							<h2>Le condo bkk1</h2>
+							<h2>Le Conde bkk1</h2>
 							<h3>ФОТОГРАФИИ КВАРТИР</h3>
 							<p>
 								В <span> Wealth Mansion </span> имеются студии, 1,2,3-комнатные

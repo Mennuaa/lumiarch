@@ -46,10 +46,10 @@ export default function Header({ sectionRefs }) {
 						<ul className='burger_menu'>
 							<li onClick={() => handleMenuClick(0)}>главная</li>
 							<li onClick={() => handleMenuClick(1)}>О Камбодже</li>
-							<li onClick={() => handleMenuClick(2)}>Le Condo</li>
+							<li onClick={() => handleMenuClick(3)}>Wealth Mansion </li>
+							<li onClick={() => handleMenuClick(2)}>Le Conde</li>
 							<li onClick={() => handleMenuClick(7)}>видео</li>
 							{/* <li onClick={() => handleMenuClick(4)}>карта</li> */}
-							{/* <li onClick={() => handleMenuClick(5)}>investor journey</li> */}
 							<li onClick={() => handleMenuClick(8)}>FAQ</li>
 							<li onClick={() => handleMenuClick(9)}>О НАС</li>
 							<li onClick={() => handleMenuClick(9)}>отзывы</li>

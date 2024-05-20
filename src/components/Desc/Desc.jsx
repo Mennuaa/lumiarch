@@ -14,7 +14,7 @@ export const Desc = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
-			label: "Le Condo BKK",
+			label: "Le Conde BKK",
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -86,7 +86,7 @@ export const Desc = ({ onChangeSlide }) => {
 
 					{currentSlide === 1 && (
 						<div className='wealth'>
-							<h2>le CONDO BKK1</h2>
+							<h2>Le Conde BKK1</h2>
 							<p>
 								Представляем вашему вниманию <span> Wealth Mansion </span> —
 								роскошный жилой комплекс бизнес-класса в центре камбоджийской
