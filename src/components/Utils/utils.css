@@ -116,10 +116,4 @@
 		grid-template-columns: repeat(2, 1fr);
 		width: 95%;
 	}
-
-	.wealth_section p {
-		font-weight: 300;
-		font-size: 12px;
-		margin-top: 5px;
-	}
 }

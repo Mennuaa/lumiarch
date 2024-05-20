@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import Lightbox from 'react-awesome-lightbox'
 import 'react-awesome-lightbox/build/style.css'
-import './arch.css'
-import ImageSlider from '../slider/Slider'
-import TextSlider from '../slider/TextSlider'
 import { useSwipeable } from 'react-swipeable'
+import TextSlider from '../slider/TextSlider'
+import './arch.css'
 
 export const Arch = ({ onChangeSlide }) => {
 	const slides = [
 		{
-			label:'Wealth Mansion',
+			label: 'Wealth Mansion',
 
 			first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",
 			second_text:
@@ -18,7 +17,7 @@ export const Arch = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
-			label:'Le Conde BKK',
+			label: 'Le Conde BKK',
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -41,7 +40,7 @@ export const Arch = ({ onChangeSlide }) => {
 		'mobile/wm_amenities_arch/wm_arch_6_tumb.webp',
 		'mobile/wm_amenities_arch/wm_arch_7_tumb.webp',
 	]
-	const imagesWithoutThumb = images.map(img => img.replace('_tumb', ''));
+	const imagesWithoutThumb = images.map(img => img.replace('_tumb', ''))
 
 	const imagess = [
 		'mobile/lecondo/galary1.jpg',
@@ -65,11 +64,11 @@ export const Arch = ({ onChangeSlide }) => {
 		onChangeSlide(slides[newSlide])
 	}
 	const handlers = useSwipeable({
-        onSwipedLeft: () => nextSlide(),
-        onSwipedRight: () => prevSlide(),
-        preventDefaultTouchmoveEvent: true,
-        trackMouse: true // This will allow dragging with the mouse as well
-    });
+		onSwipedLeft: () => nextSlide(),
+		onSwipedRight: () => prevSlide(),
+		preventDefaultTouchmoveEvent: true,
+		trackMouse: true, // This will allow dragging with the mouse as well
+	})
 	function getFirstWordAndRest(text) {
 		const trimmedText = text.trim()
 		const words = trimmedText.split(' ')
@@ -85,14 +84,17 @@ export const Arch = ({ onChangeSlide }) => {
 
 	return (
 		<div
-			style={{
-				backgroundColor: currentSlide === 0 ? '#4A4A4A' : '#2566AF',
-				transition: 'background-color 0.5s ease-in-out',
-				position: 'relative',
-				minHeight: 900
-
-
-			}}
+			style={
+				window.innerWidth > 768
+					? { display: 'none' }
+					: {
+							backgroundColor: currentSlide === 0 ? '#4A4A4A' : '#2566AF',
+							transition: 'background-color 0.5s ease-in-out',
+							position: 'relative',
+							minHeight: 900,
+							display: 'block',
+					  }
+			}
 		>
 			<div className='container'>
 				<div className='space_section' {...handlers}>
@@ -147,19 +149,19 @@ export const Arch = ({ onChangeSlide }) => {
 					)}
 				</div>
 				<TextSlider
-                slides={slides}
-                currentSlide={currentSlide}
-                prevSlide={prevSlide}
-                nextSlide={nextSlide}
-            />
+					slides={slides}
+					currentSlide={currentSlide}
+					prevSlide={prevSlide}
+					nextSlide={nextSlide}
+				/>
 			</div>
 			{isOpen && (
 				<Lightbox
-				images={imagesWithoutThumb.map(img => ({ url: img }))}
-				startIndex={photoIndex}
-				onClose={() => setIsOpen(false)}
-				toolbarButtons={[]}
-			/>
+					images={imagesWithoutThumb.map(img => ({ url: img }))}
+					startIndex={photoIndex}
+					onClose={() => setIsOpen(false)}
+					toolbarButtons={[]}
+				/>
 			)}
 		</div>
 	)

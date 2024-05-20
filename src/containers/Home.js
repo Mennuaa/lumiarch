@@ -32,8 +32,8 @@ function Home() {
 		useRef(null),
 	]
 	const scrollToContact = () => {
-		sectionRefs[10].current.scrollIntoView({ behavior: 'smooth' });
-	  };
+		sectionRefs[10].current.scrollIntoView({ behavior: 'smooth' })
+	}
 	const observer = useRef(
 		new IntersectionObserver(
 			entries => {
@@ -194,7 +194,7 @@ function Home() {
 		backdropFilter: 'blur(10px)',
 		zIndex: 40,
 	}
-	const [showShare , setShowShare] = useState(false)
+	const [showShare, setShowShare] = useState(false)
 	const toggleShareForm = () => {
 		setShowShare(prev => !prev)
 	}
@@ -217,10 +217,17 @@ function Home() {
 		<div className='home'>
 			<Header sectionRefs={sectionRefs} />
 			<div ref={sectionRefs[0]}>
-				<Investments scrollToContact={scrollToContact} onChangeSlide={handleSlideChange} />
+				<Investments
+					scrollToContact={scrollToContact}
+					onChangeSlide={handleSlideChange}
+				/>
 			</div>
 			<div ref={sectionRefs[1]}>
-				<Cambodia scrollToContact={scrollToContact} onChangeSlide={handleSlideChangeCambodia} id='cambodia' />
+				<Cambodia
+					scrollToContact={scrollToContact}
+					onChangeSlide={handleSlideChangeCambodia}
+					id='cambodia'
+				/>
 			</div>
 			{/* <div  ref={sectionRefs[2]}><Acquaintance /></div> */}
 			<div ref={sectionRefs[2]}>
@@ -238,6 +245,7 @@ function Home() {
 			<div ref={sectionRefs[6]}>
 				<Arch onChangeSlide={handleSlideChangeDesc} />
 			</div>
+
 			<div ref={sectionRefs[7]}>
 				<Video />
 			</div>
@@ -263,18 +271,14 @@ function Home() {
 						<p>ВНИЗ</p>
 						<img src='/images/icon/arrow-down-questions.svg' alt='Arrow Down' />
 					</div>
-				)}{
-					showShare && (
-						<div className="share_section">
-					<p>Поделиться</p>
-					<button className='share_close' >
-							<img
-								onClick={toggleShareForm}
-								src='mobile/close.png'
-								alt=''
-							/>
+				)}
+				{showShare && (
+					<div className='share_section'>
+						<p>Поделиться</p>
+						<button className='share_close'>
+							<img onClick={toggleShareForm} src='mobile/close.png' alt='' />
 						</button>
-				<div className='links' style={{ margin:0 }}>
+						<div className='links' style={{ margin: 0 }}>
 							<a href=''>
 								<img src='images/icon/icon-inst.svg' alt='' />
 							</a>
@@ -291,11 +295,14 @@ function Home() {
 								<img src='images/icon/whatss.svg' alt='' />
 							</a>
 						</div>
-				</div>
-					)
-				}
-				
-				<img onClick={toggleShareForm} src='/images/icon/share-icon.svg' alt='Share' />
+					</div>
+				)}
+
+				<img
+					onClick={toggleShareForm}
+					src='/images/icon/share-icon.svg'
+					alt='Share'
+				/>
 			</div>
 			{showContact && (
 				<div className='form__section' style={contactFormStyle}>
