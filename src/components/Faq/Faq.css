@@ -4,12 +4,25 @@
 }
 
 .faq_section {
-	margin-top: 73px;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: row;
+	justify-content: space-between;
 	width: 97%;
+	height: max-content;
+	gap: 30px;
+	margin-top: 50px;
 }
 
-.faq_section h2 {
-	max-width: 337px;
+.faq_inner {
+	display: flex;
+	align-items: start;
+	height: 100vh;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.faq_title {
 	font-size: 47px;
 	color: #cdac6d;
 	font-weight: 300;
@@ -24,8 +37,9 @@
 }
 
 .acardenon {
-	border: 1px solid #fff;
+	border: 0.5px solid #fff;
 	padding: 10px 12px;
+	max-width: 530px;
 }
 
 .acardenon_up {
@@ -50,9 +64,66 @@
 .arrow_down {
 	rotate: 0;
 	transition: rotate 0.5s;
+	width: 13px;
+	height: 27px;
 }
 
 .arrow_top {
 	rotate: 180deg;
 	transition: rotate 0.5s;
+	width: 13px;
+	height: 27px;
+}
+
+.faq_btn {
+	background-color: #cdac6d;
+	color: #000;
+	padding: 17px 30px;
+	text-transform: uppercase;
+	display: block;
+	max-width: 380px;
+	text-align: center;
+}
+
+.faq_btn_text {
+	font-size: 13px;
+	font-weight: 300;
+	width: 200px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+@media (max-width: 1440px) {
+	.faq_title {
+		max-width: auto;
+		font-size: 66px;
+		color: #cdac6d;
+		font-weight: 300;
+		text-transform: uppercase;
+		margin-bottom: 15px;
+	}
+}
+
+@media (max-width: 768px) {
+	.faq_title {
+		font-size: 46px;
+		text-align: center;
+	}
+	.faq_section {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 97%;
+		height: max-content;
+		gap: 30px;
+		margin-top: 50px;
+	}
+	.faq_inner {
+		align-items: center;
+		width: 94%;
+	}
+	.faq_btn,
+	.faq_btn_text {
+		display: none;
+	}
 }

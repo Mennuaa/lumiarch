@@ -28,6 +28,10 @@
 	margin: 0 auto;
 }
 
+.middle_button {
+	display: none;
+}
+
 @media (max-width: 768px) {
 	.middle_texts h2 {
 		font-size: 17px;
@@ -43,16 +47,17 @@
 		right: 0;
 		height: max-content;
 		justify-content: end;
+		z-index: 10;
 	}
 	.middle_button a {
 		display: inline-block;
 		transform: rotate(90deg);
 		white-space: nowrap;
-		font-size: 18px; /* Adjust as needed */
-		padding: 10px; /* Adjust as needed */
-		background-color: #d3b486; /* Adjust as needed */
-		color: #ffffff; /* Adjust as needed */
-		font-weight: bold; /* Adjust as needed */
+		font-size: 18px;
+		padding: 10px;
+		background-color: #d3b486;
+		color: #ffffff;
+		font-weight: bold;
 		position: absolute;
 		right: -61px;
 	}

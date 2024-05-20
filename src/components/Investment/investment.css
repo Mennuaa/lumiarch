@@ -8,8 +8,8 @@
 
 .investment_section {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	align-items: start;
+	margin-top: 200px;
 	flex-direction: column;
 	min-height: 100vh;
 }
@@ -26,7 +26,6 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-
 	gap: 7px;
 }
 
@@ -38,11 +37,11 @@
 }
 .investment {
 	background-size: cover;
-	/* background-position: center; */
 }
 
 .investment_section-text h2 {
 	color: #fff;
+	text-transform: uppercase;
 }
 
 .investment_section-text p,
@@ -57,11 +56,8 @@
 	margin-top: 20px;
 }
 
-.second_icon img {
-	margin: 0 auto;
-	text-align: center;
-	width: 30%;
-	display: flex;
+.second_icon {
+	display: none;
 }
 
 .investment_icons img {
@@ -212,6 +208,111 @@
 	color: #fff;
 	margin-top: 10px;
 }
+.visa {
+	display: none;
+}
+
+@media (max-width: 1440px) {
+	.investment_section-text h2 {
+		font-size: 72px;
+		line-height: 72px;
+		max-width: 900px;
+	}
+	.investment_section-text p,
+	.list {
+		color: #fff;
+		font-weight: 300;
+		font-size: 24px;
+		line-height: normal;
+		max-width: 800px;
+	}
+	.list {
+		gap: 30px;
+	}
+	.clue_section p,
+	.clue_section h6 {
+		font-size: 19px;
+		line-height: normal;
+	}
+	.clue img {
+		width: 30px;
+		height: 30px;
+	}
+	.inputs {
+		width: 460px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.investment_section-text h2 {
+		font-size: 52px;
+		line-height: normal;
+	}
+	.investment_section-text p,
+	.list {
+		font-size: 20px;
+		line-height: normal;
+	}
+	.clue_section p,
+	.clue_section h6 {
+		font-size: 16px;
+	}
+	.clue img {
+		width: 20px;
+		height: 20px;
+	}
+	.inputs {
+		width: 460px;
+	}
+}
+
+@media (max-width: 768px) {
+	.investment_section-text h2 {
+		font-size: 42px;
+		max-width: 500px;
+	}
+	.visa {
+		display: block;
+		margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 640px) {
+	.investment_section-text h2 {
+		max-width: 525px;
+		font-size: 30px;
+	}
+	.investment_section-text p,
+	.list {
+		font-size: 16px;
+		line-height: normal;
+		max-width: 500px;
+	}
+
+	.investment_section {
+		display: flex;
+		align-items: start;
+		justify-content: center;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+}
+
+@media (max-width: 540px) {
+	.investment_section-text h2 {
+		max-width: 400px;
+		font-size: 30px;
+	}
+	.investment_section-text p,
+	.list {
+		font-size: 16px;
+		line-height: normal;
+		max-width: 350px;
+	}
+	.inputs {
+		max-width: 360px;
+	}
+}
 
 @media (max-width: 440px) {
 	.investment_section-text h2,
@@ -220,14 +321,35 @@
 	.inputs {
 		max-width: 330px;
 	}
+	.investment_section-text h2 {
+		font-size: 23px;
+	}
+	.investment_section-text p {
+		font-size: 15px;
+	}
 	.slider {
 		margin-top: 90px;
 	}
 	.visa {
+		display: block;
 		width: 150px;
 		position: relative;
 		z-index: 1;
 		margin: 0 0 30px;
+	}
+
+	.investment_section {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin: 100px 0;
+		min-height: 100vh;
+	}
+	.second_icon {
+		display: block;
+		width: 100px;
+		margin: 0 auto;
 	}
 }
 
@@ -298,84 +420,4 @@
 
 .slider_scroll-progres_bar {
 	transition: left 0.5s ease-in-out;
-}
-
-@media (min-width: 1180px) {
-	.investment_section-text h2 {
-		color: #fff;
-		font-size: 52px;
-		width: 900px;
-		line-height: 70px;
-	}
-
-	.investment_section-text p,
-	.list {
-		color: #fff;
-		font-weight: 300;
-		font-size: 24px;
-		line-height: 32px;
-	}
-
-	.second_icon img {
-		margin: 0 auto;
-		text-align: center;
-		width: 10%;
-		display: flex;
-	}
-}
-
-@media (min-width: 1024px) {
-	.investment_section-text h2 {
-		color: #fff;
-		font-size: 42px;
-		width: 700px;
-		line-height: 50px;
-	}
-
-	.investment_section-text p,
-	.list {
-		color: #fff;
-		font-weight: 300;
-		font-size: 16px;
-		line-height: 32px;
-	}
-
-	.second_icon img {
-		margin: 0 auto;
-		text-align: center;
-		width: 10%;
-		display: flex;
-	}
-}
-
-@media (min-width: 768px) {
-	.investment_section-text h2 {
-		color: #fff;
-		font-size: 42px;
-		width: 600px;
-		line-height: 50px;
-	}
-
-	.investment_section-text p,
-	.list li {
-		color: #fff;
-		font-weight: 300;
-		font-size: 14px;
-		width: 600px;
-
-		line-height: 32px;
-	}
-
-	.second_icon img {
-		margin: 0 auto;
-		text-align: center;
-		width: 10%;
-		display: flex;
-	}
-}
-
-@media (min-width: 425px) {
-	.investment_section {
-		margin-top: 60px;
-	}
 }

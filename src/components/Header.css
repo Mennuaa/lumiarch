@@ -59,7 +59,7 @@
 	transition: left 1s ease-in-out;
 	background: url('/public/mobile/menu_fon.webp') center no-repeat;
 	width: 100%;
-	max-width: 375px;
+	max-width: 768px;
 	height: max-content;
 	min-height: 100vh;
 	position: fixed;
@@ -72,6 +72,8 @@
 	background: url('/public/mobile/menu_fon.webp') center no-repeat;
 	width: 100%;
 	transition: left 1s ease-in-out;
+	max-width: 768px;
+
 	background-position: right;
 	background-size: cover;
 	height: max-content;
@@ -79,8 +81,19 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 10;
 	padding: 24px 36px;
+}
+
+.burger__overflow {
+	background-color: rgba(0, 0, 0, 0.509);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 0;
+	overflow: visible;
 }
 
 .burger_close {
@@ -92,13 +105,16 @@
 }
 
 .burger_menu {
-	display: grid;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto 0;
 	gap: 10px;
 	list-style: none;
 	text-transform: uppercase;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+	position: relative;
+	height: 50vh;
+	margin-top: 25%;
 	font-size: 32px;
 }
 
@@ -108,16 +124,11 @@
 }
 
 .links {
-	position: absolute;
-	bottom: 36px;
-	width: max-content;
 	margin: 0 auto;
 	display: flex;
-	justify-content: center;
 	font-weight: 300;
 	gap: 25px;
-	left: 50%;
-	transform: translateX(-50%);
+	margin-top: 100px;
 }
 
 .links a img {

@@ -13,7 +13,6 @@
 	text-align: center;
 	font-size: 23px;
 	font-weight: 300;
-	color: #cdac6d;
 	margin-top: 5px;
 	text-transform: uppercase;
 }
@@ -22,6 +21,7 @@
 	font-weight: 300;
 	font-size: 15px;
 	margin-top: 5px;
+	margin-bottom: 40px;
 }
 
 .wealth_section p span {
@@ -30,7 +30,7 @@
 
 .images {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(4, 1fr);
 	width: 93%;
 	gap: 9px;
 	margin-top: 5px;
@@ -42,17 +42,84 @@
 	height: 90px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1440px) {
 	.images img {
 		width: 100%;
 		height: 100%;
 	}
-	.images {
-		width: 100%;
+	.wealth_section h2 {
+		text-align: start;
+		font-size: 66px;
+		font-weight: normal;
+		text-transform: uppercase;
+		color: #cdac6d;
+	}
+
+	.wealth_section h3 {
+		text-align: start;
+		font-size: 35px;
+		font-weight: 300;
+		margin-top: 5px;
+		margin-bottom: 20px;
+		text-transform: uppercase;
 	}
 	.wealth_section p {
 		font-weight: 300;
 		font-size: 24px;
+		margin-top: 5px;
+	}
+	.images {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.images img {
+		width: 100%;
+		height: 100%;
+	}
+	.wealth_section h2 {
+		text-align: center;
+		font-size: 35px;
+		font-weight: normal;
+		text-transform: uppercase;
+		color: #fff;
+	}
+
+	.wealth_section h3 {
+		text-align: center;
+		font-size: 23px;
+		color: #cdac6d;
+	}
+	.wealth_section p {
+		font-weight: 300;
+		font-size: 15px;
+		margin-top: 5px;
+	}
+	.images {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		width: 95%;
+		gap: 9px;
+		margin-top: 5px;
+	}
+
+	.wealth_section p {
+		font-weight: 300;
+		font-size: 15px;
+		margin-top: 5px;
+	}
+}
+
+@media screen and (max-width: 545px) {
+	.images {
+		grid-template-columns: repeat(2, 1fr);
+		width: 95%;
+	}
+
+	.wealth_section p {
+		font-weight: 300;
+		font-size: 12px;
 		margin-top: 5px;
 	}
 }

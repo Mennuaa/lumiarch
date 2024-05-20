@@ -1,7 +1,7 @@
 .video {
 	width: 100%;
+	min-height: 100vh;
 	height: max-content;
-	/* min-height: 100vh; */
 }
 
 .video_section {
@@ -39,9 +39,35 @@
 	width: 80px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1440px) {
 	.video_video video {
-		height: 50%;
 		width: 100%;
+		height: 600px;
+	}
+
+	.video_section p {
+		display: none;
+	}
+
+	.video_section h2 {
+		display: none;
+	}
+	.video_section {
+		padding: 100px 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.video_video video {
+		width: 100%;
+		height: 600px;
+	}
+
+	.video_section p {
+		display: block;
+	}
+
+	.video_section h2 {
+		display: block;
 	}
 }

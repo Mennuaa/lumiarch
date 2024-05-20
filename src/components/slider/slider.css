@@ -1,13 +1,10 @@
-.slider_sec{
-	/* position: absolute; */
-	/* bottom: 0; */
+.slider_sec {
 	width: 90vw;
 	padding: 10px;
 }
 .slider_scroll-progres_bar {
 	transition: left 0.5s ease-in-out;
 }
-
 
 .slider {
 	margin-top: 150px;
@@ -31,10 +28,16 @@
 	width: 100%;
 	gap: 3px;
 }
-.slider_scroll-amount{
+.slider_scroll-amount {
 	transition: all 0.5s ease-in-out;
-	font-weight:100;
+	font-weight: 100;
 	position: absolute;
 	bottom: 10px;
+}
 
+@media (max-width: 1440px) {
+	.slider_sec {
+		width: 100%;
+		padding: 10px;
+	}
 }

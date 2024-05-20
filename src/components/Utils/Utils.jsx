@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import './utils.css'
-import ImageSlider from '../slider/Slider'
 import TextSlider from '../slider/TextSlider'
+import './utils.css'
 
 export const Utils = ({ onChangeSlide }) => {
 	const slides = [
 		{
-			label:'Wealth Mansion',
+			label: 'Wealth Mansion',
 			first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",
 			second_text:
 				'Мы предлагаем: гарантированный возврат инвестиций в недвижимость Пном Пеня напрямую от застройщика',
@@ -14,7 +13,7 @@ export const Utils = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
-			label:'Le Condo BKK',
+			label: 'Le Condo BKK',
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -52,13 +51,26 @@ export const Utils = ({ onChangeSlide }) => {
 
 	const progressBarLeft = `${(currentSlide / slides.length) * 100}%`
 
+	const styleMedia = {
+		backgroundColor: currentSlide === 0 ? '#4A4A4A' : '#2566AF',
+		transition: 'background-color 0.5s ease-in-out',
+	}
+
+	const styleDesktop = {
+		background:
+			currentSlide === 0
+				? 'url(mobile/lecondo/galayFon.jpg)'
+				: 'url(mobile/lecondo/galayFon.jpg)',
+		transition: 'background-color 0.5s ease-in-out',
+		backgroundPosition: 'center',
+		backgroundSize: 'cover',
+		backgroundRepeat: 'no-repeat',
+	}
+
 	return (
 		<div
 			className='investment'
-			style={{
-				backgroundColor: currentSlide === 0 ? '#4A4A4A' : '#2566AF',
-				transition: 'background-color 0.5s ease-in-out',
-			}}
+			style={window.innerWidth >= 768 ? styleDesktop : styleMedia}
 		>
 			<div className='container'>
 				<div className='wealth_section '>
@@ -109,11 +121,11 @@ export const Utils = ({ onChangeSlide }) => {
 					)}
 				</div>
 				<TextSlider
-                slides={slides}
-                currentSlide={currentSlide}
-                prevSlide={prevSlide}
-                nextSlide={nextSlide}
-            />
+					slides={slides}
+					currentSlide={currentSlide}
+					prevSlide={prevSlide}
+					nextSlide={nextSlide}
+				/>
 			</div>
 		</div>
 	)

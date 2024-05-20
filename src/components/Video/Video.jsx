@@ -21,7 +21,19 @@ const Video = () => {
 	}
 
 	return (
-		<div className='video'>
+		<div
+			className='video'
+			style={
+				window.innerWidth > 768
+					? {
+							background: 'url(mobile/lecondo/video_bg.jpg)',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat',
+							backgroundPosition: 'center',
+					  }
+					: {}
+			}
+		>
 			<div className='container'>
 				<div className='video_section'>
 					<p>Посмотрите это впечатляющее</p>
