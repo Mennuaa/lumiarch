@@ -4,6 +4,7 @@ import 'react-awesome-lightbox/build/style.css'
 import './arch.css'
 import ImageSlider from '../slider/Slider'
 import TextSlider from '../slider/TextSlider'
+import { useSwipeable } from 'react-swipeable'
 
 export const Arch = ({ onChangeSlide }) => {
 	const slides = [
@@ -32,14 +33,15 @@ export const Arch = ({ onChangeSlide }) => {
 	const [photoIndex, setPhotoIndex] = useState(0)
 
 	const images = [
-		'mobile/wealth/arch_photos_tumb_1.webp',
-		'mobile/wealth/arch_photos_tumb_2.webp',
-		'mobile/wealth/arch_photos_tumb_3.webp',
-		'images/Screenshot1.png',
-		'images/Screenshot2.png',
-		'images/Screenshot3.png',
-		'images/Screenshot4.png',
+		'mobile/wm_amenities_arch/wm_arch_1_tumb.webp',
+		'mobile/wm_amenities_arch/wm_arch_2_tumb.webp',
+		'mobile/wm_amenities_arch/wm_arch_3_tumb.webp',
+		'mobile/wm_amenities_arch/wm_arch_4_tumb.webp',
+		'mobile/wm_amenities_arch/wm_arch_5_tumb.webp',
+		'mobile/wm_amenities_arch/wm_arch_6_tumb.webp',
+		'mobile/wm_amenities_arch/wm_arch_7_tumb.webp',
 	]
+	const imagesWithoutThumb = images.map(img => img.replace('_tumb', ''));
 
 	const imagess = [
 		'mobile/lecondo/galary1.jpg',
@@ -62,7 +64,12 @@ export const Arch = ({ onChangeSlide }) => {
 		setCurrentSlide(newSlide)
 		onChangeSlide(slides[newSlide])
 	}
-
+	const handlers = useSwipeable({
+        onSwipedLeft: () => nextSlide(),
+        onSwipedRight: () => prevSlide(),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true // This will allow dragging with the mouse as well
+    });
 	function getFirstWordAndRest(text) {
 		const trimmedText = text.trim()
 		const words = trimmedText.split(' ')
@@ -88,7 +95,7 @@ export const Arch = ({ onChangeSlide }) => {
 			}}
 		>
 			<div className='container'>
-				<div className='space_section'>
+				<div className='space_section' {...handlers}>
 					{currentSlide === 0 && (
 						<div className='space'>
 							<h2>Wealth Mansion</h2>
@@ -123,7 +130,7 @@ export const Arch = ({ onChangeSlide }) => {
 								архитекторов. Каждая деталь продумана!
 							</p>
 							<div className='image'>
-								{imagess.map((image, index) => (
+								{images.map((image, index) => (
 									<img
 										key={index}
 										src={image}
@@ -148,10 +155,10 @@ export const Arch = ({ onChangeSlide }) => {
 			</div>
 			{isOpen && (
 				<Lightbox
-				images={images.map(img => ({ url: img }))}
+				images={imagesWithoutThumb.map(img => ({ url: img }))}
 				startIndex={photoIndex}
 				onClose={() => setIsOpen(false)}
-				toolbarButtons={[]} // This effectively hides additional buttons like rotate
+				toolbarButtons={[]}
 			/>
 			)}
 		</div>

@@ -62,3 +62,33 @@
 		right: -61px;
 	}
 }
+.share_section{
+	position: absolute;
+	right: 5px;
+	bottom: 90px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 45px;
+	backdrop-filter: blur(10px);
+	z-index: 10;
+	padding: 5px;
+}
+.share_section button , .share_section button img{
+	background: transparent;
+	border: transparent;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 10px;
+	height: 10px;
+}
+.share_section button img{
+	width: 40px;
+	height: 40px;
+}
+.share_section p{
+	font-weight: 200;
+	font-size: 16px;
+	font-family: 'Rubik', sans-serif;
+}

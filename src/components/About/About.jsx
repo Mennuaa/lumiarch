@@ -2,7 +2,7 @@ import React from 'react'
 import './about.css'
 // Assuming you're using react-toastify for toasts
 
-const About = () => {
+const About = ({scrollToContact}) => {
 	return (
 		<div
 			className='about'
@@ -31,7 +31,7 @@ const About = () => {
 								предложить вам лучшую недвижимость на рынке и обеспечить
 								выгодное вложение ваших инвестиций.
 							</p>
-							<a href=''>оставить заявку</a>
+							<a onClick={scrollToContact}>оставить заявку</a>
 							<p className='about_sector-down'>И получить подробные материалы о налогах и пр.</p>
 						</div>
 						<div className='about_reviews'>
@@ -108,7 +108,7 @@ const About = () => {
 					}}
 				>
 					<div className='container'>
-						<button className='about_button'>оставить заявку</button>
+						<button className='about_button' onClick={scrollToContact}>оставить заявку</button>
 					</div>
 				</div>
 				<div className='container'>

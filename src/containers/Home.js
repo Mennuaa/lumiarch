@@ -31,7 +31,9 @@ function Home() {
 		useRef(null),
 		useRef(null),
 	]
-
+	const scrollToContact = () => {
+		sectionRefs[10].current.scrollIntoView({ behavior: 'smooth' });
+	  };
 	const observer = useRef(
 		new IntersectionObserver(
 			entries => {
@@ -192,6 +194,10 @@ function Home() {
 		backdropFilter: 'blur(10px)',
 		zIndex: 40,
 	}
+	const [showShare , setShowShare] = useState(false)
+	const toggleShareForm = () => {
+		setShowShare(prev => !prev)
+	}
 
 	const handleSlideChange = slide => {
 		setBackground(slide.background)
@@ -211,10 +217,10 @@ function Home() {
 		<div className='home'>
 			<Header sectionRefs={sectionRefs} />
 			<div ref={sectionRefs[0]}>
-				<Investments onChangeSlide={handleSlideChange} />
+				<Investments scrollToContact={scrollToContact} onChangeSlide={handleSlideChange} />
 			</div>
 			<div ref={sectionRefs[1]}>
-				<Cambodia onChangeSlide={handleSlideChangeCambodia} id='cambodia' />
+				<Cambodia scrollToContact={scrollToContact} onChangeSlide={handleSlideChangeCambodia} id='cambodia' />
 			</div>
 			{/* <div  ref={sectionRefs[2]}><Acquaintance /></div> */}
 			<div ref={sectionRefs[2]}>
@@ -236,10 +242,10 @@ function Home() {
 				<Video />
 			</div>
 			<div ref={sectionRefs[8]}>
-				<Faq />
+				<Faq scrollToContact={scrollToContact} />
 			</div>
 			<div ref={sectionRefs[9]}>
-				<About />
+				<About scrollToContact={scrollToContact} />
 			</div>
 			<div ref={sectionRefs[10]}>
 				<Contact />
@@ -250,14 +256,46 @@ function Home() {
 			</div>
 
 			<div className='middle_buttons'>
-				<img src='/images/icon/calculator-icon.svg' alt='Calculator' />
+				{/* <img src='/images/icon/calculator-icon.svg' alt='Calculator' /> */}
+				<div></div>
 				{currentSection < sectionRefs.length - 1 && (
 					<div className='middle_buttons-scroll' onClick={scrollToNextSection}>
 						<p>ВНИЗ</p>
 						<img src='/images/icon/arrow-down-questions.svg' alt='Arrow Down' />
 					</div>
-				)}
-				<img src='/images/icon/share-icon.svg' alt='Share' />
+				)}{
+					showShare && (
+						<div className="share_section">
+					<p>Поделиться</p>
+					<button className='share_close' >
+							<img
+								onClick={toggleShareForm}
+								src='mobile/close.png'
+								alt=''
+							/>
+						</button>
+				<div className='links' style={{ margin:0 }}>
+							<a href=''>
+								<img src='images/icon/icon-inst.svg' alt='' />
+							</a>
+							<a href=''>
+								<img src='images/icon/facebook.svg' alt='' />
+							</a>
+							<a href=''>
+								<img src='images/icon/telega.svg' alt='' />
+							</a>
+							<a href=''>
+								<img src='images/icon/linkedin.svg' alt='' />
+							</a>
+							<a href=''>
+								<img src='images/icon/whatss.svg' alt='' />
+							</a>
+						</div>
+				</div>
+					)
+				}
+				
+				<img onClick={toggleShareForm} src='/images/icon/share-icon.svg' alt='Share' />
 			</div>
 			{showContact && (
 				<div className='form__section' style={contactFormStyle}>

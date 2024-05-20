@@ -3,6 +3,8 @@ import TextSlider from '../slider/TextSlider'
 import './object.css'
 import Lightbox from 'react-awesome-lightbox'
 import 'react-awesome-lightbox/build/style.css'
+import { useSwipeable } from 'react-swipeable';
+
 export const Object = ({ onChangeSlide }) => {
 	const slides = [
 		{
@@ -25,6 +27,12 @@ export const Object = ({ onChangeSlide }) => {
 		},
 	]
 
+	const handlers = useSwipeable({
+        onSwipedLeft: () => nextSlide(),
+        onSwipedRight: () => prevSlide(),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true // This will allow dragging with the mouse as well
+    });
 	const [currentSlide, setCurrentSlide] = useState(0)
 
 	const nextSlide = () => {
@@ -81,7 +89,7 @@ export const Object = ({ onChangeSlide }) => {
 			}}
 		>
 			<div className='container'>
-				<div className='object_section'>
+				<div className='object_section' {...handlers}>
 					{currentSlide === 0 && (
 						<div>
 							<h2>Wealth Mansion</h2>

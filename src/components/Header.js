@@ -4,7 +4,7 @@ export default function Header({ sectionRefs }) {
 	const [burger, setBurger] = useState(false)
 	const [showLogo, setShowLogo] = useState(true)
 	window.onscroll = function () {
-		window.scrollY <= 796 ? setShowLogo(true) : setShowLogo(false)
+		window.scrollY <= 100 ? setShowLogo(true) : setShowLogo(false)
 	}
 	const handleMenuClick = sectionIndex => {
 		setBurger(false) // Close the burger menu

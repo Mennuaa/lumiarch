@@ -3,6 +3,9 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import ImageSlider from '../slider/Slider'
 import './investment.css'
+import { useSwipeable } from 'react-swipeable';
+
+
 const initialSlides = [
 	{
 		first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",
@@ -65,8 +68,13 @@ const initialSlides = [
 		background: '/images/bg6.webp',
 	},
 ]
-export const Investments = ({ onChangeSlide }) => {
-	
+export const Investments = ({ scrollToContact, onChangeSlide }) => {
+	const handlers = useSwipeable({
+        onSwipedLeft: () => nextSlide(),
+        onSwipedRight: () => prevSlide(),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true // This will allow dragging with the mouse as well
+    });
     const [slides, setSlides] = useState(initialSlides);
 
 	const [currentSlide, setCurrentSlide] = useState(0)
@@ -139,7 +147,7 @@ export const Investments = ({ onChangeSlide }) => {
 			<ToastContainer position='top-right' autoClose={5000} />
 
 			<div className='container'>
-				<div className='investment_section'>
+				<div className='investment_section' {...handlers}>
 					<div>
 						{currentSlide === 2 && (
 							<img
@@ -216,7 +224,7 @@ export const Investments = ({ onChangeSlide }) => {
 											ознакомительную информацию о стране, налогах, инсайтах и
 											других подробностях региона, которые могут вам
 											понадобиться для принятия решения.
-											<a href=''>Оставить email сейчас</a>
+											<a onClick={scrollToContact}>Оставить email сейчас</a>
 										</p>
 									</div>
 								</div>

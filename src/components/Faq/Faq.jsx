@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Faq.css'
-const Faq = () => {
+const Faq = ({scrollToContact}) => {
 	const [open, setOpen] = useState(false)
 	const [open1, setOpen1] = useState(false)
 	const [open2, setOpen2] = useState(false)
@@ -101,7 +101,7 @@ const Faq = () => {
 							</div>
 						</div>
 						<div className=''>
-							<a href='' className='faq_btn'>
+							<a onClick={scrollToContact} className='faq_btn'>
 								оставить заявку
 							</a>
 							<p className='faq_btn_text'>

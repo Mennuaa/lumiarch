@@ -1,11 +1,21 @@
 import React from 'react';
 import './slider.css';
+import { useSwipeable } from 'react-swipeable';
+
 function ImageSlider({ slides, currentSlide, prevSlide, nextSlide }) {
     const slidesLength = slides.length ? slides.length : slides;
     const progressBarLeft = `${(100 / slidesLength) * currentSlide}%`;
+
+    const handlers = useSwipeable({
+        onSwipedLeft: () => nextSlide(),
+        onSwipedRight: () => prevSlide(),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true // This will allow dragging with the mouse as well
+    });
+
     return (
         <div className="slider_sec">
-            <div className='slider'>
+            <div className='slider' {...handlers}>
                 <div className='slider_section'>
                     <button className='slider_button' onClick={prevSlide}>
                         <img src='/images/icon/prev.svg' alt='Previous' />

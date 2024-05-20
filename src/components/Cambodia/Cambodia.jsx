@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 import ImageSlider from '../slider/Slider'
 import './cambodia.css'
+import { useSwipeable } from 'react-swipeable';
 
-export const Cambodia = () => {
+export const Cambodia = ({scrollToContact}) => {
 	const [currentSlide, setCurrentSlide] = useState(0)
 	const slides = 4
 
+	const handlers = useSwipeable({
+        onSwipedLeft: () => nextSlide(),
+        onSwipedRight: () => prevSlide(),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true // This will allow dragging with the mouse as well
+    });
 	const nextSlide = () => setCurrentSlide((currentSlide + 1) % slides)
 	const prevSlide = () => setCurrentSlide((currentSlide - 1 + slides) % slides)
 
@@ -31,11 +38,11 @@ export const Cambodia = () => {
 			<img style={getImageStyle()} src='/mobile/2 cambodia/woman.png' alt='' />
 			{window.innerWidth < 1024 ? (
 				<div className='container'>
-					<div className='cambodia_section'>
+					<div className='cambodia_section' {...handlers}>
 						{currentSlide === 0 && (
 							<div>
 								<div className='about_cambodia'>
-									<h2>О Камбодже</h2>
+									<h2 style={{ textTransform: 'uppercase' }}>О Камбодже</h2>
 									<p>
 										Сегодня Камбоджа — это не только туристический рай, куда
 										приезжают ради красивой тропической природы и древних
@@ -140,7 +147,7 @@ export const Cambodia = () => {
 									</h2>
 								</div>
 								<div className='cambodia_last_texts'>
-									<button>оставить заявку</button>
+									<button onClick={scrollToContact}>оставить заявку</button>
 									<p>И получить подробные материалы о налогах и пр.</p>
 								</div>
 							</div>

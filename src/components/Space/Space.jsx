@@ -2,11 +2,36 @@ import React, { useState } from 'react'
 import './space.css'
 import ImageSlider from '../slider/Slider'
 import TextSlider from '../slider/TextSlider'
+import Lightbox from 'react-awesome-lightbox'
+import 'react-awesome-lightbox/build/style.css'
+import { useSwipeable } from 'react-swipeable';
 
+const imageDetails = [
+	{ src: 'mobile/wm_amenities_arch/wm_public_1_tumb.webp', title: '01', description: 'Бассейн с видом на город' },
+	{ src: 'mobile/wm_amenities_arch/wm_public_2_tumb.webp', title: '02', description: 'Sky Garden' },
+	{ src: 'mobile/wm_amenities_arch/wm_public_3_tumb.webp', title: '03', description: 'Детская игровая зона' },
+	{ src: 'mobile/wm_amenities_arch/wm_public_4_tumb.webp', title: '04', description: 'Библиотека' },
+	{ src: 'mobile/wm_amenities_arch/wm_public_5_tumb.webp', title: '05', description: 'Фитнесс-зал' },
+	{ src: 'mobile/wm_amenities_arch/wm_public_6_tumb.webp', title: '06', description: 'Sky-бар' },
+];
+const images = [
+	'mobile/wm_amenities_arch/wm_public_1_tumb.webp',
+	'mobile/wm_amenities_arch/wm_public_2_tumb.webp',
+	'mobile/wm_amenities_arch/wm_public_3_tumb.webp',
+	'mobile/wm_amenities_arch/wm_public_4_tumb.webp',
+	'mobile/wm_amenities_arch/wm_public_5_tumb.webp',
+	'mobile/wm_amenities_arch/wm_public_6_tumb.webp',
+  ];
+ 
+  const imagesWithoutThumb = images.map(img => img.replace('_tumb', ''));
+  
 export const Space = ({ onChangeSlide }) => {
+	const [photoIndex, setPhotoIndex] = useState(null);
+	const [isOpen, setIsOpen] = useState(false);
+
 	const slides = [
 		{
-			label:'Wealth Mansion',
+			label: 'Wealth Mansion',
 
 			first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",
 			second_text:
@@ -15,7 +40,7 @@ export const Space = ({ onChangeSlide }) => {
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
-			label:'Le Condo BKK',
+			label: 'Le Condo BKK',
 			first_text:
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
@@ -39,6 +64,12 @@ export const Space = ({ onChangeSlide }) => {
 		setCurrentSlide(newSlide)
 		onChangeSlide(slides[newSlide])
 	}
+	const handlers = useSwipeable({
+		onSwipedLeft: () => nextSlide(),
+		onSwipedRight: () => prevSlide(),
+		preventDefaultTouchmoveEvent: true,
+		trackMouse: true // This will allow dragging with the mouse as well
+	});
 	function getFirstWordAndRest(text) {
 		const trimmedText = text.trim()
 		const words = trimmedText.split(' ')
@@ -63,7 +94,7 @@ export const Space = ({ onChangeSlide }) => {
 			}}
 		>
 			<div className='container'>
-				<div className='space_section '>
+				<div className='space_section ' {...handlers}>
 					{currentSlide === 0 && (
 						<div className='space'>
 							<h2>Wealth Mansion</h2>
@@ -75,36 +106,21 @@ export const Space = ({ onChangeSlide }) => {
 								увеличить и прочитать подробности.
 							</p>
 							<div className='blocks'>
-								<div className='block'>
-									<img src='mobile/wealth/JK1.jpg' alt='' />
-									<h2>01</h2>
-									<p>Infinity-бассейн на крыше</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/wealth/JK2.jpg' alt='' />
-									<h2>02</h2>
-									<p>Мишленовский ресторан</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/wealth/JK3.jpg' alt='' />
-									<h2>03</h2>
-									<p>Спортзал</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/wealth/JK4.jpg' alt='' />
-									<h2>04</h2>
-									<p>Коворкинг</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/wealth/JK5.jpg' alt='' />
-									<h2>05</h2>
-									<p>Детская игровая зона</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/wealth/JK6.jpg' alt='' />
-									<h2>06</h2>
-									<p>Конференц-зал</p>
-								</div>
+							{imageDetails.map((image, index) => (
+									<div className='block' key={index}>
+										<img
+											src={image.src}
+											alt=''
+											onClick={() => {
+												setPhotoIndex(index);
+												setIsOpen(true);
+											}}
+											style={{ cursor: 'pointer', margin: '5px' }}
+										/>
+										<h2>{image.title}</h2>
+										<p>{image.description}</p>
+									</div>
+								))}
 							</div>
 						</div>
 					)}
@@ -120,46 +136,39 @@ export const Space = ({ onChangeSlide }) => {
 								увеличить и прочитать подробности.
 							</p>
 							<div className='blocks'>
-								<div className='block'>
-									<img src='mobile/lecondo/JK1.jpg' alt='' />
-									<h2>01</h2>
-									<p>Бассейн с видом на город</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/lecondo/JK2.jpg' alt='' />
-									<h2>02</h2>
-									<p>Sky Garden</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/lecondo/JK3.jpg' alt='' />
-									<h2>03</h2>
-									<p>Детская игровая зона</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/lecondo/JK4.jpg' alt='' />
-									<h2>04</h2>
-									<p>Библиотека</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/lecondo/JK5.jpg' alt='' />
-									<h2>05</h2>
-									<p>Фитнесс-зал</p>
-								</div>
-								<div className='block'>
-									<img src='mobile/lecondo/JK6.jpg' alt='' />
-									<h2>06</h2>
-									<p>Sky-бар</p>
-								</div>
+								{imageDetails.map((image, index) => (
+									<div className='block' key={index}>
+										<img
+											src={image.src}
+											alt=''
+											onClick={() => {
+												setPhotoIndex(index);
+												setIsOpen(true);
+											}}
+											style={{ cursor: 'pointer', margin: '5px' }}
+										/>
+										<h2>{image.title}</h2>
+										<p>{image.description}</p>
+									</div>
+								))}
 							</div>
 						</div>
 					)}
 				</div>
 				<TextSlider
-                slides={slides}
-                currentSlide={currentSlide}
-                prevSlide={prevSlide}
-                nextSlide={nextSlide}
-            />
+					slides={slides}
+					currentSlide={currentSlide}
+					prevSlide={prevSlide}
+					nextSlide={nextSlide}
+				/>
+				{isOpen && (
+				<Lightbox
+				images={imagesWithoutThumb.map(img => ({ url: img }))}
+				startIndex={photoIndex}
+				onClose={() => setIsOpen(false)}
+				toolbarButtons={[]}
+			/>
+			)}
 			</div>
 		</div>
 	)

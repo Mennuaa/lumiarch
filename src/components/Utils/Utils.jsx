@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import TextSlider from '../slider/TextSlider'
 import './utils.css'
-
+import Lightbox from 'react-awesome-lightbox'
+import 'react-awesome-lightbox/build/style.css'
+import { useSwipeable } from 'react-swipeable'
 export const Utils = ({ onChangeSlide }) => {
+	const [isOpen, setIsOpen] = useState(false)
+	const [photoIndex, setPhotoIndex] = useState(0)
 	const slides = [
 		{
 			label: 'Wealth Mansion',
@@ -23,7 +27,12 @@ export const Utils = ({ onChangeSlide }) => {
 			icons: ['/images/icon4.svg', '/images/icon5.svg', '/images/icon6.svg'],
 		},
 	]
-
+	const handlers = useSwipeable({
+        onSwipedLeft: () => nextSlide(),
+        onSwipedRight: () => prevSlide(),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true // This will allow dragging with the mouse as well
+    });
 	const [currentSlide, setCurrentSlide] = useState(0)
 
 	const nextSlide = () => {
@@ -66,6 +75,20 @@ export const Utils = ({ onChangeSlide }) => {
 		backgroundSize: 'cover',
 		backgroundRepeat: 'no-repeat',
 	}
+	const images = [
+		// 'WM_unit_photos/wm_unit_._thumb.webp',
+		'mobile/WM_unit_photos/wm_unit_1_tumb.webp',
+		'mobile/WM_unit_photos/wm_unit_2_tumb.webp',
+		'mobile/WM_unit_photos/wm_unit_3_tumb.webp',
+		'mobile/WM_unit_photos/wm_unit_4_tumb.webp',
+		'mobile/WM_unit_photos/wm_unit_5_tumb.webp',
+		'mobile/WM_unit_photos/wm_unit_6_tumb.webp',
+		'mobile/WM_unit_photos/wm_unit_7_tumb.webp',
+		'mobile/WM_unit_photos/wm_unit_8_tumb.webp',
+		'mobile/WM_unit_photos/wm_unit_9_tumb.webp',
+		'mobile/WM_unit_photos/wm_unit_1_tumb.webp',
+	]
+	const imagesWithoutThumb = images.map(img => img.replace('_tumb', ''));
 
 	return (
 		<div
@@ -73,7 +96,7 @@ export const Utils = ({ onChangeSlide }) => {
 			style={window.innerWidth >= 768 ? styleDesktop : styleMedia}
 		>
 			<div className='container'>
-				<div className='wealth_section '>
+				<div className='wealth_section ' {...handlers}>
 					{currentSlide === 0 && (
 						<div className='wealth'>
 							<h2>Wealth Mansion</h2>
@@ -83,16 +106,18 @@ export const Utils = ({ onChangeSlide }) => {
 								квартиры и виллы.
 							</p>
 							<div className='images'>
-								<img src='mobile/wealth/photo.jpg' alt='' />
-								<img src='mobile/wealth/photo2.jpg' alt='' />
-								<img src='mobile/wealth/photo3.jpg' alt='' />
-								<img src='mobile/wealth/photo4.jpg' alt='' />
-								<img src='mobile/wealth/photo5.jpg' alt='' />
-								<img src='mobile/wealth/photo6.jpg' alt='' />
-								<img src='mobile/wealth/photo7.jpg' alt='' />
-								<img src='mobile/wealth/photo8.jpg' alt='' />
-								<img src='mobile/wealth/photo9.jpg' alt='' />
-								<img src='mobile/wealth/photo10.jpg' alt='' />
+								{images.map((image, index) => (
+									<img
+										key={index}
+										src={image}
+										alt=''
+										onClick={() => {
+											setPhotoIndex(index)
+											setIsOpen(true)
+										}}
+										style={{ cursor: 'pointer', margin: '5px' }}
+									/>
+								))}
 							</div>
 						</div>
 					)}
@@ -106,16 +131,18 @@ export const Utils = ({ onChangeSlide }) => {
 								квартиры и виллы.
 							</p>
 							<div className='images'>
-								<img src='mobile/lecondo/photo1.jpg' alt='' />
-								<img src='mobile/lecondo/photo2.jpg' alt='' />
-								<img src='mobile/lecondo/photo3.jpg' alt='' />
-								<img src='mobile/lecondo/photo4.jpg' alt='' />
-								<img src='mobile/lecondo/photo5.jpg' alt='' />
-								<img src='mobile/lecondo/photo6.jpg' alt='' />
-								<img src='mobile/lecondo/photo7.jpg' alt='' />
-								<img src='mobile/lecondo/photo8.jpg' alt='' />
-								<img src='mobile/lecondo/photo9.jpg' alt='' />
-								<img src='mobile/lecondo/photo10.jpg' alt='' />
+							{images.map((image, index) => (
+									<img
+										key={index}
+										src={image}
+										alt=''
+										onClick={() => {
+											setPhotoIndex(index)
+											setIsOpen(true)
+										}}
+										style={{ cursor: 'pointer', margin: '5px' }}
+									/>
+								))}
 							</div>
 						</div>
 					)}
@@ -126,6 +153,14 @@ export const Utils = ({ onChangeSlide }) => {
 					prevSlide={prevSlide}
 					nextSlide={nextSlide}
 				/>
+				{isOpen && (
+					<Lightbox
+						images={imagesWithoutThumb.map(img => ({ url: img }))}
+						startIndex={photoIndex}
+						onClose={() => setIsOpen(false)}
+						toolbarButtons={[]}
+					/>
+				)}
 			</div>
 		</div>
 	)
