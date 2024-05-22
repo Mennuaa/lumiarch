@@ -18,19 +18,18 @@
 		font-size: 24px;
 	}
 }
-.object_section{
-	padding: 50px;
+.object_section {
+	padding: 50px 0;
 	background-repeat: no-repeat;
 }
 
-.large_wealth{
+.large_wealth {
 	margin-top: 10px;
 	display: flex;
-	gap: 40px;
 	justify-content: space-between;
 	align-items: end;
 }
-.large_wealth img{
+.large_wealth img {
 	width: 300px;
 	height: 160px;
 }

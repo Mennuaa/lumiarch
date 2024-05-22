@@ -73,7 +73,13 @@ const initialSlides = [
 		backgroundLarge: '/desktop/main/bg6.webp',
 	},
 ]
-export const Investments = ({sectionRefs , scrollToContact, onChangeSlide, quickMenu , setBurger }) => {
+export const Investments = ({
+	sectionRefs,
+	scrollToContact,
+	onChangeSlide,
+	quickMenu,
+	setBurger,
+}) => {
 	const handlers = useSwipeable({
 		onSwipedLeft: () => nextSlide(),
 		onSwipedRight: () => prevSlide(),
@@ -244,7 +250,7 @@ export const Investments = ({sectionRefs , scrollToContact, onChangeSlide, quick
 													: {
 															display: 'grid',
 													  },
-												window.innerWidth < 600
+												window.innerWidth < 1024
 													? {
 															display: 'grid',
 															gap: '20px',
@@ -310,20 +316,24 @@ export const Investments = ({sectionRefs , scrollToContact, onChangeSlide, quick
 								</div>
 							)}
 						</div>
-						{quickMenu && window.innerWidth > 1024  && (
+						{quickMenu && window.innerWidth > 1024 && currentSlide == 0 && (
 							<div className='quick_menu'>
 								<p>Быстрое меню</p>
 								<ul>
-								<li onClick={() => handleMenuClick(0)}>главная</li>
-							<li onClick={() => handleMenuClick(1)}>О Камбодже</li>
-							<li onClick={() => handleMenuClick(3)}>Wealth Mansion </li>
-							<li onClick={() => handleMenuClick(2)}>Le Conde</li>
-							<li onClick={() => handleMenuClick(7)}>видео</li>
-							{/* <li onClick={() => handleMenuClick(4)}>карта</li> */}
-							<li onClick={() => handleMenuClick(8)}>FAQ</li>
-							<li onClick={() => handleMenuClick(9)}>О НАС</li>
+									<li onClick={() => handleMenuClick(0)}>главная</li>
+									<li onClick={() => handleMenuClick(1)}>О Камбодже</li>
+									<li onClick={() => handleMenuClick(3)}>Wealth Mansion </li>
+									<li onClick={() => handleMenuClick(2)}>Le Conde</li>
+									<li onClick={() => handleMenuClick(7)}>видео</li>
+									{/* <li onClick={() => handleMenuClick(4)}>карта</li> */}
+									<li onClick={() => handleMenuClick(8)}>FAQ</li>
+									<li onClick={() => handleMenuClick(9)}>О НАС</li>
 								</ul>
-								<a style={{ cursor: 'pointer' }} onClick={() => setBurger(true)} className=''>
+								<a
+									style={{ cursor: 'pointer' }}
+									onClick={() => setBurger(true)}
+									className=''
+								>
 									Ещё
 								</a>
 							</div>
