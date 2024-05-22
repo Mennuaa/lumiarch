@@ -213,13 +213,17 @@ function Home() {
 	const handleSlideChangeDesc = slide => {
 		setBackground(slide.background)
 	}
+	const [burger, setBurger] = useState(false)
+
 
 	const quickMenu = window.innerWidth > 1024 ? true : false
 	return (
 		<div className='home'>
-			<Header sectionRefs={sectionRefs} quickMenu={quickMenu} />
+			<Header sectionRefs={sectionRefs} quickMenu={quickMenu} burger={burger}  setBurger={setBurger}/>
 			<div ref={sectionRefs[0]}>
 				<Investments
+				sectionRefs={sectionRefs}
+				setBurger={setBurger}
 					scrollToContact={scrollToContact}
 					onChangeSlide={handleSlideChange}
 					quickMenu={quickMenu}

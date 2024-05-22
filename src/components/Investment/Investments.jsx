@@ -73,12 +73,12 @@ const initialSlides = [
 		backgroundLarge: '/desktop/main/bg6.webp',
 	},
 ]
-export const Investments = ({ scrollToContact, onChangeSlide, quickMenu }) => {
+export const Investments = ({sectionRefs , scrollToContact, onChangeSlide, quickMenu , setBurger }) => {
 	const handlers = useSwipeable({
 		onSwipedLeft: () => nextSlide(),
 		onSwipedRight: () => prevSlide(),
 		preventDefaultTouchmoveEvent: true,
-		trackMouse: true, // This will allow dragging with the mouse as well
+		trackMouse: true,
 	})
 	const [slides, setSlides] = useState(initialSlides)
 
@@ -142,7 +142,10 @@ export const Investments = ({ scrollToContact, onChangeSlide, quickMenu }) => {
 	)
 	const progressBarLeft = `${(currentSlide / slides.length) * 110}%`
 	const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 764)
-
+	const handleMenuClick = sectionIndex => {
+		setBurger(false) // Close the burger menu
+		sectionRefs[sectionIndex].current.scrollIntoView({ behavior: 'smooth' }) // Scroll to the section
+	}
 	useEffect(() => {
 		const handleResize = () => {
 			setIsLargeScreen(window.innerWidth > 764)
@@ -307,18 +310,20 @@ export const Investments = ({ scrollToContact, onChangeSlide, quickMenu }) => {
 								</div>
 							)}
 						</div>
-						{quickMenu && window.innerWidth > 1024 && currentSlide == 0 && (
+						{quickMenu && window.innerWidth > 1024  && (
 							<div className='quick_menu'>
 								<p>Быстрое меню</p>
 								<ul>
-									<li>О Камбодже</li>
-									<li>Объекты</li>
-									<li>карта</li>
-									<li>investor journey</li>
-									<li>контакты</li>
-									<li>О НАС</li>
+								<li onClick={() => handleMenuClick(0)}>главная</li>
+							<li onClick={() => handleMenuClick(1)}>О Камбодже</li>
+							<li onClick={() => handleMenuClick(3)}>Wealth Mansion </li>
+							<li onClick={() => handleMenuClick(2)}>Le Conde</li>
+							<li onClick={() => handleMenuClick(7)}>видео</li>
+							{/* <li onClick={() => handleMenuClick(4)}>карта</li> */}
+							<li onClick={() => handleMenuClick(8)}>FAQ</li>
+							<li onClick={() => handleMenuClick(9)}>О НАС</li>
 								</ul>
-								<a href='' className=''>
+								<a style={{ cursor: 'pointer' }} onClick={() => setBurger(true)} className=''>
 									Ещё
 								</a>
 							</div>

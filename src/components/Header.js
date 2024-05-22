@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './Header.css'
-export default function Header({ sectionRefs, quickMenu }) {
-	const [burger, setBurger] = useState(false)
+export default function Header({ sectionRefs, quickMenu , burger , setBurger}) {
 	const [showLogo, setShowLogo] = useState(true)
 	window.onscroll = function () {
 		window.scrollY <= 100 ? setShowLogo(true) : setShowLogo(false)
@@ -35,7 +34,7 @@ export default function Header({ sectionRefs, quickMenu }) {
 								</div>
 
 								{!quickMenu ||
-									(window.scrollY > 280 && (
+									(!showLogo && (
 										<div
 											className='menu-icon'
 											onClick={() => setBurger(!burger)}
