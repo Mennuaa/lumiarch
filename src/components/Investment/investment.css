@@ -421,3 +421,9 @@
 .slider_scroll-progres_bar {
 	transition: left 0.5s ease-in-out;
 }
+
+@media screen and (min-width: 768px) {
+	.investment {
+		/* background: url("/public/desktop/1\ main/main-bg-descktop_1.webp"); */
+	}
+}

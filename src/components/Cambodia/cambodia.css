@@ -29,7 +29,12 @@
 	font-weight: 300;
 	margin: 30px 0;
 }
-
+.cambodia{
+	background: url('/public/mobile/2 cambodia/bg-scroll.webp');
+}
+@media screen and (min-width: 768px) {
+	
+}
 .center-side {
 	background-position: center bottom;
 }

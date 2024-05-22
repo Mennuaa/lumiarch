@@ -32,7 +32,7 @@ export const Cambodia = ({scrollToContact}) => {
 
 	return (
 		<div
-			style={{ backgroundImage: `url('mobile/2 cambodia/bg-scroll.webp')` }}
+			
 			className={getClassName()}
 		>
 			<img style={getImageStyle()} src='/mobile/2 cambodia/woman.png' alt='' />

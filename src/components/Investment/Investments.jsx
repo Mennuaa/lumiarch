@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import ImageSlider from '../slider/Slider'
 import './investment.css'
 import { useSwipeable } from 'react-swipeable';
-
 
 const initialSlides = [
 	{
@@ -12,6 +11,7 @@ const initialSlides = [
 		second_text:
 			'Мы предлагаем: гарантированный возврат инвестиций в недвижимость Пном Пеня напрямую от застройщика',
 		background: '/images/bg1.webp',
+		backgroundLarge: '/desktop/main/bg1.webp',
 		icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 	},
 	{
@@ -20,6 +20,7 @@ const initialSlides = [
 		second_text:
 			'№1 по росту ВВП, долларизированная экономика, выгодные условия налогообложения, гарантированный возврат инвестиций',
 		background: '/images/bg2.webp',
+		backgroundLarge: '/desktop/main/bg2.webp',
 		icons: ['/images/icon4.svg', '/images/icon5.svg', '/images/icon6.svg'],
 	},
 	{
@@ -32,12 +33,14 @@ const initialSlides = [
 			'Возможность оплаты в криптовалюте USDT',
 		],
 		background: '/images/bg3.webp',
+		backgroundLarge: '/desktop/main/bg3.webp',
 	},
 	{
 		first_text:
 			'Расчет финансового плана и бесплатная консультация от экспертов',
 		second_text: '',
 		background: '/images/bg4.webp',
+		backgroundLarge: '/desktop/main/bg4.webp',
 		list: [
 			'Мы полностью сопровождаем сделку до и после покупки. Подробнее в разделе Investor Journey',
 			'Наша экспертиза на местном рынке - ваше преимущество',
@@ -48,6 +51,7 @@ const initialSlides = [
 		first_text: 'Роскошные апартаменты для тех, кто ценит жизнь в стиле люкс',
 		second_text: '',
 		background: '/images/bg5.webp',
+		backgroundLarge: '/desktop/main/bg5.webp',
 		list: [
 			'ЖК сдается полностью готовым для жизни. Квартиры с эффектным дизайном “под ключ”.',
 			'В комплексе есть все удобства: Infinity-бассейн на крыше, Sky-бар, тренажерный зал, спа-зона, детская зона, магазины, ресторан Мишлен и многое другое.',
@@ -66,8 +70,9 @@ const initialSlides = [
 			'Нажимая на кнопку, вы принимаете политику конфиденциальности и даете согласие на обработку персональных данных',
 		terms_done:'Если у вас появятся дополнительные вопросы, вы можете воспользоваться расширенной формой контактов.',
 		background: '/images/bg6.webp',
+		backgroundLarge: '/desktop/main/bg6.webp',
 	},
-]
+];
 export const Investments = ({ scrollToContact, onChangeSlide }) => {
 	const handlers = useSwipeable({
         onSwipedLeft: () => nextSlide(),
@@ -133,12 +138,29 @@ export const Investments = ({ scrollToContact, onChangeSlide }) => {
 		slides[currentSlide].first_text
 	)
 	const progressBarLeft = `${(currentSlide / slides.length) * 110}%`
+	const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 764);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsLargeScreen(window.innerWidth > 764);
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+
+	const backgroundImage = isLargeScreen
+		? slides[currentSlide].backgroundLarge
+		: slides[currentSlide].background;
 
 	return (
 		<div
 			className='investment'
 			style={{
-				backgroundImage: `url(${slides[currentSlide].background})`,
+				backgroundImage: `url(${backgroundImage})`,
 				backgroundPosition: 'center',
 				backgroundSize: 'cover',
 				backgroundRepeat: 'no-repeat',
