@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Header.css'
-export default function Header({ sectionRefs }) {
+export default function Header({ sectionRefs, quickMenu }) {
 	const [burger, setBurger] = useState(false)
 	const [showLogo, setShowLogo] = useState(true)
 	window.onscroll = function () {
@@ -13,25 +13,62 @@ export default function Header({ sectionRefs }) {
 	return (
 		<header className='header'>
 			<div className='container'>
-				<div className='header__inner'>
-					<div className='menu-icon' onClick={() => setBurger(!burger)}>
-						<div className='line'></div>
-						<div className='line'></div>
-						<div className='line'></div>
+				{window.innerWidth > 1024 ? (
+					<div className='header__inner'>
+						<div
+							style={{
+								width: '100%',
+							}}
+						>
+							<div className='header__inner-left'>
+								<div className='header__inner-logo'>
+									<div className='logo-section'>
+										<img src='/images/logo.png' alt='Logo' className='logo' />
+									</div>
+									<div className='stars'>
+										<span className='star'>★</span>
+										<span className='star'>★</span>
+										<span className='star'>☆</span>
+										<span className='star'>☆</span>
+										<span className='star'>☆</span>
+									</div>
+								</div>
+
+								{!quickMenu ||
+									(window.scrollY > 280 && (
+										<div
+											className='menu-icon'
+											onClick={() => setBurger(!burger)}
+										>
+											<div className='line'></div>
+											<div className='line'></div>
+											<div className='line'></div>
+										</div>
+									))}
+							</div>
+						</div>
 					</div>
-					<div className='logo-section'>
-						{showLogo && (
-							<img src='/images/logo.png' alt='Logo' className='logo' />
-						)}
+				) : (
+					<div className='header__inner'>
+						<div className='menu-icon' onClick={() => setBurger(!burger)}>
+							<div className='line'></div>
+							<div className='line'></div>
+							<div className='line'></div>
+						</div>
+						<div className='logo-section'>
+							{showLogo && (
+								<img src='/images/logo.png' alt='Logo' className='logo' />
+							)}
+						</div>
+						<div className='stars'>
+							<span className='star'>★</span>
+							<span className='star'>★</span>
+							<span className='star'>☆</span>
+							<span className='star'>☆</span>
+							<span className='star'>☆</span>
+						</div>
 					</div>
-					<div className='stars'>
-						<span className='star'>★</span>
-						<span className='star'>★</span>
-						<span className='star'>☆</span>
-						<span className='star'>☆</span>
-						<span className='star'>☆</span>
-					</div>
-				</div>
+				)}
 			</div>
 			{burger && (
 				<div className={burger ? 'burger__overflow' : ''}>

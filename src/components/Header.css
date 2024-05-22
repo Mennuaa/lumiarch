@@ -15,6 +15,18 @@
 	justify-content: space-between;
 }
 
+.header__inner-left {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header__inner-logo {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+}
+
 .menu-icon {
 	display: flex;
 	flex-direction: column;
@@ -29,7 +41,7 @@
 }
 
 .logo {
-	max-width: 100px;
+	max-width: 140px;
 	margin-bottom: 10px;
 }
 
@@ -46,12 +58,12 @@
 .stars {
 	display: flex;
 	justify-content: center;
+	gap: 4px;
 }
 
 .star {
-	font-size: 15px;
+	font-size: 30px;
 	color: gold;
-	margin: 0 2px;
 }
 
 .burger {
@@ -133,6 +145,15 @@
 
 .links a img {
 	height: 23px;
+}
+
+@media (max-width: 1024px) {
+	.logo {
+		max-width: 100px;
+	}
+	.star {
+		font-size: 15px;
+	}
 }
 
 @media (min-width: 600px) {

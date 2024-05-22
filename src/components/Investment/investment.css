@@ -60,6 +60,36 @@
 	display: none;
 }
 
+.quick_menu {
+	display: grid;
+	gap: 20px;
+	margin-top: -50px;
+}
+
+.quick_menu p {
+	font-size: 22px;
+	font-weight: 300;
+}
+
+.quick_menu ul {
+	list-style: none;
+	gap: 10px;
+	display: grid;
+}
+
+.quick_menu ul li {
+	font-size: 24px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.quick_menu a {
+	color: #cdac6d;
+	background-color: #ffffff5a;
+	padding: 10px 20px;
+	width: max-content;
+}
+
 .investment_icons img {
 	width: 50px;
 	height: 50px;
