@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
+import { useSwipeable } from 'react-swipeable'
 import ImageSlider from '../slider/Slider'
 import './cambodia.css'
-import { useSwipeable } from 'react-swipeable';
 
-export const Cambodia = ({scrollToContact}) => {
+export const Cambodia = ({ scrollToContact }) => {
 	const [currentSlide, setCurrentSlide] = useState(0)
 	const slides = 4
 
 	const handlers = useSwipeable({
-        onSwipedLeft: () => nextSlide(),
-        onSwipedRight: () => prevSlide(),
-        preventDefaultTouchmoveEvent: true,
-        trackMouse: true // This will allow dragging with the mouse as well
-    });
+		onSwipedLeft: () => nextSlide(),
+		onSwipedRight: () => prevSlide(),
+		preventDefaultTouchmoveEvent: true,
+		trackMouse: true, // This will allow dragging with the mouse as well
+	})
 	const nextSlide = () => setCurrentSlide((currentSlide + 1) % slides)
 	const prevSlide = () => setCurrentSlide((currentSlide - 1 + slides) % slides)
 
@@ -31,11 +31,22 @@ export const Cambodia = ({scrollToContact}) => {
 		][currentSlide]
 
 	return (
-		<div
-			
-			className={getClassName()}
-		>
-			<img style={getImageStyle()} src='/mobile/2 cambodia/woman.png' alt='' />
+		<div className={getClassName()}>
+			<img
+				style={
+					window.innerWidth > 1024
+						? {
+								position: 'absolute',
+								bottom: '-110px',
+								left: '0',
+								transform: ' scaleX(-1)',
+								zIndex: '0',
+						  }
+						: getImageStyle()
+				}
+				src='/mobile/2 cambodia/woman.png'
+				alt=''
+			/>
 			{window.innerWidth < 1024 ? (
 				<div className='container'>
 					<div className='cambodia_section' {...handlers}>

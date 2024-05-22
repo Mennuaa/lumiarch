@@ -1,6 +1,8 @@
 .faq {
 	width: 100%;
 	height: max-content;
+	min-height: 100%;
+	padding: 70px 0;
 }
 
 .faq_section {
@@ -12,14 +14,6 @@
 	height: max-content;
 	gap: 30px;
 	margin-top: 50px;
-}
-
-.faq_inner {
-	display: flex;
-	align-items: start;
-	height: 100vh;
-	justify-content: center;
-	flex-direction: column;
 }
 
 .faq_title {

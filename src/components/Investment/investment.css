@@ -206,7 +206,7 @@
 	grid: template columns 1fr;
 }
 
-.inputs input {
+.inputs_input {
 	background-color: transparent;
 	border: 0;
 	outline: 0;

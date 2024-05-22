@@ -230,18 +230,45 @@ export const Investments = ({ scrollToContact, onChangeSlide, quickMenu }) => {
 							{currentSlide === 5 && (
 								<div>
 									<div className='inputs'>
-										<input
-											type='text'
-											placeholder='ваше имя'
-											value={name}
-											onChange={e => setName(e.target.value)}
-										/>
-										<input
-											type='tel'
-											placeholder='ваш телефон +7'
-											value={phone}
-											onChange={e => setPhone(e.target.value)}
-										/>
+										<div
+											style={
+												(formDone
+													? {
+															display: 'flex',
+															alignItems: 'center',
+															gap: '20px',
+													  }
+													: {
+															display: 'grid',
+													  },
+												window.innerWidth < 600
+													? {
+															display: 'grid',
+															gap: '20px',
+													  }
+													: {
+															display: 'flex',
+															alignItems: 'center',
+															gap: '20px',
+													  })
+											}
+										>
+											<input
+												className='inputs_input'
+												type='text'
+												placeholder='ваше имя'
+												value={name}
+												onChange={e => setName(e.target.value)}
+											/>
+											<input
+												className='inputs_input'
+												type='tel'
+												placeholder='ваш телефон +7'
+												value={phone}
+												onChange={e => setPhone(e.target.value)}
+											/>
+										</div>
+
 										{!formDone && currentSlide === 5 && (
 											<button onClick={handleSubmit}>Отправить</button>
 										)}
