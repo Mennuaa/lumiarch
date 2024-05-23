@@ -32,7 +32,23 @@
 	margin: 30px 0;
 }
 .cambodia {
-	background: url('/public/mobile/2 cambodia/bg-scroll.webp');
+    background: url('/public/mobile/2 cambodia/bg-scroll.webp');
+    background-size: cover; /* Ensure the background covers the container */
+    height: 100vh; /* Full screen height */
+    width: 100%; /* Full screen width */
+    position: relative; /* Needed for absolutely positioned child elements */
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(0) scaleX(-1);
+    }
+    50% {
+        transform: translateX(20px) scaleX(-1);
+    }
+    100% {
+        transform: translateX(0) scaleX(-1);
+    }
 }
 @media screen and (min-width: 768px) {
 }
@@ -100,6 +116,7 @@
 }
 .cambodia_img {
 	margin-top: 30px;
+	
 }
 .cambodia_last_texts {
 	align-items: center;

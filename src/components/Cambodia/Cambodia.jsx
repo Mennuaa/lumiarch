@@ -1,26 +1,27 @@
-import React, { useState } from 'react'
-import { useSwipeable } from 'react-swipeable'
-import ImageSlider from '../slider/Slider'
-import './cambodia.css'
+import React, { useState, useEffect } from 'react';
+import { useSwipeable } from 'react-swipeable';
+import ImageSlider from '../slider/Slider';
+import './cambodia.css';
 
 export const Cambodia = ({ scrollToContact }) => {
-	const [currentSlide, setCurrentSlide] = useState(0)
-	const slides = 4
+	const [currentSlide, setCurrentSlide] = useState(0);
+	const slides = 4;
 
 	const handlers = useSwipeable({
 		onSwipedLeft: () => nextSlide(),
 		onSwipedRight: () => prevSlide(),
 		preventDefaultTouchmoveEvent: true,
 		trackMouse: true, // This will allow dragging with the mouse as well
-	})
-	const nextSlide = () => setCurrentSlide((currentSlide + 1) % slides)
-	const prevSlide = () => setCurrentSlide((currentSlide - 1 + slides) % slides)
+	});
+
+	const nextSlide = () => setCurrentSlide((currentSlide + 1) % slides);
+	const prevSlide = () => setCurrentSlide((currentSlide - 1 + slides) % slides);
 
 	const getClassName = () =>
 		`investment cambodia ${
 			['left-side', 'center-side', 'right-side'][currentSlide] || ''
-		}`
-	const progressBarLeft = `${(currentSlide / slides) * 100}%`
+		}`;
+	const progressBarLeft = `${(currentSlide / slides) * 100}%`;
 
 	const getImageStyle = () =>
 		[
@@ -28,7 +29,22 @@ export const Cambodia = ({ scrollToContact }) => {
 			{ position: 'absolute', bottom: '-110px', right: '-35px' },
 			{ position: 'absolute', bottom: '-110px', right: '65px' },
 			{ display: 'none' },
-		][currentSlide]
+		][currentSlide];
+
+	useEffect(() => {
+		const handleMouseMove = (e) => {
+			const bg = document.querySelector('.cambodia');
+			const x = (e.clientX / window.innerWidth) * 100;
+			const y = (e.clientY / window.innerHeight) * 100;
+			bg.style.backgroundPosition = `${x}% ${y}%`;
+		};
+
+		document.addEventListener('mousemove', handleMouseMove);
+
+		return () => {
+			document.removeEventListener('mousemove', handleMouseMove);
+		};
+	}, []);
 
 	return (
 		<div className={getClassName()}>
@@ -39,8 +55,9 @@ export const Cambodia = ({ scrollToContact }) => {
 								position: 'absolute',
 								bottom: '-110px',
 								left: '0',
-								transform: ' scaleX(-1)',
-								zIndex: '0',
+								transform: 'scaleX(-1)',
+								zIndex: '99',
+								animation: 'moveRight 2s infinite',
 						  }
 						: getImageStyle()
 				}
@@ -279,5 +296,5 @@ export const Cambodia = ({ scrollToContact }) => {
 				</div>
 			)}
 		</div>
-	)
-}
+	);
+};
