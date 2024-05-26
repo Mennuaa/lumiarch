@@ -71,19 +71,22 @@ export const Desc = ({ onChangeSlide }) => {
 	console.log(backgroundImage)
 	return (
 		<div
-			className='investments'
+			className='investments desc'
 			style={
 				isLargeScreen
 					? {
-							backgroundImage: `url(${backgroundImage})`,
-							backgroundPosition: 'center',
-							backgroundSize: 'cover',
-							backgroundRepeat: 'no-repeat',
-							transition: 'background-color 0.5s ease-in-out',
-					  }
+						backgroundImage: `url(${backgroundImage})`,
+						backgroundPosition: 'center',
+						backgroundSize: 'cover',
+						backgroundRepeat: 'no-repeat',
+						height: '100vh',
+						transition: 'background-color 0.5s ease-in-out',
+						position: 'relative',
+					}
 					: {
-							backgroundColor: backgroundImage,
-					  }
+						position: 'relative',
+						backgroundColor: backgroundImage,
+					}
 			}
 		>
 			<div className='container'>
@@ -146,7 +149,7 @@ export const Desc = ({ onChangeSlide }) => {
 							{currentSlide === 0 && (
 								<div className='wealth'>
 									<h2>Wealth Mansion</h2>
-									<p>
+									<p style={{ marginBottom: '30px' }}>
 										Представляем вашему вниманию <span> Wealth Mansion </span> —
 										роскошный жилой комплекс бизнес-класса в центре
 										камбоджийской столицы Пномпень. Срок сдачи - второй квартал
@@ -154,7 +157,7 @@ export const Desc = ({ onChangeSlide }) => {
 										заезду.
 									</p>
 									<div className='large_wealth'>
-										<p>
+										<p style={{ width:'75%' }}>
 											<span> Wealth Mansion </span> — проект от крупнейшего
 											конгломерата из Китая, компании CSCEC. За годы работы эта
 											компания успела построить Международный коммерческий центр
@@ -168,7 +171,11 @@ export const Desc = ({ onChangeSlide }) => {
 											alt='Infinity Pool'
 										/>
 									</div>
-									<div className='large_wealth'>
+									<div className='large_wealth' style={{ marginTop: '30px' }}>
+										<img
+											src='mobile/wealth/Infinity pool (1) 1.jpg'
+											alt='Infinity Pool'
+										/>
 										<img
 											src='mobile/wealth/Infinity pool (1) 1.jpg'
 											alt='Infinity Pool'
@@ -231,7 +238,7 @@ export const Desc = ({ onChangeSlide }) => {
 					)}
 				</div>
 
-				{}
+				{ }
 				<TextSlider
 					slides={slides}
 					currentSlide={currentSlide}

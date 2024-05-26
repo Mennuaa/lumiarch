@@ -47,17 +47,18 @@ export const Cambodia = ({ scrollToContact }) => {
 	}, []);
 
 	return (
-		<div className={getClassName()}>
+		<div className={getClassName()} >
 			<img
 				style={
 					window.innerWidth > 1024
 						? {
 								position: 'absolute',
-								bottom: '-110px',
+								bottom: '-30px',
 								left: '0',
 								transform: 'scaleX(-1)',
-								zIndex: '99',
+								zIndex: '9',
 								animation: 'moveRight 2s infinite',
+								width: '250px',
 						  }
 						: getImageStyle()
 				}
@@ -288,7 +289,7 @@ export const Cambodia = ({ scrollToContact }) => {
 								</h2>
 							</div>
 							<div className='cambodia_last_texts'>
-								<button>оставить заявку</button>
+								<button onClick={scrollToContact}>оставить заявку</button>
 								<p>И получить подробные материалы о налогах и пр.</p>
 							</div>
 						</div>

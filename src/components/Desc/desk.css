@@ -1,6 +1,7 @@
 .wealth p {
 	font-weight: 300;
 	font-size: 15px;
+	
 }
 
 .wealth p span {
@@ -10,13 +11,14 @@
 .wealth img {
 	width: 100%;
 	height: 100%;
-	margin: 20px 0 26px;
+	/* margin: 20px 0 26px; */
 }
 
 @media (min-width: 768px) {
 	.wealth p {
-		font-size: 24px;
+		font-size: 19px;
 	}
+	
 }
 .object_section {
 	padding: 50px 0;
@@ -27,9 +29,15 @@
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-between;
-	align-items: end;
+	align-items: flex-start;
 }
 .large_wealth img {
-	width: 300px;
-	height: 160px;
+	width: 250px;
+	height: 120px;
+}
+
+@media screen and (max-width: 768px) {
+	.desc{
+		height: 100vh;
+	}
 }

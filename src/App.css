@@ -17,4 +17,9 @@ a {
 	width: 15px;
 	height: 15px;
 }
+@media screen  and (max-width: 768px) {
+	.list li{
+		padding-right: 10px;
+	}
+}
 

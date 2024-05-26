@@ -118,7 +118,7 @@ export const Space = ({ onChangeSlide }) => {
 							backgroundSize: 'cover',
 							transition: 'background-color 0.5s ease-in-out',
 							position: 'relative',
-							minHeight: 900,
+							height: '100vh',
 					  }
 					: {
 							backgroundColor: currentSlide === 0 ? '#4A4A4A' : '#2566AF',
@@ -262,7 +262,7 @@ export const Space = ({ onChangeSlide }) => {
 													setPhotoIndex(index)
 													setIsOpen(true)
 												}}
-												style={{ cursor: 'pointer', margin: '5px' }}
+												style={{ cursor: 'pointer' }}
 											/>
 											<h2>{image.title}</h2>
 											<p>{image.description}</p>

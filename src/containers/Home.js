@@ -32,6 +32,7 @@ function Home() {
 		useRef(null),
 	]
 	const scrollToContact = () => {
+		// alert('scrollToContact')
 		sectionRefs[10].current.scrollIntoView({ behavior: 'smooth' })
 	}
 	const observer = useRef(
@@ -305,11 +306,11 @@ function Home() {
 					</div>
 				)}
 
-				<img
+				{/* <img
 					onClick={toggleShareForm}
 					src='/images/icon/share-icon.svg'
 					alt='Share'
-				/>
+				/> */}
 			</div>
 			{showContact && (
 				<div className='form__section' style={contactFormStyle}>

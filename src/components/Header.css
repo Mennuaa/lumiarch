@@ -41,7 +41,7 @@
 }
 
 .logo {
-	max-width: 140px;
+	max-width: 80px;
 	margin-bottom: 10px;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .star {
-	font-size: 30px;
+	font-size: 20px;
 	color: gold;
 }
 
@@ -81,10 +81,10 @@
 }
 
 .burger_active {
-	background: url('/public/mobile/menu_fon.webp') center no-repeat;
+	background: url('/public/desktop/menu_bg_decktop.webp');
 	width: 100%;
 	transition: left 1s ease-in-out;
-	max-width: 768px;
+	max-width: 600px;
 
 	background-position: right;
 	background-size: cover;
@@ -93,7 +93,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 10;
+	z-index: 9999;
 	padding: 24px 36px;
 }
 
@@ -126,13 +126,32 @@
 	text-transform: uppercase;
 	position: relative;
 	height: 50vh;
-	margin-top: 25%;
+	margin-top: 20%;
+	z-index: 9999;
 	font-size: 32px;
 }
 
 .burger_menu li {
 	font-weight: 300;
+	position: relative;
+	width: max-content;
 	cursor: pointer;
+}
+.burger_menu li::after{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0%;
+	height: 2px;
+	background-color: white;
+	opacity: 0;
+	transition: all 1s;
+}
+.burger_menu li:hover::after{
+	opacity: 1;
+	width: 100%;
+
 }
 
 .links {

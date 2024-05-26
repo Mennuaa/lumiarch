@@ -1,6 +1,8 @@
 .slider_sec {
 	width: 90vw;
 	padding: 10px;
+	/* position: absolute; */
+	
 }
 .slider_scroll-progres_bar {
 	transition: left 0.5s ease-in-out;
@@ -10,7 +12,11 @@
 	margin-top: 150px;
 	width: 100%;
 	z-index: 10;
-	position: relative;
+	position: absolute;
+	bottom: 70px;
+	left: 10%;
+	width: 80vw;
+	
 }
 
 .slider_section {

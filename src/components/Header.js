@@ -1,9 +1,16 @@
 import React, { useState } from 'react'
 import './Header.css'
 export default function Header({ sectionRefs, quickMenu , burger , setBurger}) {
+	const [showInner, setShowInner] = useState(true)
 	const [showLogo, setShowLogo] = useState(true)
 	window.onscroll = function () {
-		window.scrollY <= 100 ? setShowLogo(true) : setShowLogo(false)
+		if(window.scrollY <= 500){
+			setShowInner(true)
+			setShowLogo(true) 
+		}else{
+			setShowInner(false)
+			setShowLogo(false)
+		}
 	}
 	const handleMenuClick = sectionIndex => {
 		setBurger(false) // Close the burger menu
@@ -20,19 +27,25 @@ export default function Header({ sectionRefs, quickMenu , burger , setBurger}) {
 							}}
 						>
 							<div className='header__inner-left'>
-								<div className='header__inner-logo'>
+							<div className='header__inner-logo'>
+								{
+									showInner && (
+									<>
 									<div className='logo-section'>
 										<img src='/images/logo.png' alt='Logo' className='logo' />
 									</div>
 									<div className='stars'>
 										<span className='star'>★</span>
 										<span className='star'>★</span>
-										<span className='star'>☆</span>
-										<span className='star'>☆</span>
-										<span className='star'>☆</span>
+										<span className='star'>★</span>
+										<span className='star'>★</span>
+										<span className='star'>★</span>
 									</div>
-								</div>
+									</>
+									)
+								}
 
+								</div>
 								{!quickMenu ||
 									(!showLogo && (
 										<div
@@ -62,9 +75,9 @@ export default function Header({ sectionRefs, quickMenu , burger , setBurger}) {
 						<div className='stars'>
 							<span className='star'>★</span>
 							<span className='star'>★</span>
-							<span className='star'>☆</span>
-							<span className='star'>☆</span>
-							<span className='star'>☆</span>
+							<span className='star'>★</span>
+							<span className='star'>★</span>
+							<span className='star'>★</span>
 						</div>
 					</div>
 				)}

@@ -21,7 +21,6 @@
 	font-weight: 300;
 	font-size: 15px;
 	margin-top: 5px;
-	margin-bottom: 40px;
 }
 
 .wealth_section p span {
@@ -38,14 +37,15 @@
 
 .images img {
 	margin: 0;
-	width: 100%;
-	height: 90px;
+	width: 250px;
+		height: 80px;
+		margin-top: 5px;
 }
 
 @media screen and (max-width: 1440px) {
 	.images img {
-		width: 100%;
-		height: 100%;
+		width: 250px;
+		height: 150px;
 	}
 	.wealth_section h2 {
 		text-align: start;
@@ -75,8 +75,8 @@
 
 @media screen and (max-width: 768px) {
 	.images img {
-		width: 100%;
-		height: 100%;
+		width: 250px;
+		height: 150px;
 	}
 	.wealth_section h2 {
 		text-align: center;
@@ -90,6 +90,7 @@
 		text-align: center;
 		font-size: 23px;
 		color: #cdac6d;
+		
 	}
 	.wealth_section p {
 		font-weight: 300;
@@ -106,14 +107,20 @@
 
 	.wealth_section p {
 		font-weight: 300;
-		font-size: 15px;
+		font-size: 20px;
 		margin-top: 5px;
 	}
 }
 
-@media screen and (max-width: 545px) {
+@media screen and (max-width: 764px) {
 	.images {
 		grid-template-columns: repeat(2, 1fr);
 		width: 95%;
+		gap: 2px;
+	}
+	.images img {
+		width: 150px;
+		height: auto;
+		margin-top: 20px;
 	}
 }

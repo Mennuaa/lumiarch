@@ -7,7 +7,7 @@ const Footer = () => {
 				<div className='footer_section'>
 					<div className='footer_section-top'>
 						<a href=''>
-							<img src='images/logo.png' alt='' />
+							<img src='images/logo.png' alt='' style={{ width: '120px' , height: 'auto' }} />
 						</a>
 						<div className='footer_section-addres'>
 							<p>

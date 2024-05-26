@@ -139,13 +139,16 @@ export const Investments = ({
 		changeSlide((currentSlide - 1 + slides.length) % slides.length)
 
 	const getFirstWordAndRest = text => {
-		const [firstWord, ...restOfText] = text.trim().split(' ')
-		return { firstWord, restOfText: restOfText.join(' ') }
-	}
-
+		const firstWordEndIndex = text.indexOf(' ');
+		const firstWord = text.slice(0, firstWordEndIndex);
+		const restOfText = text.slice(firstWordEndIndex + 1);
+		return { firstWord, restOfText };
+	};
+	
 	const { firstWord, restOfText } = getFirstWordAndRest(
-		slides[currentSlide].first_text
-	)
+		initialSlides[currentSlide].first_text
+	);
+	
 	const progressBarLeft = `${(currentSlide / slides.length) * 110}%`
 	const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 764)
 	const handleMenuClick = sectionIndex => {
@@ -166,8 +169,12 @@ export const Investments = ({
 
 	const backgroundImage = isLargeScreen
 		? slides[currentSlide].backgroundLarge
-		: slides[currentSlide].background
+		: slides[currentSlide].background;
 
+		const renderHTML = text => {
+			return { __html: text };
+		};
+		
 	return (
 		<div
 			className='investment'
@@ -175,6 +182,7 @@ export const Investments = ({
 				backgroundImage: `url(${backgroundImage})`,
 				backgroundPosition: 'center',
 				backgroundSize: 'cover',
+				height: '100vh',
 				backgroundRepeat: 'no-repeat',
 			}}
 		>
@@ -201,31 +209,38 @@ export const Investments = ({
 							)}
 							<div className='investment_section-text'>
 								{formDone && currentSlide === 5 && (
-									<div className='clue_blue'>
-										<img src='/images/icon/Star 1.svg' alt='' />
-										<div className='clue_section'>
-											<p>
-												<strong>Ура! Поздравляем! </strong>
-												Вы получили 1 звезду. Первый шаг сделан! 15% скидка и
-												бесплатная персональная консультация ждут вас.
-												<br />
-												<br /> Мы рады, что вы не ушли и решили продолжить
-												вместе с нами своё инвестиционное путешествие (Investor
-												Journey, о нём будет рассказано ниже).
-											</p>
-										</div>
-									</div>
+									<>
+									</>
+									// <div className='clue_blue'>
+									// 	<img src='/images/icon/Star 1.svg' alt='' />
+									// 	<div className='clue_section'>
+									// 		<p>
+									// 			<strong>Ура! Поздравляем! </strong>
+									// 			Вы получили 1 звезду. Первый шаг сделан! 15% скидка и
+									// 			бесплатная персональная консультация ждут вас.
+									// 			<br />
+									// 			<br /> Мы рады, что вы не ушли и решили продолжить
+									// 			вместе с нами своё инвестиционное путешествие (Investor
+									// 			Journey, о нём будет рассказано ниже).
+									// 		</p>
+									// 	</div>
+									// </div>
 								)}
 								{
 									<h2>
-										<span> {firstWord} </span>
-										{restOfText}
-									</h2>
+									<span>{firstWord}</span>
+									<br />
+									{restOfText}
+									{/* <span dangerouslySetInnerHTML={{ __html: restOfText }} /> */}
+								</h2>
+								
+								
 								}
 								{currentSlide === 1 && (
-									<div className='second_icon'>
-										<img src='/images/icon/second_slide.svg' alt='Check Icon' />
-									</div>
+									// <div className='second_icon'>
+									// 	<img src='/images/icon/second_slide.svg' alt='Check Icon' />
+									// </div>
+									<></>
 								)}
 								<p>{slides[currentSlide].second_text}</p>
 								{slides[currentSlide].list && (
@@ -288,25 +303,26 @@ export const Investments = ({
 										)}
 									</div>
 									{formDone && (
-										<div className='clue'>
-											<img src='/images/icon/Star 3.svg' alt='' />
-											<div className='clue_section'>
-												{/* <h6>Подсказка</h6> */}
-												<p>
-													Чтобы получить еще одну звезду, долистайте страницу до
-													конца, изучите предложенные материалы и оставьте
-													электронный адрес, на который мы вышлем вам полезную
-													ознакомительную информацию о стране, налогах, инсайтах
-													и других подробностях региона, которые могут вам
-													понадобиться для принятия решения.
-													<a onClick={scrollToContact}>Оставить email сейчас</a>
-												</p>
-											</div>
-										</div>
+										// <div className='clue'>
+										// 	<img src='/images/icon/Star 3.svg' alt='' />
+										// 	<div className='clue_section'>
+										// 		{/* <h6>Подсказка</h6> */}
+										// 		<p>
+										// 			Чтобы получить еще одну звезду, долистайте страницу до
+										// 			конца, изучите предложенные материалы и оставьте
+										// 			электронный адрес, на который мы вышлем вам полезную
+										// 			ознакомительную информацию о стране, налогах, инсайтах
+										// 			и других подробностях региона, которые могут вам
+										// 			понадобиться для принятия решения.
+										// 			<a onClick={scrollToContact}>Оставить email сейчас</a>
+										// 		</p>
+										// 	</div>
+										// </div>
+										<></>
 									)}
 								</div>
 							)}
-							{currentSlide === 3 && (
+							{/* {currentSlide === 3 && (
 								<div className='clue'>
 									<img src='/images/icon/Star 3.svg' alt='' />
 									<div className='clue_section'>
@@ -314,9 +330,9 @@ export const Investments = ({
 										<p>{slides[currentSlide].clue}</p>
 									</div>
 								</div>
-							)}
+							)} */}
 						</div>
-						{quickMenu && window.innerWidth > 1024 && currentSlide == 0 && (
+						{quickMenu && window.innerWidth > 1024 && (
 							<div className='quick_menu'>
 								<p>Быстрое меню</p>
 								<ul>

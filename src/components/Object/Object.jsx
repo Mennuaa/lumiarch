@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TextSlider from '../slider/TextSlider'
 import './object.css'
 import Lightbox from 'react-awesome-lightbox'
@@ -6,6 +6,7 @@ import 'react-awesome-lightbox/build/style.css'
 import { useSwipeable } from 'react-swipeable';
 
 export const Object = ({ onChangeSlide }) => {
+	const [currentSlide, setCurrentSlide] = useState(0)
 	const slides = [
 		{
 			label: 'Wealth Mansion',
@@ -13,6 +14,8 @@ export const Object = ({ onChangeSlide }) => {
 			second_text:
 				'Мы предлагаем: гарантированный возврат инвестиций в недвижимость Пном Пеня напрямую от застройщика',
 			background: '/mobile/wealth/wm_back.webp',
+			backgroundLarge: '/desktop/backs/bg-wm1.webp',
+
 			icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 		},
 		{
@@ -23,9 +26,27 @@ export const Object = ({ onChangeSlide }) => {
 				'№1 по росту ВВП, долларизированная экономика, выгодные условия налогообложения, гарантированный возврат инвестиций',
 
 			background: '/mobile/lecondo/lecode_back.png',
+			backgroundLarge: '/desktop/backs/bg-wm2.webp',
 			icons: ['/images/icon4.svg', '/images/icon5.svg', '/images/icon6.svg'],
 		},
 	]
+	const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 992)
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsLargeScreen(window.innerWidth > 1024)
+		}
+
+		window.addEventListener('resize', handleResize)
+
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [])
+
+	const backgroundImage = isLargeScreen
+		? slides[currentSlide].backgroundLarge
+		: slides[currentSlide].background
 
 	const handlers = useSwipeable({
         onSwipedLeft: () => nextSlide(),
@@ -33,7 +54,6 @@ export const Object = ({ onChangeSlide }) => {
         preventDefaultTouchmoveEvent: true,
         trackMouse: true // This will allow dragging with the mouse as well
     });
-	const [currentSlide, setCurrentSlide] = useState(0)
 
 	const nextSlide = () => {
 		const newSlide = (currentSlide + 1) % slides.length
@@ -81,11 +101,11 @@ export const Object = ({ onChangeSlide }) => {
 		<div
 			className='investment'
 			style={{
-				backgroundImage: `url('${slides[currentSlide].background}')`,
+				backgroundImage: `url(${backgroundImage})`,
 				backgroundPosition: 'center',
 				backgroundSize: 'cover',
 				backgroundRepeat: 'no-repeat',
-				minHeight: 900,
+				// minHeight: 900,
 			}}
 		>
 			<div className='container'>

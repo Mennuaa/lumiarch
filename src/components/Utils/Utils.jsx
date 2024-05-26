@@ -85,8 +85,8 @@ export const Utils = ({ onChangeSlide }) => {
 		'mobile/WM_unit_photos/wm_unit_6_tumb.webp',
 		'mobile/WM_unit_photos/wm_unit_7_tumb.webp',
 		'mobile/WM_unit_photos/wm_unit_8_tumb.webp',
-		'mobile/WM_unit_photos/wm_unit_9_tumb.webp',
-		'mobile/WM_unit_photos/wm_unit_1_tumb.webp',
+		// 'mobile/WM_unit_photos/wm_unit_9_tumb.webp',
+		// 'mobile/WM_unit_photos/wm_unit_1_tumb.webp',
 	]
 	const imagesWithoutThumb = images.map(img => img.replace('_tumb', ''));
 
@@ -115,7 +115,7 @@ export const Utils = ({ onChangeSlide }) => {
 											setPhotoIndex(index)
 											setIsOpen(true)
 										}}
-										style={{ cursor: 'pointer', margin: '5px' }}
+										style={{ cursor: 'pointer', marginRight: '15px' }}
 									/>
 								))}
 							</div>
