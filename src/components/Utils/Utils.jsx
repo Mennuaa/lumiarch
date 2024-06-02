@@ -89,6 +89,22 @@ export const Utils = ({ onChangeSlide }) => {
 		// 'mobile/WM_unit_photos/wm_unit_1_tumb.webp',
 	]
 	const imagesWithoutThumb = images.map(img => img.replace('_tumb', ''));
+	const lecondeImages = [
+		'leconde/units/leconde_apart_1_tumb.webp',
+		'leconde/units/leconde_apart_2_tumb.webp',
+		'leconde/units/leconde_apart_3_tumb.webp',
+		'leconde/units/leconde_apart_4_tumb.webp',
+		// 'leconde/units/leconde_apart_5_tumb.webp',
+		// 'leconde/units/leconde_apart_6_tumb.webp',
+		'leconde/units/leconde_apart_7_tumb.webp',
+		'leconde/units/leconde_apart_8_tumb.webp',
+		'leconde/units/leconde_apart_9_tumb.webp',
+		'leconde/units/leconde_apart_10_tumb.webp',
+	]
+
+	const lecondeImagesWithoutThumb = lecondeImages.map(img => img.replace('_tumb', ''))
+	const [isLecondeOpen, setIsLecondeOpen] = useState(false)
+	const [lecondeIndex, setLecondeIndex] = useState(0)
 
 	return (
 		<div
@@ -99,7 +115,7 @@ export const Utils = ({ onChangeSlide }) => {
 				<div className='wealth_section ' {...handlers}>
 					{currentSlide === 0 && (
 						<div className='wealth'>
-							<h2>Wealth Mansion</h2>
+							<h2 style={{ fontWeight: '300' }}>Wealth Mansion</h2>
 							<h3>ФОТОГРАФИИ КВАРТИР</h3>
 							<p>
 								В <span> Wealth Mansion </span> имеются студии, 1,2,3-комнатные
@@ -115,7 +131,7 @@ export const Utils = ({ onChangeSlide }) => {
 											setPhotoIndex(index)
 											setIsOpen(true)
 										}}
-										style={{ cursor: 'pointer', marginRight: '15px' }}
+										style={{ cursor: 'pointer' , width:"95%" }}
 									/>
 								))}
 							</div>
@@ -124,25 +140,26 @@ export const Utils = ({ onChangeSlide }) => {
 
 					{currentSlide === 1 && (
 						<div className='wealth'>
-							<h2>Le Conde bkk1</h2>
+							<h2 style={{ fontWeight: '300' }}>Le Conde bkk1</h2>
 							<h3>ФОТОГРАФИИ КВАРТИР</h3>
 							<p>
-								В <span> Wealth Mansion </span> имеются студии, 1,2,3-комнатные
+								В <span> Leconde </span> имеются студии, 1,2,3-комнатные
 								квартиры и виллы.
 							</p>
 							<div className='images'>
-							{images.map((image, index) => (
-									<img
-										key={index}
-										src={image}
-										alt=''
-										onClick={() => {
-											setPhotoIndex(index)
-											setIsOpen(true)
-										}}
-										style={{ cursor: 'pointer', margin: '5px' }}
-									/>
-								))}
+							{lecondeImages.map((image, index) => (
+												<img
+													key={index}
+													src={image}
+													alt=''
+													onClick={() => {
+														setLecondeIndex(index)
+														setIsLecondeOpen(true)
+													}}
+													style={{ cursor: 'pointer' , width:"95%" }}
+
+												/>
+										))}
 							</div>
 						</div>
 					)}
@@ -153,6 +170,14 @@ export const Utils = ({ onChangeSlide }) => {
 					prevSlide={prevSlide}
 					nextSlide={nextSlide}
 				/>
+				{isLecondeOpen && (
+						<Lightbox
+							images={lecondeImagesWithoutThumb.map(img => ({ url: img }))}
+							startIndex={lecondeIndex}
+							onClose={() => setIsLecondeOpen(false)}
+							toolbarButtons={[]}
+						/>
+					)}
 				{isOpen && (
 					<Lightbox
 						images={imagesWithoutThumb.map(img => ({ url: img }))}

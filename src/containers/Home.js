@@ -14,6 +14,7 @@ import { Space } from '../components/Space/Space'
 import { Utils } from '../components/Utils/Utils'
 import Video from '../components/Video/Video'
 import './Home.css'
+import axios from 'axios'
 
 function Home() {
 	const [currentSection, setCurrentSection] = useState(0)
@@ -118,7 +119,7 @@ function Home() {
 	}
 	const [showContact, setShowContact] = useState(false)
 	const toggleContactForm = () => {
-		setShowContact(prev => !prev)
+		setShowContact(!showContact)
 	}
 	const [formData, setFormData] = useState({
 		name: '',
@@ -145,41 +146,56 @@ function Home() {
 		return phoneRegex.test(phone) && phone.length >= 7
 	}
 
-	const handleSubmit = e => {
-		e.preventDefault()
-		let isValid = true
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		let isValid = true;
 
 		// Validate name
 		if (!formData.name.trim()) {
-			toast.error('Пожалуйста, введите ваше имя и фамилию')
-			isValid = false
+			toast.error('Пожалуйста, введите ваше имя и фамилию');
+			isValid = false;
 		}
 
 		// Validate email
 		if (!validateEmail(formData.email)) {
-			toast.error('Введите корректный email')
-			isValid = false
+			toast.error('Введите корректный email');
+			isValid = false;
 		}
 
 		// Validate phone
 		if (!validatePhone(formData.phone)) {
-			toast.error(
-				'Телефон должен содержать только цифры, пробелы, скобки или тире и быть не короче 7 символов'
-			)
-			isValid = false
+			toast.error('Телефон должен содержать только цифры, пробелы, скобки или тире и быть не короче 7 символов');
+			isValid = false;
 		}
-
-		// Optionally validate questions
 
 		if (isValid) {
-			console.log('Form is valid:', formData)
-			toast.success(
-				'Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.'
-			)
-			setShowContact(false)
-			// Here you would typically handle the form submission, e.g., sending data to a server
+			// setIsLoading(true);
+			try {
+				const response = await axios.post('http://landing.lumiarch.ru/api/detailed-form', {
+					name: formData.name,
+					phone: formData.phone,
+					email: formData.email,
+					question: formData.questions || '',
+				}, {
+					headers: {
+						'Content-Type': 'application/json; charset=UTF-8'
+					}
+				});
+				if (response.status === 200) {
+					setShowContact(false);
+					toast.success('Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.');
+				}
+			} catch (error) {
+				console.error('Ошибка при отправке формы', error);
+				setShowContact(false);
+				toast.success('Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.');
+
+			} finally {
+				// setIsLoading(false);
+			}
 		}
-	}
+	};
+
 	// Inline styles for the sliding contact form
 	const contactFormStyle = {
 		background: 'transparent',
@@ -191,7 +207,7 @@ function Home() {
 		display: 'flex',
 		height: '100vh',
 		flexDirection: 'column',
-		alignItems: 'end',
+		// alignItems: 'end',
 		backdropFilter: 'blur(10px)',
 		zIndex: 40,
 	}
@@ -215,16 +231,37 @@ function Home() {
 		setBackground(slide.background)
 	}
 	const [burger, setBurger] = useState(false)
-
+	const [name, setName] = useState('');
+	const [phone, setPhone] = useState('');
+	const formSectionStyle = {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+        backdropFilter: showContact ? 'blur(10px)' : 'blur(0)',
+        WebkitBackdropFilter: showContact ? 'blur(10px)' : 'blur(0)',
+        opacity: showContact ? '1' : '0', // Initially hidden
+        transition: 'backdrop-filter 0.5s ease-in-out, opacity 0.5s ease-in-out', // Smooth transition
+        zIndex: '1000',
+    };
 
 	const quickMenu = window.innerWidth > 1024 ? true : false
 	return (
 		<div className='home'>
-			<Header sectionRefs={sectionRefs} quickMenu={quickMenu} burger={burger}  setBurger={setBurger}/>
+			<style>
+				
+			</style>
+			<Header sectionRefs={sectionRefs} quickMenu={quickMenu} burger={burger} setBurger={setBurger} />
 			<div ref={sectionRefs[0]}>
 				<Investments
-				sectionRefs={sectionRefs}
-				setBurger={setBurger}
+					name={name} setName={setName} phone={phone} setPhone={setPhone}
+					sectionRefs={sectionRefs}
+					setBurger={setBurger}
 					scrollToContact={scrollToContact}
 					onChangeSlide={handleSlideChange}
 					quickMenu={quickMenu}
@@ -248,7 +285,7 @@ function Home() {
 				<Utils onChangeSlide={handleSlideChangeDesc} />
 			</div>
 			<div ref={sectionRefs[5]}>
-				<Space onChangeSlide={handleSlideChangeDesc} />
+				<Space scrollToContact={scrollToContact} onChangeSlide={handleSlideChangeDesc} />
 			</div>
 			<div ref={sectionRefs[6]}>
 				<Arch onChangeSlide={handleSlideChangeDesc} />
@@ -264,7 +301,7 @@ function Home() {
 				<About scrollToContact={scrollToContact} />
 			</div>
 			<div ref={sectionRefs[10]}>
-				<Contact />
+				<Contact name={name} phone={phone} />
 			</div>
 			<Footer />
 			<div className='middle_button'>
@@ -274,7 +311,7 @@ function Home() {
 			<div className='middle_buttons'>
 				{/* <img src='/images/icon/calculator-icon.svg' alt='Calculator' /> */}
 				<div></div>
-				{currentSection < sectionRefs.length - 1 && (
+				{currentSection < sectionRefs.length - 10 && (
 					<div className='middle_buttons-scroll' onClick={scrollToNextSection}>
 						<p>ВНИЗ</p>
 						<img src='/images/icon/arrow-down-questions.svg' alt='Arrow Down' />
@@ -313,48 +350,81 @@ function Home() {
 				/> */}
 			</div>
 			{showContact && (
-				<div className='form__section' style={contactFormStyle}>
-					<img
-						onClick={toggleContactForm}
-						style={{ height: '54px', width: '54px', marginBottom: '20px' }}
-						src='mobile/close.png'
-						alt=''
-					/>
-					<form onSubmit={handleSubmit}>
-						<input
-							type='text'
-							name='name'
-							placeholder='имя и фамилия'
-							value={formData.name}
-							onChange={handleChange}
-						/>
-						<input
-							type='email'
-							name='email'
-							placeholder='email'
-							value={formData.email}
-							onChange={handleChange}
-						/>
-						<input
-							type='tel'
-							name='phone'
-							placeholder='ваш телефон'
-							value={formData.phone}
-							onChange={handleChange}
-						/>
-						<textarea
-							name='questions'
-							placeholder='ваши вопросы'
-							value={formData.questions}
-							onChange={handleChange}
-						></textarea>
-						<button type='submit'>оТПРАВИТЬ</button>
-						<p>
-							Нажимая на кнопку, вы принимаете политику конфиденциальности и
-							даете согласие на обработку персональных данных
-						</p>
-					</form>
-				</div>
+				 <div>
+				 <style>
+					 {`
+					 .form__section {
+						 position: fixed;
+						 top: 0;
+						 left: 0;
+						 width: 100%;
+						 height: 100%;
+						 display: flex;
+						 justify-content: center;
+						 align-items: center;
+						 background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+						 backdrop-filter: blur(0);
+						 -webkit-backdrop-filter: blur(0);
+						 opacity: 0; /* Initially hidden */
+						 transition: backdrop-filter 1s ease-in-out, opacity 1s ease-in-out; /* Smooth transition */
+						 z-index: 1000;
+					 }
+	 
+					 .form__section.visible {
+						 backdrop-filter: blur(10px);
+						 -webkit-backdrop-filter: blur(10px);
+						 opacity: 1; /* Make it visible */
+					 }
+					 `}
+				 </style>
+				 {showContact && (
+					 <div className={`form__section ${showContact ? 'visible' : ''}`}>
+						 <form onSubmit={handleSubmit}>
+							 <div className="close__share">
+								 <img
+									 onClick={toggleContactForm}
+									 style={{ height: '54px', width: '54px', marginBottom: '20px' }}
+									 src='mobile/close.png'
+									 alt=''
+								 />
+							 </div>
+							 <input
+								 type='text'
+								 name='name'
+								 placeholder='имя и фамилия'
+								 value={formData.name}
+								 onChange={handleChange}
+							 />
+							 <input
+								 type='email'
+								 name='email'
+								 placeholder='email'
+								 value={formData.email}
+								 onChange={handleChange}
+							 />
+							 <input
+								 type='tel'
+								 name='phone'
+								 placeholder='ваш телефон'
+								 value={formData.phone}
+								 onChange={handleChange}
+							 />
+							 <textarea
+								 name='questions'
+								 placeholder='ваши вопросы'
+								 value={formData.questions}
+								 onChange={handleChange}
+							 ></textarea>
+							 <button type='submit'>оТПРАВИТЬ</button>
+							 <p>
+								 Нажимая на кнопку, вы принимаете политику конфиденциальности и
+								 даете согласие на обработку персональных данных
+							 </p>
+						 </form>
+					 </div>
+				 )}
+				 <a onClick={toggleContactForm}>узнать больше</a>
+			 </div>
 			)}
 		</div>
 	)

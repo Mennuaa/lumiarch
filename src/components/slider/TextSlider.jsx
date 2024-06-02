@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './slider.css';
+import './text-slider.css';
 
 function TextSlider({ slides, currentSlide, prevSlide, nextSlide, setSlideName }) {
     const slidesLength = slides.length;
@@ -13,17 +13,17 @@ function TextSlider({ slides, currentSlide, prevSlide, nextSlide, setSlideName }
     };
 
     return (
-        <div className="slider_sec">
-            <div className='slider'>
-                <div className='slider_section'>
-                    <button className='slider_button' onClick={prevSlide}>
+        <div className="text-slider_sec">
+            <div className='text-slider'>
+                <div className='text-slider_section'>
+                    <button className='text-slider_button' onClick={prevSlide}>
                         <img src='/images/icon/prev.svg' alt='Previous' />
                     </button>
-                    <div className='slider_slide'>
-                        <div className='slider_scroll-progres'>
+                    <div className='text-slider_slide'>
+                        <div className='text-slider_scroll-progres'>
                             {/* Display all slide labels with conditional styling */}
                             {slides.map((slide, index) => (
-                                <p className='slider_scroll-amount' key={index} style={{
+                                <p className='text-slider_scroll-amount' key={index} style={{
                                     position: 'absolute',
                                     left: index === 0 ? 0 : 'auto',
                                     right: index === 1 ? 0 : 'auto',
@@ -36,7 +36,7 @@ function TextSlider({ slides, currentSlide, prevSlide, nextSlide, setSlideName }
                             ))}
 
                             <div
-                                className='slider_scroll-progres_bar'
+                                className='text-slider_scroll-progres_bar'
                                 style={{
                                     left: progressBarLeft,
                                     width: `${100 / slidesLength}%`,
@@ -44,7 +44,7 @@ function TextSlider({ slides, currentSlide, prevSlide, nextSlide, setSlideName }
                             ></div>
                         </div>
                     </div>
-                    <button className='slider_button' onClick={nextSlide}>
+                    <button className='text-slider_button' onClick={nextSlide}>
                         <img src='/images/icon/next.svg' alt='Next' />
                     </button>
                 </div>

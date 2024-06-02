@@ -67,8 +67,10 @@
 }
 
 .burger {
-	left: -5000px;
-	transition: left 1s ease-in-out;
+	left: 0;
+	transform: translateX(-100%);
+	transition: transform 1s ease-in-out, opacity 1s ease-in-out, background 1s ease-in-out;
+	opacity: 0;
 	background: url('/public/mobile/menu_fon.webp') center no-repeat;
 	width: 100%;
 	max-width: 768px;
@@ -82,10 +84,11 @@
 
 .burger_active {
 	background: url('/public/desktop/menu_bg_decktop.webp');
+	transform: translateX(0);
+	opacity: 1;
+	transition: transform 1s ease-in-out, opacity 1s ease-in-out, background 1s ease-in-out;
 	width: 100%;
-	transition: left 1s ease-in-out;
 	max-width: 600px;
-
 	background-position: right;
 	background-size: cover;
 	height: max-content;
@@ -98,14 +101,75 @@
 }
 
 .burger__overflow {
-	background-color: rgba(0, 0, 0, 0.509);
 	position: fixed;
+	width: 100%;
+	height: 100%;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100vh;
-	z-index: 0;
-	overflow: visible;
+	z-index: 9998;
+	background: rgba(0, 0, 0, 0.5); /* Optional: adds an overlay behind the menu */
+	visibility: hidden; /* Initially hidden */
+	opacity: 0; /* Initially transparent */
+	transition: visibility 0s 1s, opacity 1s ease-in-out; /* Delay visibility change */
+}
+
+.burger__overflow_active {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 1s ease-in-out;
+}
+
+.burger_active .burger_menu li {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.5s forwards;
+}
+
+.burger_active .burger_menu li:nth-child(1) {
+    animation-delay: 1.1s;
+}
+
+.burger_active .burger_menu li:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.burger_active .burger_menu li:nth-child(3) {
+    animation-delay: 1.3s;
+}
+
+.burger_active .burger_menu li:nth-child(4) {
+    animation-delay: 1.4s;
+}
+
+.burger_active .burger_menu li:nth-child(5) {
+    animation-delay: 1.5s;
+}
+
+.burger_active .burger_menu li:nth-child(6) {
+    animation-delay: 1.6s;
+}
+
+.burger_active .burger_menu li:nth-child(7) {
+    animation-delay: 1.7s;
+}
+
+.burger_active .burger_menu li:nth-child(8) {
+    animation-delay: 1.8s;
+}
+
+.burger_active .burger_menu li:nth-child(9) {
+    animation-delay: 1.9s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .burger_close {

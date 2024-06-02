@@ -1,0 +1,81 @@
+.text-slider_sec {
+	width: 90vw;
+	padding: 10px;
+	align-items: center;
+	/* position: absolute; */
+	
+}
+.text-slider_scroll-progres_bar {
+	transition: left 0.5s ease-in-out;
+}
+
+.text-slider {
+	margin: 50px 0;
+	width: 100%;
+	z-index: 10;
+	/* position: absolute;
+	bottom: 70px;
+	left: 10%;
+	width: 80vw; */
+	
+}
+
+.text-slider_section {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	align-items: center;
+	gap: 7px;
+}
+
+.text-slider_slide {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 3px;
+}
+.text-slider_scroll-amount {
+	transition: all 0.5s ease-in-out;
+	font-weight: 100;
+	position: absolute;
+	bottom: 10px;
+}
+
+@media (max-width: 1440px) {
+	.text-slider_sec {
+		width: 100%;
+		padding: 10px;
+	}
+}
+@media screen and (min-width: 768px) {
+	.text-slider_sec{
+		width: 100%;
+	}
+}
+.text-slider_scroll-progres {
+	position: relative;
+	width: 100%;
+	background-color: #fff;
+	height: 2px;
+}
+
+.text-slider_scroll-progres_bar {
+	position: absolute;
+	bottom: 0;
+	background-color: #fff;
+	height: 4px;
+	width: 10%;
+	transition: left 0.3s ease-in-out;
+}
+
+.text-slider_button {
+	background: transparent;
+	border: 0;
+	outline: 0;
+}
+
+.text-slider_button img {
+	width: 13px;
+	height: 100%;
+}

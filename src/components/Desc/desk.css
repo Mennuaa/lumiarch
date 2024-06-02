@@ -26,6 +26,7 @@
 }
 
 .large_wealth {
+	width: 100%;
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-between;
@@ -35,9 +36,12 @@
 	width: 250px;
 	height: 120px;
 }
+.large_wealth p{
+	width: 100%;
+}
 
 @media screen and (max-width: 768px) {
 	.desc{
-		height: 100vh;
+		/* height: 100vh; */
 	}
 }

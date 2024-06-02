@@ -71,7 +71,7 @@ const Video = () => {
 					: {}
 			}
 		>
-			<div className='container'>
+			<div className='container' style={{ margin: '0 auto' }}>
 				<div className='video_section'>
 					<p>Посмотрите это впечатляющее</p>
 					<h2>видео</h2>

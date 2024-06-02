@@ -51,7 +51,19 @@ export const Arch = ({ onChangeSlide }) => {
 		'mobile/lecondo/galary6.jpg',
 		'mobile/lecondo/galary7.jpg',
 	]
+	const lecondeImages = [
+		'leconde/archs/leconde_arch_1_tumb.webp',
+		'leconde/archs/leconde_arch_2_tumb.webp',
+		'leconde/archs/leconde_arch_3_tumb.webp',
+		'leconde/archs/leconde_arch_4_tumb.webp',
+		'leconde/archs/leconde_arch_5_tumb.webp',
+		'leconde/archs/leconde_arch_6_tumb.webp',
+		'leconde/archs/leconde_arch_7_tumb.webp',
+	]
 
+	const lecondeImagesWithoutThumb = lecondeImages.map(img => img.replace('_tumb', ''))
+	const [isLecondeOpen, setIsLecondeOpen] = useState(false)
+	const [lecondeIndex, setLecondeIndex] = useState(0)
 	const nextSlide = () => {
 		const newSlide = (currentSlide + 1) % slides.length
 		setCurrentSlide(newSlide)
@@ -116,7 +128,7 @@ export const Arch = ({ onChangeSlide }) => {
 											setPhotoIndex(index)
 											setIsOpen(true)
 										}}
-										style={{ cursor: 'pointer', margin: '5px' }}
+										style={{ cursor: 'pointer', margin: '5px', width: index === 0 && window.innerWidth <= 768 ? '92%' : '45%' }}
 									/>
 								))}
 							</div>
@@ -128,22 +140,24 @@ export const Arch = ({ onChangeSlide }) => {
 							<h2>Le Conde bkk1</h2>
 							<h3>АРХИТЕКТУРА</h3>
 							<p>
-								<span> Wealth Mansion </span> построен при участии известных
+								<span> Leconde </span> построен при участии известных
 								архитекторов. Каждая деталь продумана!
 							</p>
 							<div className='image'>
-								{images.map((image, index) => (
-									<img
-										key={index}
-										src={image}
-										alt=''
-										onClick={() => {
-											setPhotoIndex(index)
-											setIsOpen(true)
-										}}
-										style={{ cursor: 'pointer', margin: '5px' }}
-									/>
-								))}
+								
+							{lecondeImages.map((image, index) => (
+												<img
+													key={index}
+													src={image}
+													alt=''
+													onClick={() => {
+														setLecondeIndex(index)
+														setIsLecondeOpen(true)
+													}}
+													style={{ cursor: 'pointer', margin: '5px', width: index === 0 && window.innerWidth <= 768 ? '92%' : '45%' }}
+
+												/>
+										))}
 							</div>
 						</div>
 					)}
@@ -163,6 +177,14 @@ export const Arch = ({ onChangeSlide }) => {
 					toolbarButtons={[]}
 				/>
 			)}
+			{isLecondeOpen && (
+						<Lightbox
+							images={lecondeImagesWithoutThumb.map(img => ({ url: img }))}
+							startIndex={lecondeIndex}
+							onClose={() => setIsLecondeOpen(false)}
+							toolbarButtons={[]}
+						/>
+					)}
 		</div>
 	)
 }

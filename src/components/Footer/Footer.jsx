@@ -11,24 +11,31 @@ const Footer = () => {
 						</a>
 						<div className='footer_section-addres'>
 							<p>
-								601 NORTHEAST 1ST AVE, <br /> MIAMI, FL 33132
+							1159 National Road Nº 2, <br /> Phnom Penh, Phnom Penh
+
 							</p>
-							<a href='tel:8(800)999-99-99'>8(800)999-99-99</a>
+							<a href='tel:8(800)999-99-99'>+84 855824522</a>
 						</div>
 					</div>
 					<div className='footer_section-down'>
 						<p>
-							политика <br /> конфиденциальности
+							{/* политика <br /> конфиденциальности */}
 						</p>
 						<div className='footer_section-social'>
-							<a href=''>
+						<a href='https://www.instagram.com/lumiarch.ru'>
 								<img src='images/icon/icon-inst.svg' alt='' />
 							</a>
-							<a href=''>
+							<a href='https://www.facebook.com/lumiarch.global'>
 								<img src='images/icon/facebook.svg' alt='' />
 							</a>
-							<a href=''>
+							<a href='https://t.me/iceoleg'>
 								<img src='images/icon/telega.svg' alt='' />
+							</a>
+							<a href='https://www.linkedin.com/company/lumiarchglobal'>
+								<img src='images/icon/linkedin.svg' alt='' />
+							</a>
+							<a href='https://wa.me/+84855824522'>
+								<img src='images/icon/whatss.svg' alt='' />
 							</a>
 						</div>
 					</div>

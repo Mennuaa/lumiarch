@@ -4,51 +4,52 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import ImageSlider from '../slider/Slider'
 import './investment.css'
+import axios from 'axios'
 
 const initialSlides = [
 	{
-		first_text: "Инвестиции в недвижимость Камбоджи 'под ключ'",
+		first_text: `<span> Инвестиции </span > <br />в недвижимость Камбоджи "под ключ"`,
 		second_text:
-			'Мы предлагаем: гарантированный возврат инвестиций в недвижимость Пном Пеня напрямую от застройщика',
+			'Мы предлагаем: гарантированный возврат инвестиций в недвижимость Пномпеня напрямую от застройщика.',
 		background: '/images/bg1.webp',
 		backgroundLarge: '/desktop/main/bg1.webp',
 		icons: ['/images/icon1.svg', '/images/icon2.svg', '/images/icon3.svg'],
 	},
 	{
 		first_text:
-			'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
+			' <span>Инвестируйте</span> в самую быстроразвивающуюся страну Юго-Восточной Азии',
 		second_text:
-			'№1 по росту ВВП, долларизированная экономика, выгодные условия налогообложения, гарантированный возврат инвестиций',
+			'№1 по росту ВВП, долларизированная экономика, выгодные условия налогообложения, гарантированный возврат инвестиций.',
 		background: '/images/bg2.webp',
 		backgroundLarge: '/desktop/main/bg2.webp',
 		icons: ['/images/icon4.svg', '/images/icon5.svg', '/images/icon6.svg'],
 	},
 	{
-		first_text: 'Бесплатно открываем счет в банке, оформляем карту VISA',
-		second_text: '',
-		list: [
-			'ROI проекта 20% годовых',
-			'Первый взнос 10%',
-			'Беспроцентная рассрочка',
-			'Возможность оплаты в криптовалюте USDT',
-		],
+		first_text: '<span>Бесплатно </span> открываем счет в банке, оформляем карту VISA',
+		second_text: 'ROI проекта 20% годовых, первый взнос от 5%, беспроцентная рассрочка и возможность оплаты в криптовалюте USDT.',
+		// list: [
+		// 	'ROI проекта 20% годовых',
+		// 	'Первый взнос 10%',
+		// 	'Беспроцентная рассрочка',
+		// 	'Возможность оплаты в криптовалюте USDT',
+		// ],
 		background: '/images/bg3.webp',
 		backgroundLarge: '/desktop/main/bg3.webp',
 	},
 	{
 		first_text:
-			'Расчет финансового плана и бесплатная консультация от экспертов',
-		second_text: '',
+			'<span> Расчет финансового плана </span> и бесплатная консультация от экспертов',
+		second_text: 'Мы полностью сопровождаем сделку до и после покупки. Наша экспертиза на местном рынке - ваше преимущество!',
 		background: '/images/bg4.webp',
 		backgroundLarge: '/desktop/main/bg4.webp',
-		list: [
-			'Мы полностью сопровождаем сделку до и после покупки. Подробнее в разделе Investor Journey',
-			'Наша экспертиза на местном рынке - ваше преимущество',
-		],
+		// list: [
+		// 	'Мы полностью сопровождаем сделку до и после покупки. Подробнее в разделе Investor Journey',
+		// 	'Наша экспертиза на местном рынке - ваше преимущество',
+		// ],
 		clue: 'Заполните форму - получите 1 звезду. Мы предлагаем 15% скидку от застройщика, возможность перевода средств в условиях финансовых ограничений в России, расскажем всё про выгодные и безопасный инвестиции в Азии',
 	},
 	{
-		first_text: 'Роскошные апартаменты для тех, кто ценит жизнь в стиле люкс',
+		first_text: '<span>Роскошные апартаменты </span> для тех, кто ценит жизнь в стиле люкс',
 		second_text: '',
 		background: '/images/bg5.webp',
 		backgroundLarge: '/desktop/main/bg5.webp',
@@ -58,7 +59,7 @@ const initialSlides = [
 		],
 	},
 	{
-		first_text: 'Мы готовы рассказать все подробности — налоги, риски, инсайты',
+		first_text: '<span>Мы готовы рассказать </span> все подробности — налоги, риски, инсайты',
 		done_text: `Ждите от нас звонка
 			вы можете продолжить знакомиться с информацией.
 			нажмите “вниз” или листайте дальше
@@ -79,6 +80,7 @@ export const Investments = ({
 	onChangeSlide,
 	quickMenu,
 	setBurger,
+	name, setName, phone, setPhone 
 }) => {
 	const handlers = useSwipeable({
 		onSwipedLeft: () => nextSlide(),
@@ -94,8 +96,6 @@ export const Investments = ({
 		setCurrentSlide(newSlide)
 		onChangeSlide(slides[newSlide])
 	}
-	const [name, setName] = useState('')
-	const [phone, setPhone] = useState('')
 	const [formDone, setFormDone] = useState(false)
 
 	const validateInputs = () => {
@@ -119,21 +119,37 @@ export const Investments = ({
 		return isValid
 	}
 
-	const handleSubmit = event => {
+	const handleSubmit = async (event) => {
 		event.preventDefault()
 		if (validateInputs()) {
-			toast.success('Форма была успешно отправлена')
-			const updatedSlides = slides.map((slide, index) => {
-				if (index === currentSlide) {
-					return { ...slide, first_text: slide.done_text || slide.first_text }
+			try {
+				const response = await axios.post('http://landing.lumiarch.ru/api/short-form', {
+					name: name,
+					phone: phone,
+				},
+				{
+					headers: {
+						'Content-Type': 'application/json; charset=UTF-8'
+					}
+				})
+	
+				if (response.status === 200) {
+					toast.success('Форма была успешно отправлена')
+					const updatedSlides = slides.map((slide, index) => {
+						if (index === currentSlide) {
+							return { ...slide, first_text: slide.done_text || slide.first_text }
+						}
+						return slide
+					})
+					setFormDone(true)
+					setSlides(updatedSlides)
 				}
-				return slide
-			})
-			setFormDone(true)
-			setSlides(updatedSlides)
+			} catch (error) {
+				console.error('Ошибка при отправке формы', error)
+				toast.error('Ошибка при отправке формы')
+			}
 		}
 	}
-
 	const nextSlide = () => changeSlide((currentSlide + 1) % slides.length)
 	const prevSlide = () =>
 		changeSlide((currentSlide - 1 + slides.length) % slides.length)
@@ -227,12 +243,7 @@ export const Investments = ({
 									// </div>
 								)}
 								{
-									<h2>
-									<span>{firstWord}</span>
-									<br />
-									{restOfText}
-									{/* <span dangerouslySetInnerHTML={{ __html: restOfText }} /> */}
-								</h2>
+									 <h2 dangerouslySetInnerHTML={{ __html: 	initialSlides[currentSlide].first_text }}></h2>
 								
 								
 								}
@@ -279,23 +290,26 @@ export const Investments = ({
 										>
 											<input
 												className='inputs_input'
+												readOnly={formDone}
 												type='text'
 												placeholder='ваше имя'
-												value={name}
+												value={name || ''}
 												onChange={e => setName(e.target.value)}
 											/>
 											<input
 												className='inputs_input'
+												readOnly={formDone}
 												type='tel'
 												placeholder='ваш телефон +7'
 												value={phone}
 												onChange={e => setPhone(e.target.value)}
 											/>
+											{!formDone && currentSlide === 5 && (
+											<button className='inputs_input' onClick={handleSubmit}>Сохранить</button>
+										)}
 										</div>
 
-										{!formDone && currentSlide === 5 && (
-											<button onClick={handleSubmit}>Отправить</button>
-										)}
+										
 										{!formDone ? (
 											<p>{slides[currentSlide]?.terms}</p>
 										) : (

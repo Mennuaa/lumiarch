@@ -25,8 +25,8 @@ export const Object = ({ onChangeSlide }) => {
 			second_text:
 				'№1 по росту ВВП, долларизированная экономика, выгодные условия налогообложения, гарантированный возврат инвестиций',
 
-			background: '/mobile/lecondo/lecode_back.png',
-			backgroundLarge: '/desktop/backs/bg-wm2.webp',
+			background: '/leconde/leconde_back.webp',
+			backgroundLarge: '/leconde/leconde_back.webp',
 			icons: ['/images/icon4.svg', '/images/icon5.svg', '/images/icon6.svg'],
 		},
 	]

@@ -100,7 +100,7 @@ const Faq = ({scrollToContact}) => {
 								</p>
 							</div>
 						</div>
-						<div className=''>
+						<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 							<a onClick={scrollToContact} className='faq_btn'>
 								оставить заявку
 							</a>

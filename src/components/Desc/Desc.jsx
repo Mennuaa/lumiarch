@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import TextSlider from '../slider/TextSlider'
 import './desk.css'
+import Lightbox from 'react-awesome-lightbox'
+import 'react-awesome-lightbox/build/style.css'
 
 export const Desc = ({ onChangeSlide }) => {
 	const slides = [
@@ -19,7 +21,7 @@ export const Desc = ({ onChangeSlide }) => {
 				'Инвестируйте в самую быстроразвивающуюся страну Юго-Восточной Азии',
 			second_text:
 				'№1 по росту ВВП, долларизированная экономика, выгодные условия налогообложения, гарантированный возврат инвестиций',
-			backgroundLarge: '/desktop/backs/bg-wm2.webp',
+			backgroundLarge: '/leconde/leconde_back_2.webp',
 			background: '#2566AF',
 			icons: ['/images/icon4.svg', '/images/icon5.svg', '/images/icon6.svg'],
 		},
@@ -63,9 +65,23 @@ export const Desc = ({ onChangeSlide }) => {
 		return { firstWord, restOfText }
 	}
 
-	const { firstWord, restOfText } = getFirstWordAndRest(
-		slides[currentSlide].first_text
-	)
+	const wealthPhotos = [
+		'desktop/wm_2/wm_gym_tumb.webp',
+		'desktop/wm_2/wm_infinitypool_tumb.webp',
+		'desktop/wm_2/wm_michelin_tumb.webp',
+		'desktop/wm_2/wm_swimiming_sofa_tumb.webp',
+	]
+	const wealthPhotosWithoutThumb = wealthPhotos.map(img => img.replace('_tumb', ''))
+	const [isWealthOpen, setIsWealthOpen] = useState(false)
+	const [wealthIndex, setWealthIndex] = useState(0)
+	const lecondePhotos = [
+		'desktop/leconde_about/leconde_building_tumb.webp',
+		'desktop/leconde_about/leconde_city_tumb.webp',
+		'desktop/leconde_about/leconde_stairs_tumb.webp',
+	]
+	const lecondePhotosWithoutThumb = lecondePhotos.map(img => img.replace('_tumb', ''))
+	const [isLecondeOpen, setIsLecondOpen] = useState(false)
+	const [lecondeIndex, setLecondIndex] = useState(0)
 
 	const progressBarLeft = `${(currentSlide / slides.length) * 100}%`
 	console.log(backgroundImage)
@@ -79,7 +95,7 @@ export const Desc = ({ onChangeSlide }) => {
 						backgroundPosition: 'center',
 						backgroundSize: 'cover',
 						backgroundRepeat: 'no-repeat',
-						height: '100vh',
+						// height: '100vh',
 						transition: 'background-color 0.5s ease-in-out',
 						position: 'relative',
 					}
@@ -95,7 +111,7 @@ export const Desc = ({ onChangeSlide }) => {
 						<>
 							{currentSlide === 0 && (
 								<div className='wealth'>
-									<h2>Wealth Mansion</h2>
+									<h2 style={{ fontWeight: '300' }}>Wealth Mansion</h2>
 									<p>
 										Представляем вашему вниманию <span> Wealth Mansion </span> —
 										роскошный жилой комплекс бизнес-класса в центре
@@ -104,6 +120,7 @@ export const Desc = ({ onChangeSlide }) => {
 										заезду.
 									</p>
 									<img
+										style={{ margin: '20px 0' }}
 										src='mobile/wealth/wm_pool.webp'
 										alt='Wealth Mansion Pool'
 									/>
@@ -120,26 +137,19 @@ export const Desc = ({ onChangeSlide }) => {
 							)}
 							{currentSlide === 1 && (
 								<div className='wealth'>
-									<h2>Le Conde BKK1</h2>
+									<h2 style={{ fontWeight: '300' }}>Le Conde BKK1</h2>
 									<p>
-										Представляем вашему вниманию <span> Wealth Mansion </span> —
-										роскошный жилой комплекс бизнес-класса в центре
-										камбоджийской столицы Пномпень. Срок сдачи - второй квартал
-										2024. Все квартиры с дизайнерской отделкой и готовы к
-										заезду.
+									Le Conde Bkk1 — это ЖК премиум-класса по цене бизнес-класса в самом центре столицы Камбоджи. Инвестирование в этот объект дает гарантированный доход от аренды и высокий потенциал рентабельности инвестиций: вы получите до 10% годового дохода от своих вложений.
+
+
 									</p>
 									<img
+										style={{ margin: '20px 0' }}
 										src='mobile/wealth/Infinity pool (1) 1.jpg'
 										alt='Infinity Pool'
 									/>
 									<p>
-										<span> Wealth Mansion </span> — проект от крупнейшего
-										конгломерата из Китая, компании CSCEC. За годы работы эта
-										компания успела построить Международный коммерческий центр в
-										Гонконге (самый высокий небоскреб в городе), мечеть Джамаа
-										эль-Джазаир в Алжире (третью по величине мечеть в мире
-										стоимостью 1,5 млрд. долларов США), новую столицу Египта и
-										Гигафабрику Tesla в Шанхае.
+									Комплекс от надежного застройщика может похвастаться идеальным расположением в туристическом районе Bkk1 недалеко от Королевского дворца и Серебряной пагоды (более 25% арендаторов ищут жилье именно здесь). Это лучшие апартаменты в городе для проживания с семьей и первый проект в Камбодже, полностью оборудованный системой «Умный дом» от Xiaomi. Послом бренда Le Conde выступает Ее Королевское Высочество, принцесса Norodom Pongsoriya.
 									</p>
 								</div>
 							)}
@@ -148,7 +158,7 @@ export const Desc = ({ onChangeSlide }) => {
 						<>
 							{currentSlide === 0 && (
 								<div className='wealth'>
-									<h2>Wealth Mansion</h2>
+									<h2 style={{ fontWeight: '300' }}>Wealth Mansion</h2>
 									<p style={{ marginBottom: '30px' }}>
 										Представляем вашему вниманию <span> Wealth Mansion </span> —
 										роскошный жилой комплекс бизнес-класса в центре
@@ -157,7 +167,7 @@ export const Desc = ({ onChangeSlide }) => {
 										заезду.
 									</p>
 									<div className='large_wealth'>
-										<p style={{ width:'75%' }}>
+										<p >
 											<span> Wealth Mansion </span> — проект от крупнейшего
 											конгломерата из Китая, компании CSCEC. За годы работы эта
 											компания успела построить Международный коммерческий центр
@@ -166,13 +176,25 @@ export const Desc = ({ onChangeSlide }) => {
 											мире стоимостью 1,5 млрд. долларов США), новую столицу
 											Египта и Гигафабрику Tesla в Шанхае.
 										</p>
-										<img
+										{/* <img
 											src='mobile/wealth/Infinity pool (1) 1.jpg'
 											alt='Infinity Pool'
-										/>
+										/> */}
 									</div>
 									<div className='large_wealth' style={{ marginTop: '30px' }}>
-										<img
+									{wealthPhotos.map((image, index) => (
+												<img
+													key={index}
+													src={image}
+													alt=''
+													onClick={() => {
+														setWealthIndex(index)
+														setIsWealthOpen(true)
+													}}
+													style={{ cursor: 'pointer' ,height: '100%'}}
+												/>
+										))}
+										{/* <img
 											src='mobile/wealth/Infinity pool (1) 1.jpg'
 											alt='Infinity Pool'
 										/>
@@ -188,49 +210,39 @@ export const Desc = ({ onChangeSlide }) => {
 										<img
 											src='mobile/wealth/Infinity pool (1) 1.jpg'
 											alt='Infinity Pool'
-										/>
+										/> */}
 									</div>
 								</div>
 							)}
 							{currentSlide === 1 && (
 								<div className='wealth'>
-									<h2>Le Conde BKK1</h2>
-									<p>
-										Представляем вашему вниманию <span> Wealth Mansion </span> —
-										роскошный жилой комплекс бизнес-класса в центре
-										камбоджийской столицы Пномпень. Срок сдачи - второй квартал
-										2024. Все квартиры с дизайнерской отделкой и готовы к
-										заезду.
+									<h2 style={{ fontWeight: '300' }}>Le Conde BKK1</h2>
+									<p style={{ marginBottom: '30px' }}>
+									<span> Le Conde Bkk1 </span> — это ЖК премиум-класса по цене бизнес-класса в самом центре столицы Камбоджи. Инвестирование в этот объект дает гарантированный доход от аренды и высокий потенциал рентабельности инвестиций: вы получите до 10% годового дохода от своих вложений.
+
 									</p>
-									<div className='large_wealth'>
+									<div className=''>
 										<p>
-											<span> Wealth Mansion </span> — проект от крупнейшего
-											конгломерата из Китая, компании CSCEC. За годы работы эта
-											компания успела построить Международный коммерческий центр
-											в Гонконге (самый высокий небоскреб в городе), мечеть
-											Джамаа эль-Джазаир в Алжире (третью по величине мечеть в
-											мире стоимостью 1,5 млрд. долларов США), новую столицу
-											Египта и Гигафабрику Tesla в Шанхае.
+										Комплекс от надежного застройщика может похвастаться идеальным расположением в туристическом районе Bkk1 недалеко от Королевского дворца и Серебряной пагоды (более 25% арендаторов ищут жилье именно здесь). Это лучшие апартаменты в городе для проживания с семьей и первый проект в Камбодже, полностью оборудованный системой «Умный дом» от Xiaomi. Послом бренда Le Conde выступает Ее Королевское Высочество, принцесса Norodom Pongsoriya.
 										</p>
-										<img
+										{/* <img
 											src='mobile/wealth/Infinity pool (1) 1.jpg'
 											alt='Infinity Pool'
-										/>
+										/> */}
 									</div>
 									<div className='large_wealth'>
-										<img
-											src='mobile/wealth/Infinity pool (1) 1.jpg'
-											alt='Infinity Pool'
-										/>
-
-										<img
-											src='mobile/wealth/Infinity pool (1) 1.jpg'
-											alt='Infinity Pool'
-										/>
-										<img
-											src='mobile/wealth/Infinity pool (1) 1.jpg'
-											alt='Infinity Pool'
-										/>
+									{lecondePhotos.map((image, index) => (
+												<img
+													key={index}
+													src={image}
+													alt=''
+													onClick={() => {
+														setLecondIndex(index)
+														setIsLecondOpen(true)
+													}}
+													style={{ cursor: 'pointer' ,height: '100%'}}
+												/>
+										))}
 									</div>
 								</div>
 							)}
@@ -238,7 +250,22 @@ export const Desc = ({ onChangeSlide }) => {
 					)}
 				</div>
 
-				{ }
+				{isLecondeOpen && (
+						<Lightbox
+							images={lecondePhotosWithoutThumb.map(img => ({ url: img }))}
+							startIndex={lecondeIndex}
+							onClose={() => setIsLecondOpen(false)}
+							toolbarButtons={[]}
+						/>
+					)}
+					{isWealthOpen && (
+						<Lightbox
+							images={wealthPhotosWithoutThumb.map(img => ({ url: img }))}
+							startIndex={wealthIndex}
+							onClose={() => setIsWealthOpen(false)}
+							toolbarButtons={[]}
+						/>
+					)}
 				<TextSlider
 					slides={slides}
 					currentSlide={currentSlide}

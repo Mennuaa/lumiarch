@@ -97,6 +97,7 @@
 	font-size: 66px;
 	color: #cdac6d;
 	text-align: start;
+	font-weight: 300;
 }
 
 .space_sector h4 {
@@ -113,12 +114,14 @@
 
 .space_sector-btn a {
 	background-color: #cdac6d;
-	font-size: 16px;
+	border: 0;
+	outline: 0;
+	padding: 15px 30px;
+	font-size: 20px;
+	color: #000000;
+	font-family: 'Rubik', sans-serif;
 	font-weight: 300;
-	color: #000;
 	text-transform: uppercase;
-	display: block;
-	padding: 17px 30px;
 }
 
 .space_sector-btn p {

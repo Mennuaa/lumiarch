@@ -1,7 +1,7 @@
 .investment {
 	width: 100%;
 	height: max-content;
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	top: 0;
 	/* height: 100vh; */
 	left: 0;
@@ -259,10 +259,11 @@
 	border: 0;
 	outline: 0;
 	padding: 15px 0;
-	font-size: 16px;
+	font-size: 20px;
 	color: #000000;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 300;
 	text-transform: uppercase;
-	margin-top: 30px;
 }
 
 .inputs p {
@@ -303,7 +304,7 @@
 		height: 30px;
 	}
 	.inputs {
-		width: 460px;
+		width: 560px;
 	}
 }
 
@@ -333,6 +334,9 @@
 }
 
 @media (max-width: 768px) {
+	.investment{
+		min-height: 900px;
+	}
 	.investment_section-text h2 {
 		font-size: 42px;
 		max-width: 500px;
@@ -497,6 +501,10 @@
 	.investment {
 		/* background: url("/public/desktop/1\ main/main-bg-descktop_1.webp"); */
 	}
+	.investment_section{
+		margin-top: 150px;
+			}
+		
 }
 @media screen and (min-width: 768px) {
 	.investment_section-text h2{
