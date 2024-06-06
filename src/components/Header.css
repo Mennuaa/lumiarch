@@ -11,10 +11,19 @@
 
 .header__inner {
 	padding-top: 20px;
+	
 	display: flex;
 	justify-content: space-between;
 }
-
+@media screen  and (min-width: 768px) {
+	.header__inner {
+		width: 80%;
+	}
+	.header__inner-left{
+		height: 100px;
+	}
+	
+}
 .header__inner-left {
 	display: flex;
 	justify-content: space-between;
@@ -71,7 +80,7 @@
 	transform: translateX(-100%);
 	transition: transform 1s ease-in-out, opacity 1s ease-in-out, background 1s ease-in-out;
 	opacity: 0;
-	background: url('/public/mobile/menu_fon.webp') center no-repeat;
+  background-color: rgba(0, 45, 97, 0.9);
 	width: 100%;
 	max-width: 768px;
 	height: max-content;
@@ -83,14 +92,14 @@
 }
 
 .burger_active {
-	background: url('/public/desktop/menu_bg_decktop.webp');
+	background-color: rgba(0, 45, 97, 0.9);
+
 	transform: translateX(0);
 	opacity: 1;
 	transition: transform 1s ease-in-out, opacity 1s ease-in-out, background 1s ease-in-out;
 	width: 100%;
 	max-width: 600px;
-	background-position: right;
-	background-size: cover;
+
 	height: max-content;
 	min-height: 100vh;
 	position: fixed;

@@ -1,6 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Faq.css'
+import { ConfigContext } from '../../App';
+import MainButton from '../buttons/MainButton';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Faq = ({scrollToContact}) => {
+
+
+	useEffect(() => {
+		AOS.init({
+		  duration: 1200, 
+		});
+	  }, []);
+	const config = useContext(ConfigContext);
+
 	const [open, setOpen] = useState(false)
 	const [open1, setOpen1] = useState(false)
 	const [open2, setOpen2] = useState(false)
@@ -29,34 +42,30 @@ const Faq = ({scrollToContact}) => {
 		>
 			<div className='container'>
 				<div className='faq_inner'>
-					<h2 className='faq_title'>вопросы и ответы</h2>
+					<h2 data-aos="fade-up" className='mainh2'>{config.Ru_faq_header}</h2>
 
 					<div className='faq_section'>
 						<div className='acardenons'>
-							<div className='acardenon'>
-								<div onClick={() => handelOpen()} className='acardenon_up'>
-									<p>
-										Недвижимость - это важный аспект жизни каждого человека?
+							<div data-aos="fade-right" className='acardenon'>
+								<div  onClick={() => handelOpen()} className='acardenon_up'>
+									<p data-aos="fade-right">
+										{config.Ru_faq_question_1}
 									</p>
 									<img
+									data-aos="fade-right"
 										className={open ? 'arrow_top' : 'arrow_down'}
 										src='images/icon/arrow-down-questions.svg'
 										alt=''
 									/>
 								</div>
 								<p className={open ? 'acardenon_p' : 'open'}>
-									Недвижимость - это важный аспект жизни каждого человека, ведь
-									именно здесь мы проводим большую часть своего времени. Покупка
-									или продажа жилья - ответственный шаг, который требует
-									внимательного подхода и основательного изучения рынка. Важно
-									помнить, что инвестиции в недвижимость - всегда хороший выбор
-									для финансового благополучия и безопасности.
+									{config.Ru_faq_answer_1}
 								</p>
 							</div>
-							<div className='acardenon'>
-								<div onClick={() => handelOpen1()} className='acardenon_up'>
+							<div data-aos="fade-right" className='acardenon'>
+								<div  onClick={() => handelOpen1()} className='acardenon_up'>
 									<p>
-										Недвижимость - это важный аспект жизни каждого человека?
+										{config.Ru_faq_question_2}
 									</p>
 									<img
 										className={open1 ? 'arrow_top' : 'arrow_down'}
@@ -65,18 +74,13 @@ const Faq = ({scrollToContact}) => {
 									/>
 								</div>
 								<p className={open1 ? 'acardenon_p' : 'open'}>
-									Недвижимость - это важный аспект жизни каждого человека, ведь
-									именно здесь мы проводим большую часть своего времени. Покупка
-									или продажа жилья - ответственный шаг, который требует
-									внимательного подхода и основательного изучения рынка. Важно
-									помнить, что инвестиции в недвижимость - всегда хороший выбор
-									для финансового благополучия и безопасности.
+									{config.Ru_faq_answer_2}
 								</p>
 							</div>
-							<div className='acardenon'>
-								<div onClick={() => handelOpen2()} className='acardenon_up'>
+							<div data-aos="fade-right" className='acardenon'>
+								<div  onClick={() => handelOpen2()} className='acardenon_up'>
 									<p>
-										Недвижимость - это важный аспект жизни каждого человека?
+										{config.Ru_faq_question_3}
 									</p>
 									<img
 										className={open2 ? 'arrow_top' : 'arrow_down'}
@@ -85,27 +89,17 @@ const Faq = ({scrollToContact}) => {
 									/>
 								</div>
 								<p className={open2 ? 'acardenon_p' : 'open'}>
-									Недвижимость - это важный аспект жизни каждого человека, ведь
-									именно здесь мы проводим большую часть своего времени. Покупка
-									или продажа жилья - ответственный шаг, который требует
-									внимательного подхода и основательного изучения рынка. Важно
-									помнить, что инвестиции в недвижимость - всегда хороший выбор
-									для финансового благополучия и безопасности. Недвижимость -
-									это важный аспект жизни каждого человека, ведь именно здесь мы
-									проводим большую часть своего времени. Покупка или продажа
-									жилья - ответственный шаг, который требует внимательного
-									подхода и основательного изучения рынка. Важно помнить, что
-									инвестиции в недвижимость - всегда хороший выбор для
-									финансового благополучия и безопасности.
+									{config.Ru_faq_answer_3}
 								</p>
 							</div>
 						</div>
-						<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-							<a onClick={scrollToContact} className='faq_btn'>
-								оставить заявку
-							</a>
+						<div data-aos="fade-left" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+							<MainButton text={config.Ru_faq_submit}  onClick={scrollToContact}/>
+							{/* <a onClick={scrollToContact} className='faq_btn'>
+								{config.Ru_faq_submit}
+							</a> */}
 							<p className='faq_btn_text'>
-								И получить подробные материалы о налогах и пр.
+								{config.Ru_faq_submit_tip}
 							</p>
 						</div>
 					</div>

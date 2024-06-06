@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import ImageSlider from '../slider/Slider';
 import './cambodia.css';
-
+import { ConfigContext } from '../../App';
+import MainButton from '../buttons/MainButton';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 export const Cambodia = ({ scrollToContact }) => {
+	const config = useContext(ConfigContext);
+	useEffect(() => {
+		AOS.init({
+		  duration: 1200, 
+		});
+	  }, []);
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const slides = 4;
 
@@ -48,7 +57,11 @@ export const Cambodia = ({ scrollToContact }) => {
 
 	return (
 		<div className={getClassName()} >
-			<img
+			
+			{window.innerWidth < 1024 ? (
+				<div className='container'>
+					<img
+					 data-aos="fade-left"
 				style={
 					window.innerWidth > 1024
 						? {
@@ -65,29 +78,16 @@ export const Cambodia = ({ scrollToContact }) => {
 				src='/mobile/2 cambodia/woman.png'
 				alt=''
 			/>
-			{window.innerWidth < 1024 ? (
-				<div className='container'>
 					<div className='cambodia_section' {...handlers}>
 						{currentSlide === 0 && (
 							<div>
 								<div className='about_cambodia'>
-									<h2 style={{ textTransform: 'uppercase' }}>О Камбодже</h2>
-									<p>
-										Сегодня Камбоджа — это не только туристический рай, куда
-										приезжают ради красивой тропической природы и древних
-										храмов, главным из которых является знаменитый Ангкор-Ват,
-										но и перспективный рынок для инвестиций.
-									</p>
+									<h2 style={{ textTransform: 'uppercase' }} dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_header }}></h2>
+									<p dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_subheader }}></p>
 								</div>
 								<div className='cambodia_texts'>
-									<h2>
-										Камбоджа — самая быстро развивающайя экономика в Азии <br />
-										<span>(№1 по росту ВВП)</span>
-									</h2>
-									<h2>
-										Туристический бум: <br />{' '}
-										<span>1057% рост в 2022 году</span>
-									</h2>
+									<h2 dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip1 }}></h2>
+									<h2 dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip2 }}></h2>
 								</div>
 								<img
 									className='cambodia_img'
@@ -99,16 +99,7 @@ export const Cambodia = ({ scrollToContact }) => {
 						{currentSlide === 1 && (
 							<div>
 								<div className='cambodia_texts'>
-									<h2>
-										Инвестируйте в бум спроса на недвижимость в Пном Пене:
-										<br />
-										<br />
-										<span>
-											Население столицы растёт! 400 000 экспатов в столице (20%
-											от всего населения столицы) каждый день ищут квартиры в
-											аренду на долгий срок. Спрос на квартиры очень высок!
-										</span>
-									</h2>
+									<h2 dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip3 }}></h2>
 								</div>
 								<img
 									className='cambodia_img'
@@ -116,25 +107,14 @@ export const Cambodia = ({ scrollToContact }) => {
 									alt=''
 								/>
 								<div className='cambodia_texts'>
-									<h2>
-										Возможность купить квартиру за криптовалюту. Низкие налоги
-									</h2>
+									<h2 dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip4 }}></h2>
 								</div>
 							</div>
 						)}
 						{currentSlide === 2 && (
 							<div>
 								<div className='cambodia_texts'>
-									<h2>
-										Эта страна привлекает доступными ценами и простотой
-										инвестирования:
-										<br />
-										<br />
-										<span>
-											Стоимость недвижимости в Пном Пене сейчас значительно
-											ниже, чем в других столицах Юго-Восточной Азии
-										</span>
-									</h2>
+									<h2 dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip5 }}></h2>
 								</div>
 								<img
 									className='cambodia_img'
@@ -142,42 +122,20 @@ export const Cambodia = ({ scrollToContact }) => {
 									alt=''
 								/>
 								<div className='cambodia_texts'>
-									<h2>
-										Иностранцы могут купить квартиру в полную собственность
-									</h2>
+									<h2 dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip6 }}></h2>
 								</div>
 							</div>
 						)}
 						{currentSlide === 3 && (
 							<div>
 								<div className='cambodia_texts' style={{ width: '92%' }}>
-									<h2>
-										Свободное обращение доллара:{' '}
-										<span>
-											никаких ограничений на валютные операции. Камбоджийский
-											риель — одна из самых стабильных валют в регионе
-										</span>
-									</h2>
-									<h2>
-										Дружелюбное{' '}
-										<span>
-											отношение к россиянам: неподконтрольность движения средств
-											для западных стран
-										</span>
-									</h2>
-									<h2>
-										<span>Камбоджа</span> — это инвестиционная
-										привлекательность,
-										<span>
-											{' '}
-											магнит для туристов, новые рынки и возможности для
-											выгодного вложения средств!
-										</span>
-									</h2>
+									<h2 dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip7 }}></h2>
+									<h2 dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip8 }}></h2>
+									<h2 dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip9 }}></h2>
 								</div>
 								<div className='cambodia_last_texts'>
-									<button onClick={scrollToContact}>оставить заявку</button>
-									<p>И получить подробные материалы о налогах и пр.</p>
+									<button onClick={scrollToContact} dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_submit }}></button>
+									<p dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_submit_tip }}></p>
 								</div>
 							</div>
 						)}
@@ -191,27 +149,36 @@ export const Cambodia = ({ scrollToContact }) => {
 				</div>
 			) : (
 				<div className='container'>
-					<div>
-						<h2 className='cambodia_title'>О Камбодже</h2>
-						<p className='cambodia_subtitle'>
-							Сегодня Камбоджа — это не только туристический рай, куда приезжают
-							ради красивой тропической природы и древних храмов, главным из
-							которых является знаменитый Ангкор-Ват, но и перспективный рынок
-							для инвестиций.
-						</p>
+				<div className='cambodia_section'>
+				<img
+				style={
+					window.innerWidth > 1024
+						? {
+								left: '-100px',
+								position: 'absolute',
+								bottom: '-30px',
+								transform: 'scaleX(-1)',
+								zIndex: '9',
+								animation: 'moveRight 2s infinite',
+								width: '250px',
+						  }
+						: getImageStyle()
+				}
+				src='/mobile/2 cambodia/woman.png'
+				alt=''
+			/>
+				<div >
+						<h2  data-aos="fade-up" className='cambodia_title' dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_header }}></h2>
+						<p data-aos="fade-up" className='cambodia_subtitle' dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_subheader }}></p>
 					</div>
 					<div className='cambodia_section-flex'>
 						<div>
 							<div className='cambodia_texts'>
-								<h2>
-									Камбоджа — самая быстро развивающайя экономика в Азии <br />
-									<span>(№1 по росту ВВП)</span>
-								</h2>
-								<h2>
-									Туристический бум: <br /> <span>1057% рост в 2022 году</span>
-								</h2>
+								<h2 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip1 }}></h2>
+								<h2 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip2 }}></h2>
 							</div>
 							<img
+							data-aos="fade-up"
 								className='cambodia_img'
 								src='/mobile/2 cambodia/infografic_1.png'
 								alt=''
@@ -219,80 +186,45 @@ export const Cambodia = ({ scrollToContact }) => {
 						</div>
 						<div>
 							<div className='cambodia_texts'>
-								<h2>
-									Инвестируйте в бум спроса на недвижимость в Пном Пене:
-									<br />
-									<br />
-									<span>
-										Население столицы растёт! 400 000 экспатов в столице (20% от
-										всего населения столицы) каждый день ищут квартиры в аренду
-										на долгий срок. Спрос на квартиры очень высок!
-									</span>
-								</h2>
+								<h2 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip3 }}></h2>
 							</div>
 							<img
+							data-aos="fade-up"
 								className='cambodia_img'
 								src='/mobile/2 cambodia/infografic_2.png'
 								alt=''
 							/>
 							<div className='cambodia_texts'>
-								<h2>
-									Возможность купить квартиру за криптовалюту. Низкие налоги
-								</h2>
+								<h2 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip4 }}></h2>
 							</div>
 						</div>
 						<div>
 							<div className='cambodia_texts'>
-								<h2>
-									Эта страна привлекает доступными ценами и простотой
-									инвестирования:
-									<br />
-									<br />
-									<span>
-										Стоимость недвижимости в Пном Пене сейчас значительно ниже,
-										чем в других столицах Юго-Восточной Азии
-									</span>
-								</h2>
+								<h2 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip5 }}></h2>
 							</div>
 							<img
+							data-aos="fade-up"
 								className='cambodia_img'
 								src='/mobile/2 cambodia/infografic_3.png'
 								alt=''
 							/>
 							<div className='cambodia_texts'>
-								<h2>Иностранцы могут купить квартиру в полную собственность</h2>
+								<h2 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip6 }}></h2>
 							</div>
 						</div>
 						<div>
 							<div className='cambodia_texts' style={{ width: '92%' }}>
-								<h2>
-									Свободное обращение доллара:{' '}
-									<span>
-										никаких ограничений на валютные операции. Камбоджийский
-										риель — одна из самых стабильных валют в регионе
-									</span>
-								</h2>
-								<h2>
-									Дружелюбное{' '}
-									<span>
-										отношение к россиянам: неподконтрольность движения средств
-										для западных стран
-									</span>
-								</h2>
-								<h2>
-									<span>Камбоджа</span> — это инвестиционная привлекательность,
-									<span>
-										{' '}
-										магнит для туристов, новые рынки и возможности для выгодного
-										вложения средств!
-									</span>
-								</h2>
+								<h2 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip7 }}></h2>
+								<h2 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip8 }}></h2>
+								<h2 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_tip9 }}></h2>
 							</div>
 							<div className='cambodia_last_texts'>
-								<button onClick={scrollToContact}>оставить заявку</button>
-								<p>И получить подробные материалы о налогах и пр.</p>
+								<MainButton dataAos="fade-up" text={config.Ru_Cambodia_submit} onClick={scrollToContact} />
+								{/* <button onClick={scrollToContact} dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_submit }}></button> */}
+								<p data-aos="fade-up" dangerouslySetInnerHTML={{ __html: config.Ru_Cambodia_submit_tip }}></p>
 							</div>
 						</div>
+					</div>
 					</div>
 				</div>
 			)}

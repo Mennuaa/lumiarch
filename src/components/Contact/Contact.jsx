@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import './contact.css';
 import axios from 'axios';
 import { Oval } from 'react-loader-spinner';
-
+import { ConfigContext } from '../../App';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 export default function Contact({ name: initialName, phone: initialPhone }) {
+    useEffect(() => {
+		AOS.init({
+		  duration: 1200, 
+		});
+	  }, []);
     const [name, setName] = useState(initialName || '');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState(initialPhone || '');
     const [questions, setQuestions] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+	const config = useContext(ConfigContext);
 
     useEffect(() => {
         setName(initialName || '');
@@ -117,40 +125,45 @@ export default function Contact({ name: initialName, phone: initialPhone }) {
                 backgroundSize: 'cover',
             }}
         >
-            <div className='container'>
+            <div className='container' style={{ width: '100%' }}>
                 <div className='form__section-flex'>
-                    <h2>
-                        <div>скорее</div> Напишите нам!
+                    <h2 data-aos="fade-right" className='mainh2' dangerouslySetInnerHTML={{ __html: config.Ru_contactus_header }}>
+                       
                     </h2>
                     <form onSubmit={handleSubmit}>
                         <input
+                        data-aos="fade-up"
                             type='text'
                             name='name'
-                            placeholder='имя и фамилия'
+                            placeholder={config.Ru_contactus_form_name}
                             value={name}
                             onChange={handleChange}
                         />
                         <input
-                            type='email'
+                        data-aos="fade-up"
+                        type='email'
                             name='email'
-                            placeholder='email'
+                            placeholder={config.Ru_contactus_form_email}
                             value={email}
                             onChange={handleChange}
                         />
                         <input
-                            type='tel'
+                        data-aos="fade-up"
+                        type='tel'
                             name='phone'
-                            placeholder='ваш телефон'
+                            placeholder={config.Ru_contactus_form_phone}
                             value={phone}
                             onChange={handleChange}
                         />
                         <textarea
-                            name='questions'
-                            placeholder='ваши вопросы'
+                        data-aos="fade-up"
+                        name='questions'
+                            placeholder={config.Ru_contactus_form_questions}
                             value={questions}
                             onChange={handleChange}
                         ></textarea>
-                        <button type='submit' disabled={isLoading}>оТПРАВИТЬ</button>
+                        
+                        <button data-aos="fade-up" type='submit' disabled={isLoading}>{config.Ru_contactus_form_submit}</button>
                         {isLoading && (
                             <div className="loading-overlay">
                                 <Oval
@@ -179,9 +192,8 @@ export default function Contact({ name: initialName, phone: initialPhone }) {
                                 `}</style>
                             </div>
                         )}
-                        <p>
-                            Нажимая на кнопку, вы принимаете политику конфиденциальности и
-                            даете согласие на обработку персональных данных
+                        <p data-aos="fade-up">
+                           {config.Ru_contactus_form_tip}
                         </p>
                     </form>
                 </div>

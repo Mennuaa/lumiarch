@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './slider.css';
 import { useSwipeable } from 'react-swipeable';
 
@@ -10,8 +10,24 @@ function ImageSlider({ slides, currentSlide, prevSlide, nextSlide }) {
         onSwipedLeft: () => nextSlide(),
         onSwipedRight: () => prevSlide(),
         preventDefaultTouchmoveEvent: true,
-        trackMouse: true // This will allow dragging with the mouse as well
+        trackMouse: true 
     });
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (event.key === 'ArrowRight') {
+                nextSlide();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [prevSlide, nextSlide]);
 
     return (
         <div className="slider_sec">
@@ -21,12 +37,16 @@ function ImageSlider({ slides, currentSlide, prevSlide, nextSlide }) {
                         <img src='/images/icon/prev.svg' alt='Previous' />
                     </button>
                     <div className='slider_slide'>
-
                         <div className='slider_scroll-progres'>
-                            <div style={{
-                                left: progressBarLeft,
-                                width: `${100 / slidesLength}%`,
-                            }} className='slider_scroll-amount '>{`0${currentSlide + 1}/0${slidesLength}`}</div>
+                            <div
+                                style={{
+                                    left: progressBarLeft,
+                                    width: `${100 / slidesLength}%`,
+                                }}
+                                className='slider_scroll-amount '
+                            >
+                                {`0${currentSlide + 1}/0${slidesLength}`}
+                            </div>
                             <div
                                 className='slider_scroll-progres_bar'
                                 style={{

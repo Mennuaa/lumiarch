@@ -1,7 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import './video.css';
+import { ConfigContext } from '../../App';
 
 const Video = () => {
+	const config = useContext(ConfigContext);
+
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
 	const videoRef = useRef(null);
@@ -72,9 +75,9 @@ const Video = () => {
 			}
 		>
 			<div className='container' style={{ margin: '0 auto' }}>
-				<div className='video_section'>
-					<p>Посмотрите это впечатляющее</p>
-					<h2>видео</h2>
+				<div className='video_section object_section'>
+					<p>{config.Ru_video_mobile_subheader}</p>
+					<h2 className='mainh2'>{config.Ru_video_mobile_header}</h2>
 					<div className='video_video'>
 						{isDesktop ? (
 							<video ref={videoRef} autoPlay loop muted width='100%' id='myVideo'>

@@ -23,12 +23,6 @@
 	width: 95%;
 }
 
-.section h2 {
-	font-size: 47px;
-	color: #cdac6d;
-	font-weight: 300;
-	text-transform: uppercase;
-}
 
 .section p {
 	margin-top: 10px;
@@ -62,12 +56,6 @@
 	display: none;
 }
 
-.form__section h2 {
-	font-size: 27px;
-	font-weight: 300;
-	text-transform: uppercase;
-	margin-bottom: 20px;
-}
 
 .form__section div {
 	color: #cdac6d;
@@ -127,20 +115,13 @@
 	gap: 30px;
 }
 
-.about_sector h2,
-.about_reviews h2 {
-	font-size: 66px;
-	text-transform: uppercase;
-	color: #cdac6d;
-	font-weight: 300;
-}
 .about_sector p {
 	font-size: 22px;
 	font-weight: 300;
 	margin-top: 40px;
 }
 
-.about_sector a {
+.about_sector button {
 	display: block;
 	text-align: center;
 	text-transform: uppercase;
@@ -148,6 +129,7 @@
 	background-color: #cdac6d;
 	font-weight: 300;
 	margin-top: 140px;
+	width: 100%;
 	padding: 17px 0;
 	color: #000;
 }

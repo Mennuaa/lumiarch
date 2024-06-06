@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Header.css';
+import { ConfigContext } from '../App';
 
 export default function Header({ sectionRefs, quickMenu, burger, setBurger }) {
 	const [showInner, setShowInner] = useState(true);
 	const [showLogo, setShowLogo] = useState(true);
+	const config = useContext(ConfigContext);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -85,30 +87,31 @@ export default function Header({ sectionRefs, quickMenu, burger, setBurger }) {
 						<img style={{ height: '54px', width: '54px' }} src='mobile/close.png' alt='Close' />
 					</button>
 					<ul className='burger_menu'>
-						<li onClick={() => handleMenuClick(0)}>главная</li>
-						<li onClick={() => handleMenuClick(1)}>О Камбодже</li>
-						<li onClick={() => handleMenuClick(3)}>Wealth Mansion </li>
-						<li onClick={() => handleMenuClick(2)}>Le Conde</li>
-						<li onClick={() => handleMenuClick(7)}>видео</li>
-						<li onClick={() => handleMenuClick(8)}>FAQ</li>
-						<li onClick={() => handleMenuClick(9)}>О НАС</li>
-						<li onClick={() => handleMenuClick(9)}>отзывы</li>
-						<li onClick={() => handleMenuClick(10)}>контакты</li>
+						<li onClick={() => handleMenuClick(0)}>{config.Ru_menu_main}</li>
+						<li onClick={() => handleMenuClick(1)}>{config.Ru_menu_cambodia}</li>
+						<li onClick={() => handleMenuClick(3)}>{config.Ru_menu_WM}</li>
+						<li onClick={() => handleMenuClick(2)}>{config.Ru_menu_leconde}</li>
+						<li onClick={() => handleMenuClick(7)}>{config.Ru_menu_video}</li>
+						{/* <li onClick={() => handleMenuClick(7)}>{config.Ru_menu_map}</li> */}
+						<li onClick={() => handleMenuClick(8)}>{config.Ru_menu_faq}</li>
+						<li onClick={() => handleMenuClick(9)}>{config.Ru_menu_about}</li>
+						<li onClick={() => handleMenuClick(9)}>{config.Ru_menu_review}</li>
+						<li onClick={() => handleMenuClick(10)}>{config.Ru_menu_contactus}</li>
 					</ul>
 					<div className='links'>
-						<a href='https://www.instagram.com/lumiarch.ru'>
+						<a href={config.Ru_url_instagram}>
 							<img src='images/icon/icon-inst.svg' alt='Instagram' />
 						</a>
-						<a href='https://www.facebook.com/lumiarch.global'>
+						<a href={config.Ru_url_facebook}>
 							<img src='images/icon/facebook.svg' alt='Facebook' />
 						</a>
-						<a href='https://t.me/iceoleg'>
+						<a href={config.Ru_url_telegram}>
 							<img src='images/icon/telega.svg' alt='Telegram' />
 						</a>
-						<a href='https://www.linkedin.com/company/lumiarchglobal'>
+						<a href={config.Ru_url_linkedin}>
 							<img src='images/icon/linkedin.svg' alt='LinkedIn' />
 						</a>
-						<a href='https://wa.me/+84855824522'>
+						<a href={config.Ru_url_whatsapp}>
 							<img src='images/icon/whatss.svg' alt='WhatsApp' />
 						</a>
 					</div>

@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './footer.css'
+import { ConfigContext } from '../../App';
 const Footer = () => {
+	const config = useContext(ConfigContext);
+
 	return (
 		<footer className='footer'>
 			<div className='container'>
-				<div className='footer_section'>
+				<div className='footer_section object_section' >
 					<div className='footer_section-top'>
 						<a href=''>
 							<img src='images/logo.png' alt='' style={{ width: '120px' , height: 'auto' }} />
 						</a>
 						<div className='footer_section-addres'>
-							<p>
-							1159 National Road Nº 2, <br /> Phnom Penh, Phnom Penh
+							<p dangerouslySetInnerHTML={{ __html: config.Ru_footer_address }}>
+							
 
 							</p>
-							<a href='tel:8(800)999-99-99'>+84 855824522</a>
+							<a href='tel:{config.Ru_footer_phone}'>{config.Ru_footer_phone}</a>
 						</div>
 					</div>
 					<div className='footer_section-down'>
@@ -22,21 +25,21 @@ const Footer = () => {
 							{/* политика <br /> конфиденциальности */}
 						</p>
 						<div className='footer_section-social'>
-						<a href='https://www.instagram.com/lumiarch.ru'>
-								<img src='images/icon/icon-inst.svg' alt='' />
-							</a>
-							<a href='https://www.facebook.com/lumiarch.global'>
-								<img src='images/icon/facebook.svg' alt='' />
-							</a>
-							<a href='https://t.me/iceoleg'>
-								<img src='images/icon/telega.svg' alt='' />
-							</a>
-							<a href='https://www.linkedin.com/company/lumiarchglobal'>
-								<img src='images/icon/linkedin.svg' alt='' />
-							</a>
-							<a href='https://wa.me/+84855824522'>
-								<img src='images/icon/whatss.svg' alt='' />
-							</a>
+						<a href={config.Ru_url_instagram}>
+							<img src='images/icon/icon-inst.svg' alt='Instagram' />
+						</a>
+						<a href={config.Ru_url_facebook}>
+							<img src='images/icon/facebook.svg' alt='Facebook' />
+						</a>
+						<a href={config.Ru_url_telegram}>
+							<img src='images/icon/telega.svg' alt='Telegram' />
+						</a>
+						<a href={config.Ru_url_linkedin}>
+							<img src='images/icon/linkedin.svg' alt='LinkedIn' />
+						</a>
+						<a href={config.Ru_url_whatsapp}>
+							<img src='images/icon/whatss.svg' alt='WhatsApp' />
+						</a>
 						</div>
 					</div>
 				</div>

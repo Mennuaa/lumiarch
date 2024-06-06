@@ -1,0 +1,10 @@
+.main-button{
+    padding: 10px;
+	background: #cdac6d;
+	border: none;
+	font-family: 'Rubik', sans-serif;
+	font-size: 20px;
+	font-weight: 300;
+	text-transform: uppercase;
+    color: #000000;
+}
